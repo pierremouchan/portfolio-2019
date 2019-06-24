@@ -1,0 +1,18 @@
+//VUE OVERRIDES STYLES
+
+//Default transitions if none has been declared inside <transition> tag
+.v-enter {
+  opacity: 0;
+  &-to {
+    transition: opacity 0.5s;
+  }
+}
+.v-leave{
+
+  &-to {
+    opacity: 0;
+    transition: opacity 0.5s;
+  }
+}
+
+

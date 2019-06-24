@@ -1,0 +1,92 @@
+// # ONLY MIXINS HERE #/
+
+/* # Clearfix */
+@mixin clearfix
+{
+	&:before,
+	&:after
+	{
+		content: '';
+		display: table;
+	}
+	&:after
+	{
+		clear: both;
+	}
+}
+
+/* # _Reset_  */
+
+@mixin reset
+{
+	margin:  0;
+	padding: 0;
+	border:  0;
+	background-color: transparent; // pour les boutons
+	list-style-type: none; // pour les listes
+}
+
+
+/**** Keyframes Animation ****/
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+/*
+Accessibility hidden
+https://developer.yahoo.com/blogs/ydn/clip-hidden-content-better-accessibility-53456.html
+*/
+
+@mixin hide-for-viewer
+{
+	position: absolute;
+	height:  1px;
+	width:   1px;
+	padding: 0;
+	border:  0;
+	overflow: hidden;
+	clip: rect(1px  1px  1px  1px);
+	clip: rect(1px, 1px, 1px, 1px);
+}
+
+
+/* # block stretching */
+
+@mixin stretch($length: 0)
+{
+	position: absolute;
+
+	left:   $length;
+	top:    $length;
+	bottom: $length;
+	right:  $length;
+
+}
+
+
+// Inline-block bugfix
+// @link http://www.alsacreations.com/astuce/lire/1432-display-inline-block-espaces-indesirables.html
+@mixin no-inline-block-margin()
+{
+	margin-right: -0.25em;
+
+}
+
+
+@mixin aspect-ratio($ratio-or-width, $height: null)
+{
+	$padding: if($height, percentage($height/$ratio-or-width), percentage(1/$ratio-or-width));
+	&:before { content:''; float: left; padding-bottom: $padding;  }
+	&:after  { content:''; display: table; clear: both;  }
+}

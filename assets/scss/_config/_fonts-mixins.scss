@@ -1,0 +1,13 @@
+
+// # ONLY MIXINS HERE #/
+
+/* # Body Font Mixins */
+@mixin font-body-text ($font: $font-body, $font-size: 1.4rem, $weight : 400, $line-height : 1.4rem, $color: $black) {
+  font: {
+    family: $font;
+    size: $font-size;
+    weight: $weight;
+  }
+  line-height: $line-height;
+  color: $color;
+}

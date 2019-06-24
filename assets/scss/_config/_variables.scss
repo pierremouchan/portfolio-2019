@@ -1,0 +1,32 @@
+
+// # ONLY VARIABLES HERE #/
+
+// Breakpoints
+/* https://github.com/sass-mq/sass-mq */
+$mq-breakpoints: (
+  mobile: 640px,
+  tablet: 768px,
+  desktop: 1024px,
+  desktop_plus: 1025px,
+  small: 1280px,
+  wide: 1366px,
+  xlarge: 1440px,
+  hd: 1920px
+);
+
+// Fonts
+$font-body: sans-serif;
+
+
+// Colors
+$white: #fff;
+$black: #000;
+
+// Z-Index
+$foreground: 1000;
+$beforefg: 999;
+$up: 100;
+$normal: 0;
+$beforebg: -999;
+$background: -1000;
+
