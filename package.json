@@ -1,24 +1,25 @@
 {
-  "name": "nuxt-boilerplate",
+  "name": "portfolio-2019-pierre-mouchan",
   "version": "1.0.0",
   "description": "NuxtJS Boilerplate by Pierre Mouchan",
   "author": "Pierre Mouchan",
   "private": true,
   "config": {
     "nuxt": {
-      "host": "localhost",
+      "host": "0.0.0.0",
       "port": "3000"
     }
   },
   "scripts": {
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint",
-    "dev": "cross-env NODE_ENV=development nuxt",
+    "dev": "NODE_ENV=development nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@nuxtjs/pwa": "^3.0.0-beta.16",
     "@nuxtjs/style-resources": "^0.1.2",
     "nuxt": "^2.0.0"
   },
@@ -26,7 +27,6 @@
     "@nuxtjs/eslint-config": "^0.0.1",
     "@nuxtjs/eslint-module": "^0.0.1",
     "babel-eslint": "^10.0.2",
-    "cross-env": "^5.2.0",
     "eslint": "^5.15.1",
     "eslint-config-prettier": "^5.0.0",
     "eslint-config-standard": ">=12.0.0",
@@ -44,6 +44,9 @@
     "nuxt-svg": "^0.1.5",
     "prettier": "^1.18.2",
     "redirect-ssl": "^1.4.0",
-    "sass-loader": "^7.1.0"
+    "sass-loader": "^7.1.0",
+    "three": "^0.105.2",
+    "tornis": "^0.1.4",
+    "vue-image-preloader": "^0.2.8"
   }
 }

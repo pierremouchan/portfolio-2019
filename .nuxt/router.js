@@ -2,8 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import { interopDefault } from './utils'
 
-const _6a7bd1c8 = () => interopDefault(import('../pages/about/index.vue' /* webpackChunkName: "pages/about/index" */))
-const _402fdbc4 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
+const _bc0fcaf2 = () => interopDefault(import('../pages/about/index.vue' /* webpackChunkName: "pages/about/index" */))
+const _7012f4e8 = () => interopDefault(import('../pages/messages/index.vue' /* webpackChunkName: "pages/messages/index" */))
+const _4b13c1c9 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 Vue.use(Router)
 
@@ -81,11 +82,15 @@ export function createRouter() {
 
     routes: [{
       path: "/about",
-      component: _6a7bd1c8,
+      component: _bc0fcaf2,
       name: "about"
     }, {
+      path: "/messages",
+      component: _7012f4e8,
+      name: "messages"
+    }, {
       path: "/",
-      component: _402fdbc4,
+      component: _4b13c1c9,
       name: "index"
     }],
 

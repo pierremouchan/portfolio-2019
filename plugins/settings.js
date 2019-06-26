@@ -6,23 +6,10 @@ export default (ctx, inject) => {
     pathToIMG: '/images/',
     pathToIcons: '/images/icons/',
 
-    colorRed: '#ED0000',
-    colorDarkRed: '#B4000B',
-    colorDarkGrey: '#2F2F2F',
-    colorGrey: '#777777',
-    colorLightGrey: '#D8D8D8',
-    colorNull: '#877666',
-
-    maxLoadingTime: 2000,
-    // loadingSpeed from 150 to 1000
-    // Feel free to edit the loading.vue as well !
-    loadingSpeed: 150
+    colorRed: '#F25D61',
+    colorBlack: '#1A1A1A',
+    colorWhite: '#FAF5EF',
+    colorTheme: '#FAF5EF'
   };
-
   inject('settings', settings);
 };
-
-window.addEventListener('load', function(event) {
-  console.log('event -> ', event);
-  console.log('Toutes les ressources sont chargées !');
-});

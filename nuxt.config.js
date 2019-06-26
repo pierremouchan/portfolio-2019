@@ -12,11 +12,26 @@ export default {
         hid: 'description',
         name: 'description',
         content: process.env.npm_package_description || ''
+      },
+      {
+        hid: 'apple-mobile-web-app-title',
+        name: 'apple-mobile-web-app-title',
+        content: 'Pierre Mouchan - Portfolio'
       }
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/images/icons/favicon.ico' }
-    ]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+  },
+
+  // META FOR PWA SUPPORT (COMES UP WITH LOT OF META TAGS)
+  // options : https://pwa.nuxtjs.org/modules/meta.html#options
+  meta: {
+    // Most of these settings defines OG tags
+    author: 'Pierre Mouchan',
+    name: 'Pierre Mouchan | Portfolio',
+    theme_color: '#F25D61',
+    description: 'Portfolio - Pierre Mouchan, a passionate creative developer.',
+    lang: 'en'
+    // apple mobile web app title is changeable inside head:{} above
   },
 
   // Force HTTPS
@@ -30,7 +45,12 @@ export default {
    ** Nuxt.js modules
    */
 
-  modules: ['@nuxtjs/eslint-module', '@nuxtjs/style-resources', 'nuxt-svg'],
+  modules: [
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/style-resources',
+    'nuxt-svg',
+    '@nuxtjs/pwa'
+  ],
   // StyleRessource is used to have global variables and mixins over all .vue files
   // Don't put styles inside, use the option css:[] instead
   styleResources: {
@@ -57,7 +77,7 @@ export default {
    ** Plugins to load before mounting the App
    */
 
-  plugins: ['./plugins/settings.js'],
+  plugins: ['./plugins/settings.js', './plugins/preloadImg.js'],
 
   /*
    ** Build configuration

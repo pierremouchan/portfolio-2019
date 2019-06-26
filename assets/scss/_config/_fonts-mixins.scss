@@ -2,7 +2,7 @@
 // # ONLY MIXINS HERE #/
 
 /* # Body Font Mixins */
-@mixin font-body-text ($font: $font-body, $font-size: 1.4rem, $weight : 400, $line-height : 1.4rem, $color: $black) {
+@mixin font-body-text ($font: $font-body, $font-size: $p-size, $weight : 400, $line-height : 30px, $color: $black) {
   font: {
     family: $font;
     size: $font-size;
@@ -10,4 +10,78 @@
   }
   line-height: $line-height;
   color: $color;
+}
+
+@mixin font-p() {
+  font-family: $font-body;
+  font-size: $p-size;
+  font-weight: 400;
+  line-height: 30px;
+  color: $black;
+}
+
+@mixin font-h6() {
+  font-family: $font-title;
+  font-size: $h6-size-mobile;
+  font-weight: 400;
+  line-height: 30px;
+  color: $black;
+  @media screen and (min-width: 768px) {
+    font-size: $h6-size-desktop;
+  }
+}
+
+@mixin font-h5() {
+  font-family: $font-title;
+  font-size: $h5-size-mobile;
+  font-weight: 400;
+  line-height: 30px;
+  color: $black;
+  @media screen and (min-width: 768px) {
+    font-size: $h5-size-desktop;
+  }
+}
+
+@mixin font-h4() {
+  font-family: $font-title;
+  font-size: $h4-size-mobile;
+  font-weight: 400;
+  line-height: 60px;
+  color: $black;
+  @media screen and (min-width: 768px) {
+    font-size: $h4-size-desktop;
+  }
+}
+
+@mixin font-h3() {
+  font-family: $font-title;
+  font-size: $h3-size-mobile;
+  font-weight: 400;
+  line-height: 60px;
+  color: $black;
+  @media screen and (min-width: 768px) {
+    font-size: $h3-size-desktop;
+  }
+}
+
+@mixin font-h2() {
+  font-family: $font-title;
+  font-size: $h2-size-mobile;
+  font-weight: 400;
+  line-height: 90px;
+  color: $black;
+  @media screen and (min-width: 768px) {
+    font-size: $h2-size-desktop;
+  }
+}
+
+@mixin font-h1() {
+  font-family: $font-title;
+  font-size: $h1-size-mobile;
+  font-weight: 400;
+  line-height: 90px;
+  color: $black;
+  @media screen and (min-width: 768px) {
+    font-size: $h1-size-desktop;
+  }
 }

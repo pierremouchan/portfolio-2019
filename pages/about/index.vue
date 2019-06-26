@@ -7,7 +7,20 @@
 </template>
 
 <script>
-export default {};
+export default {
+  head() {
+    return {
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content:
+            'Portfolio - Who is Pierre Mouchan ? (a creative developer 🤙)'
+        }
+      ]
+    };
+  }
+};
 </script>
 
 <style scoped></style>

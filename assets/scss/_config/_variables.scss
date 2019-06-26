@@ -15,12 +15,39 @@ $mq-breakpoints: (
 );
 
 // Fonts
-$font-body: sans-serif;
+$font-body: 'Questrial', sans-serif;
+$font-title: 'Abril Fatface', 'Georgia';
 
+
+// Responsive types scale
+// Perfect Fourth Scale (1.333)
+// https://medium.com/sketch-app-sources/exploring-responsive-type-scales-cf1da541be54
+$p-size: 16px;
+
+$h6-size-mobile: 18px;
+$h6-size-desktop: 21.33px;
+
+
+
+$h5-size-desktop: 28.43px;
+$h5-size-mobile: 20.25px;
+
+$h4-size-desktop: 37.90px;
+$h4-size-mobile: 22.78px;
+
+$h3-size-desktop: 50.52px;
+$h3-size-mobile: 25.63px;
+
+$h2-size-desktop: 67.34px;
+$h2-size-mobile: 28.83px;
+
+$h1-size-desktop: 89.76px;
+$h1-size-mobile: 32.44px;
 
 // Colors
-$white: #fff;
-$black: #000;
+$white: #FAF5EF;
+$black: #1A1A1A;
+$red: #F25D61;
 
 // Z-Index
 $foreground: 1000;
