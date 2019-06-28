@@ -45,7 +45,7 @@
     "prettier": "^1.18.2",
     "redirect-ssl": "^1.4.0",
     "sass-loader": "^7.1.0",
-    "three": "^0.105.2",
+    "three": "^0.106.1",
     "tornis": "^0.1.4",
     "vue-image-preloader": "^0.2.8"
   }
