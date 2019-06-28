@@ -6,9 +6,15 @@
 
     <nav>
       <ul>
-        <li><nuxt-link to="/">HOME</nuxt-link></li>
-        <li><nuxt-link to="/messages">MESSAGES</nuxt-link></li>
-        <li><nuxt-link to="/about">ABOUT</nuxt-link></li>
+        <li>
+          <nuxt-link to="/">HOME</nuxt-link>
+        </li>
+        <li>
+          <nuxt-link to="/messages">MESSAGES</nuxt-link>
+        </li>
+        <li>
+          <nuxt-link to="/about">ABOUT</nuxt-link>
+        </li>
       </ul>
     </nav>
   </header>
@@ -45,8 +51,6 @@ export default {
             );
             break;
         }
-
-        // LISTEN TO LOAD FINISH
       }
     );
   }

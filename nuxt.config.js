@@ -19,8 +19,16 @@ export default {
         content: 'Pierre Mouchan - Portfolio'
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [
+      {
+        rel: 'icon',
+        type: 'image/x-icon',
+        href: '/favicon.ico'
+      }
+    ]
   },
+
+  pageTransition: {},
 
   // META FOR PWA SUPPORT (COMES UP WITH LOT OF META TAGS)
   // options : https://pwa.nuxtjs.org/modules/meta.html#options
@@ -93,13 +101,17 @@ export default {
   // Where you app will be served under ??
   // like http://yourdomain.com/app/ or http://yourdomain.com/stuff for example
   // Set this path there
+
   router: {
+    // YOU HAVE TO SET IT IN THE PATH TO FAVICON
     base: '/'
+    // MIDDLEWARE CALL AFTER EACH ROUTES CHANGES
+    // middleware: 'routesHandler'
   },
 
   /*
    ** You can extend webpack config here
    */
 
-  extend(config, ctx) {}
+  extend(config, { isDev, isClient }) {}
 };

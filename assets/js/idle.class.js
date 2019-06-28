@@ -13,14 +13,7 @@ export default class Idle {
     this.backToActiveOnXHR = backToActiveOnXHR;
     this.idle = false;
     this.timer = null;
-    this.events = [
-      'scroll',
-      'mousedown',
-      'mousemove',
-      'keypress',
-      'scroll',
-      'touchstart'
-    ];
+    this.events = ['mousedown', 'mousemove', 'keypress'];
     this.init();
   }
 

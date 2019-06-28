@@ -1,20 +1,15 @@
 <template>
   <div class="webgl-handler">
+    <div id="particles-js"></div>
+
     <div class="webGL-container"></div>
-    <cursor-cmp></cursor-cmp>
   </div>
 </template>
 
 <script>
-import { watchViewport } from 'tornis';
-import { TweenMax, Back } from 'gsap';
 import * as THREE from 'three';
-import Idle from '../assets/js/idle.class';
-import cursorCmp from './blocks/cursor';
+import { TweenMax, Expo } from 'gsap';
 export default {
-  components: {
-    cursorCmp
-  },
   data() {
     return {
       webGL: {
@@ -30,7 +25,7 @@ export default {
           isocasPositionsDesktop: [
             { x: -400, y: 200, z: -500 },
             { x: 500, y: 100, z: -500 },
-            { x: -600, y: -250, z: -600 }
+            { x: -600, y: -250, z: -500 }
           ],
           isocasPositionsMobile: [
             { x: -200, y: 200, z: -500 },
@@ -42,11 +37,6 @@ export default {
           directionalLight: undefined
         },
         meshes: {
-          torus: {
-            geometry: undefined,
-            material: undefined,
-            mesh: undefined
-          },
           isocahedron: {
             geometry: undefined,
             material: undefined,
@@ -61,8 +51,29 @@ export default {
     this.setupLightWebGL();
     this.generalShapeWebGL();
     this.runWebGL();
-    this.updateTorusVelocityWebGL();
-    this.checkMobileWebGL();
+
+    this.$store.watch(
+      () => this.$store.getters['loader/alreadyLoaded'],
+      isalreadyLoaded => {
+        switch (isalreadyLoaded) {
+          case true:
+            console.log('loading threejs');
+            for (
+              let i = 0;
+              i < this.webGL.meshes.isocahedron.mesh.length;
+              i++
+            ) {
+              TweenMax.fromTo(
+                this.webGL.meshes.isocahedron.mesh[i].position,
+                3,
+                { z: -1500 },
+                { z: -500, ease: Expo.easeOut }
+              );
+            }
+            break;
+        }
+      }
+    );
   },
   methods: {
     setupWebGL() {
@@ -92,22 +103,6 @@ export default {
       this.webGL.scene.add(this.webGL.lights.directionalLight);
     },
     generalShapeWebGL() {
-      const torusGeometry = new THREE.TorusBufferGeometry(3, 0.1, 4, 32);
-      const torusMaterial = new THREE.MeshBasicMaterial({
-        color: this.$nuxt.$settings.colorRed
-      });
-      const torusMesh = new THREE.Mesh(torusGeometry, torusMaterial);
-
-      // TORUS USED AS THE CURSOR
-      this.webGL.meshes.torus = {
-        geometry: torusGeometry,
-        material: torusMaterial,
-        mesh: torusMesh
-      };
-
-      this.webGL.meshes.torus.mesh.scale.set(2, 2, 2);
-      this.webGL.scene.add(this.webGL.meshes.torus.mesh);
-
       const isocaGeometry = new THREE.IcosahedronBufferGeometry(200, 0);
       const isocaMaterial = new THREE.MeshToonMaterial({
         color: 0xfaf1e6,
@@ -142,57 +137,6 @@ export default {
         this.webGL.scene.add(this.webGL.meshes.isocahedron.mesh[i]);
       }
     },
-    updateTorusVelocityWebGL() {
-      const updateMouseValues = ({ mouse }) => {
-        let mouseVelocityX, mouseVelocityY;
-        if (mouse.changed) {
-          mouse.velocity.x < 5
-            ? (mouseVelocityX = mouse.velocity.x / 10)
-            : (mouseVelocityX = 0.5);
-          mouse.velocity.y < 5
-            ? (mouseVelocityY = mouse.velocity.y / 10)
-            : (mouseVelocityY = 0.5);
-          this.webGL.meshes.torus.mesh.rotation.x = mouseVelocityY;
-          this.webGL.meshes.torus.mesh.rotation.y = mouseVelocityX;
-          TweenMax.to(this.webGL.meshes.torus.mesh.rotation, 0.05, {
-            x: mouseVelocityY,
-            y: mouseVelocityX
-          });
-        }
-      };
-      watchViewport(updateMouseValues);
-
-      let vec;
-      let distance;
-      let pos = { x: 0, y: 0 };
-      window.onmousemove = e => {
-        vec = new THREE.Vector3(); // create once and reuse
-        pos = new THREE.Vector3(); // create once and reuse
-        // console.log(document.querySelector(".cursor"));
-        document.querySelector('.cursor').style.left = `${e.clientX}px`;
-        document.querySelector('.cursor').style.top = `${e.clientY}px`;
-        // document.querySelector('.cursor-outer').style.left = `${e.clientX}px`;
-        // document.querySelector('.cursor-outer').style.top = `${e.clientY}px`;
-        vec.set(
-          (e.clientX / window.innerWidth) * 2 - 1,
-          -(e.clientY / window.innerHeight) * 2 + 1,
-          0
-        );
-
-        vec.unproject(this.webGL.camera);
-
-        vec.sub(this.webGL.camera.position).normalize();
-
-        distance = -this.webGL.camera.position.z / vec.z;
-
-        pos.copy(this.webGL.camera.position).add(vec.multiplyScalar(distance));
-
-        TweenMax.to(this.webGL.meshes.torus.mesh.position, 0.2, {
-          x: pos.x,
-          y: pos.y
-        });
-      };
-    },
     runWebGL() {
       // redefining variable that need to be a real "variable"
       const scene = this.webGL.scene;
@@ -202,7 +146,6 @@ export default {
       this.webGL.camera.position.set(0, 0, 200);
 
       const renderer = new THREE.WebGLRenderer({
-        antialias: true,
         alpha: true
       });
       renderer.setSize(
@@ -212,17 +155,9 @@ export default {
       renderer.setPixelRatio(window.devicePixelRatio);
       this.webGL.renderer = renderer;
       this.webGL.container.appendChild(renderer.domElement);
-
-      window.addEventListener('click', e => {
-        TweenMax.fromTo(
-          this.webGL.meshes.torus.mesh.scale,
-          0.5,
-          { x: 0.5, y: 0.5, z: 0.5 },
-          { x: 2, y: 2, z: 2, ease: Back.easeOut.config(5) }
-        );
-      });
       const isocaList = this.webGL.meshes.isocahedron.mesh;
       console.log(this.webGL.meshes.isocahedron.mesh);
+
       function update() {
         for (let i = 0; i < isocaList.length; i++) {
           isocaList[i].rotation.y += 0.005;
@@ -244,9 +179,8 @@ export default {
       // On resize
       const isocahedronList = this.webGL.meshes.isocahedron.mesh;
       const optionsWebGL = this.webGL.options;
-      const that = this;
+
       function onWindowResize() {
-        that.checkMobileWebGL();
         camera.aspect = container.clientWidth / container.clientHeight;
         camera.updateProjectionMatrix();
         renderer.setSize(container.clientWidth, container.clientHeight);
@@ -269,33 +203,6 @@ export default {
       }
 
       window.addEventListener('resize', onWindowResize);
-    },
-    checkMobileWebGL() {
-      // IF USER IS NOT CLICKLING ON THE PAGE
-      const idleCallback = () => {
-        TweenMax.to(this.webGL.meshes.torus.mesh.rotation, 1, {
-          y: 8
-        });
-        TweenMax.to(this.webGL.meshes.torus.mesh.scale, 1, {
-          x: 0.05,
-          y: 0.05,
-          z: 0.05
-        });
-        TweenMax.to('.cursor', 0.5, { opacity: 0 });
-      };
-      const backToActiveCallback = () => {
-        TweenMax.to(this.webGL.meshes.torus.mesh.rotation, 1, {
-          y: 0
-        });
-        TweenMax.to(this.webGL.meshes.torus.mesh.scale, 1, {
-          x: 2,
-          y: 2,
-          z: 2
-        });
-        TweenMax.to('.cursor', 0.5, { opacity: 1 });
-      };
-      const idle = new Idle(2, idleCallback, backToActiveCallback);
-      idle.init();
     }
   }
 };
@@ -303,10 +210,11 @@ export default {
 
 <style lang="scss" scoped>
 .webgl-handler {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: $background;
   .webGL-container {
-    position: fixed;
-    top: 0;
-    left: 0;
     width: 100vw;
     height: 100vh;
   }

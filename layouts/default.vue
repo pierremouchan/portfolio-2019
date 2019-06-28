@@ -3,20 +3,23 @@
     <loading></loading>
     <header-cmp></header-cmp>
     <nuxt />
-    <threeJS></threeJS>
+    <cursor-cmp></cursor-cmp>
+    <three-js></three-js>
   </div>
 </template>
 
 <script>
 import loading from '~/components/loading';
 import headerCmp from '~/components/header';
-import threeJS from '~/components/threejs';
+import threeJs from '~/components/threejs';
+import cursorCmp from '~/components/blocks/cursor';
 
 export default {
   components: {
     loading,
     headerCmp,
-    threeJS
+    threeJs,
+    cursorCmp
   },
   head() {
     return {
