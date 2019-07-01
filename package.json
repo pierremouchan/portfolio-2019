@@ -43,7 +43,6 @@
     "nodemon": "^1.18.9",
     "nuxt-svg": "^0.1.5",
     "prettier": "^1.18.2",
-    "redirect-ssl": "^1.4.0",
     "sass-loader": "^7.1.0",
     "three": "^0.105.2",
     "tornis": "^0.1.4",

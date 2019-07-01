@@ -1,19 +1,21 @@
 <template>
   <header>
-    <nuxt-link id="logo" to="/">
+    <nuxt-link id="logo" to="/" @click.native="onRouteChange">
       <pm-logo></pm-logo>
     </nuxt-link>
 
     <nav>
       <ul>
         <li>
-          <nuxt-link to="/">HOME</nuxt-link>
+          <nuxt-link to="/" @click.native="onRouteChange">HOME</nuxt-link>
         </li>
         <li>
-          <nuxt-link to="/messages">MESSAGES</nuxt-link>
+          <nuxt-link to="/messages" @click.native="onRouteChange"
+            >MESSAGES</nuxt-link
+          >
         </li>
         <li>
-          <nuxt-link to="/about">ABOUT</nuxt-link>
+          <nuxt-link to="/about" @click.native="onRouteChange">ABOUT</nuxt-link>
         </li>
       </ul>
     </nav>
@@ -22,7 +24,7 @@
 
 <script>
 import pmLogo from '~/static/images/icons/logo.svg?inline';
-import { TweenMax, Expo } from 'gsap';
+import { TweenMax, Expo, TimelineMax } from 'gsap';
 export default {
   components: {
     pmLogo
@@ -53,6 +55,32 @@ export default {
         }
       }
     );
+  },
+  methods: {
+    onRouteChange() {
+      document
+        .querySelector('.nuxt-link-exact-active')
+        .classList.remove('nuxt-link-exact-active');
+      const onRouteChangeTimeline = new TimelineMax({});
+      onRouteChangeTimeline
+        .staggerFromTo(
+          'nav ul li',
+          0.75,
+          { y: '0%' },
+          { y: '-100%', ease: Expo.easeIn },
+          0.1
+        )
+        .staggerFromTo(
+          'nav ul li',
+          0.75,
+          { y: '100%' },
+          {
+            y: '0%',
+            ease: Expo.easeOut
+          },
+          0.1
+        );
+    }
   }
 };
 </script>

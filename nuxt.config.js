@@ -4,14 +4,14 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: process.env.npm_package_name || '',
+    title: 'Pierre Mouchan | Creative developer',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
+        content: 'Portfolio - Pierre Mouchan, a passionate creative developer.'
       },
       {
         hid: 'apple-mobile-web-app-title',
@@ -23,27 +23,36 @@ export default {
       {
         rel: 'icon',
         type: 'image/x-icon',
-        href: '/favicon.ico'
+        href: '/v2/favicon.ico'
       }
     ]
   },
 
   pageTransition: {},
 
+  // MANIFEST OPTIONS
+  manifest: {
+    name: 'Pierre Mouchan | Portfolio',
+    short_name: 'Pierre Mouchan | Portfolio',
+    description: 'Portfolio - Pierre Mouchan, a passionate creative developer.',
+    lang: 'en',
+    orientation: 'natural'
+  },
   // META FOR PWA SUPPORT (COMES UP WITH LOT OF META TAGS)
   // options : https://pwa.nuxtjs.org/modules/meta.html#options
   meta: {
     // Most of these settings defines OG tags
     author: 'Pierre Mouchan',
-    name: 'Pierre Mouchan | Portfolio',
+    name: 'Pierre Mouchan | Creative developer',
     theme_color: '#F25D61',
     description: 'Portfolio - Pierre Mouchan, a passionate creative developer.',
     lang: 'en'
-    // apple mobile web app title is changeable inside head:{} above
   },
 
-  // Force HTTPS
-  serverMiddleware: ['redirect-ssl'],
+  // DYNAMIC ROUTE TO GENERATE
+  generate: {
+    routes: ['/projects/clishare', '/projects/fsif', '/projects/test']
+  },
 
   // NuxtJS disable loading indication between pages
 
@@ -85,7 +94,11 @@ export default {
    ** Plugins to load before mounting the App
    */
 
-  plugins: ['./plugins/settings.js', './plugins/preloadImg.js'],
+  plugins: [
+    './plugins/redirectHTTPS.js',
+    './plugins/settings.js',
+    './plugins/preloadImg.js'
+  ],
 
   /*
    ** Build configuration
@@ -104,7 +117,7 @@ export default {
 
   router: {
     // YOU HAVE TO SET IT IN THE PATH TO FAVICON
-    base: '/'
+    base: '/v2/'
     // MIDDLEWARE CALL AFTER EACH ROUTES CHANGES
     // middleware: 'routesHandler'
   },

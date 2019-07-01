@@ -11,7 +11,7 @@ export default (ctx, inject) => {
     require.context(
       '../static/images/',
       true,
-      /\.(png|jpe?g)$|.(\/)\.(png|jpe?g)$/
+      /\.(png|jpe?g|gif)$|.(\/)\.(png|jpe?g|gif)$/
     )
   );
 

@@ -21,7 +21,9 @@
 import { TweenMax, Expo } from 'gsap';
 export default {
   data() {
-    return {};
+    return {
+      swipedNumber: '0'
+    };
   },
   mounted() {
     this.$store.watch(

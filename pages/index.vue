@@ -23,23 +23,12 @@ export default {
     console.log('mounted');
   },
   methods: {},
-  // transition: {
-  //   mode: 'out-in',
-  //   leave(el, done) {
-  //     console.log('leave');
-  //     fromIndex(done);
-  //   },
-  //   enter(el, done) {
-  //     console.log('enter');
-  //     toIndex(done);
-  //   }
-  // },
   beforeRouteLeave(to, from, next) {
     fromIndex(next);
   },
   head() {
     return {
-      titleTemplate: '%s Portfolio'
+      titleTemplate: '%s Creative Developer'
     };
   }
 };

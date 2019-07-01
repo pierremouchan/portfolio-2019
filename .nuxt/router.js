@@ -4,6 +4,7 @@ import { interopDefault } from './utils'
 
 const _bc0fcaf2 = () => interopDefault(import('../pages/about/index.vue' /* webpackChunkName: "pages/about/index" */))
 const _7012f4e8 = () => interopDefault(import('../pages/messages/index.vue' /* webpackChunkName: "pages/messages/index" */))
+const _e71bcb04 = () => interopDefault(import('../pages/projects/_id.vue' /* webpackChunkName: "pages/projects/_id" */))
 const _4b13c1c9 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
 Vue.use(Router)
@@ -75,7 +76,7 @@ const scrollBehavior = function (to, from, savedPosition) {
 export function createRouter() {
   return new Router({
     mode: 'history',
-    base: decodeURI('/'),
+    base: decodeURI('/v2/'),
     linkActiveClass: 'nuxt-link-active',
     linkExactActiveClass: 'nuxt-link-exact-active',
     scrollBehavior,
@@ -88,6 +89,10 @@ export function createRouter() {
       path: "/messages",
       component: _7012f4e8,
       name: "messages"
+    }, {
+      path: "/projects/:id?",
+      component: _e71bcb04,
+      name: "projects-id"
     }, {
       path: "/",
       component: _4b13c1c9,
