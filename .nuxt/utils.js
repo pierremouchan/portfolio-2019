@@ -137,7 +137,7 @@ export async function setContext(app, context) {
       store: app.store,
       payload: context.payload,
       error: context.error,
-      base: '/v2/',
+      base: '/',
       env: {"example":"example"}
     }
     // Only set once

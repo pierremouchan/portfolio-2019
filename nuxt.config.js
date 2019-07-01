@@ -23,7 +23,7 @@ export default {
       {
         rel: 'icon',
         type: 'image/x-icon',
-        href: '/v2/favicon.ico'
+        href: '/favicon.ico'
       }
     ]
   },
@@ -51,7 +51,12 @@ export default {
 
   // DYNAMIC ROUTE TO GENERATE
   generate: {
-    routes: ['/projects/clishare', '/projects/fsif', '/projects/test']
+    routes: [
+      '/projects/design3d',
+      '/projects/fsif',
+      '/projects/portfolios',
+      '/projects/socialforgood'
+    ]
   },
 
   // NuxtJS disable loading indication between pages
@@ -117,7 +122,7 @@ export default {
 
   router: {
     // YOU HAVE TO SET IT IN THE PATH TO FAVICON
-    base: '/v2/'
+    base: '/'
     // MIDDLEWARE CALL AFTER EACH ROUTES CHANGES
     // middleware: 'routesHandler'
   },
