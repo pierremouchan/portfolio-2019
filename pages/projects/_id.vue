@@ -19,6 +19,19 @@ export default {
   created() {
     this.check404();
   },
+  head() {
+    return {
+      title: `Pierre Mouchan | `,
+      titleTemplate: `%s${this.activeProject.title}`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: `Project - Pierre Mouchan, ${this.activeProject.title}. (${this.activeProject.mainTech})`
+        }
+      ]
+    };
+  },
   methods: {
     check404() {
       if (this.projects.find(project => project.id === this.id) === undefined) {

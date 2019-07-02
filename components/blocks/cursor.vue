@@ -37,7 +37,10 @@ export default {
   },
   watch: {
     $route(to, from) {
-      this.getAllLinks();
+      const that = this;
+      setTimeout(() => {
+        that.getAllLinks();
+      }, 500);
     }
   },
   mounted() {
@@ -244,6 +247,7 @@ export default {
       }
 
       listLinks.forEach(el => {
+        console.log('el -> ', el);
         el.addEventListener('mouseenter', cursorRetract);
         el.addEventListener('mouseleave', cursorExpand);
       });
