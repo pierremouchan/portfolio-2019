@@ -26,7 +26,7 @@ export default {
       {
         hid: 'og:image',
         name: 'og:image',
-        content: 'static/ogimage.jpg'
+        content: '/ogimage.jpg'
       }
     ],
     link: [
