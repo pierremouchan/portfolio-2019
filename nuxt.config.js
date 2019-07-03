@@ -17,6 +17,16 @@ export default {
         hid: 'apple-mobile-web-app-title',
         name: 'apple-mobile-web-app-title',
         content: 'Pierre Mouchan - Portfolio'
+      },
+      {
+        hid: 'robots',
+        name: 'robots',
+        content: 'index,follow'
+      },
+      {
+        hid: 'og:image',
+        name: 'og:image',
+        content: 'static/ogimage.jpg'
       }
     ],
     link: [
@@ -99,11 +109,7 @@ export default {
    ** Plugins to load before mounting the App
    */
 
-  plugins: [
-    './plugins/redirectHTTPS.js',
-    './plugins/settings.js',
-    './plugins/preloadImg.js'
-  ],
+  plugins: ['./plugins/settings.js', './plugins/preloadImg.js'],
 
   /*
    ** Build configuration
