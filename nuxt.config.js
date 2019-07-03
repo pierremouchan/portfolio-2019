@@ -21,7 +21,7 @@ export default {
       {
         hid: 'robots',
         name: 'robots',
-        content: 'index,follow'
+        content: 'noindex,nofollow'
       },
       {
         hid: 'og:image',
