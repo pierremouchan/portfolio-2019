@@ -45,7 +45,7 @@
     "prettier": "^1.18.2",
     "sass-loader": "^7.1.0",
     "three": "^0.105.2",
-    "tornis": "^0.1.4",
+    "tornis": "^0.1.5",
     "vue-image-preloader": "^0.2.8"
   }
 }
