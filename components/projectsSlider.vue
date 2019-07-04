@@ -1,9 +1,13 @@
 <template>
   <div class="project-slider-wrapper">
-    <h2>
-      {{ activeProject.title }}
-      <span>{{ activeProject.title }}</span>
-    </h2>
+    <div class="title-container">
+      <div class="title">
+        <h2>{{ activeProject.title }}</h2>
+      </div>
+      <div class="title-outline">
+        <div>{{ activeProject.title }}</div>
+      </div>
+    </div>
     <Sun id="sun"></Sun>
   </div>
 </template>
@@ -71,20 +75,31 @@ export default {
       width: 60%;
     }
   }
-  h2 {
-    font-size: 120px;
+  .title-container {
     position: absolute;
     top: 20%;
     left: 50%;
     transform: translateX(-50%);
-    color: $black;
-
-    span {
-      z-index: $down;
-      -webkit-text-stroke: 2px $black;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    .title {
+      h2 {
+        font-family: $font-title;
+        font-weight: 900;
+        font-size: 120px;
+        color: $black;
+      }
+      line-height: 100px;
+    }
+    .title-outline {
+      font-family: $font-title;
+      font-weight: 900;
+      font-size: 120px;
       color: rgba(0, 0, 0, 0);
-      position: absolute;
-      top: 50%;
+      -webkit-text-stroke: 2px $black;
+      overflow: hidden;
+      height: 60px;
     }
   }
 }

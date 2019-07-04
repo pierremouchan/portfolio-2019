@@ -26,6 +26,7 @@
   h6,
   p {
 		margin: 0;
+    color: $black;
 	}
 
   ul {
@@ -75,32 +76,8 @@ body{
   padding: 4px;
 
 }
-// RESPONSIVE TYPES SCALE
-h6{
-@include font-h6();
-}
 
-
-h5{
-  @include font-h5();
-}
-
-
-h4{
-  @include font-h4();
-}
-
-
-h3{
-  @include font-h3();
-}
-
-
-h2{
-  @include font-h2();
-}
-
-
-h1{
-  @include font-h1();
+.strong-red{
+  font-weight: normal;
+  color: $red;
 }

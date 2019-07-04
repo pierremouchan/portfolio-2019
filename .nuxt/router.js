@@ -3,7 +3,7 @@ import Router from 'vue-router'
 import { interopDefault } from './utils'
 
 const _bc0fcaf2 = () => interopDefault(import('../pages/about/index.vue' /* webpackChunkName: "pages/about/index" */))
-const _7012f4e8 = () => interopDefault(import('../pages/messages/index.vue' /* webpackChunkName: "pages/messages/index" */))
+const _0e747090 = () => interopDefault(import('../pages/experiments/index.vue' /* webpackChunkName: "pages/experiments/index" */))
 const _e71bcb04 = () => interopDefault(import('../pages/projects/_id.vue' /* webpackChunkName: "pages/projects/_id" */))
 const _4b13c1c9 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
 
@@ -86,9 +86,9 @@ export function createRouter() {
       component: _bc0fcaf2,
       name: "about"
     }, {
-      path: "/messages",
-      component: _7012f4e8,
-      name: "messages"
+      path: "/experiments",
+      component: _0e747090,
+      name: "experiments"
     }, {
       path: "/projects/:id?",
       component: _e71bcb04,

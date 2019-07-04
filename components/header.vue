@@ -11,8 +11,8 @@
         </li>
 
         <li>
-          <nuxt-link to="/messages" @click.native="onRouteChange"
-            >MESSAGES</nuxt-link
+          <nuxt-link to="/experiments" @click.native="onRouteChange"
+            >EXP</nuxt-link
           >
         </li>
         <li>
