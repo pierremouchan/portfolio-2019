@@ -1,8 +1,6 @@
 <template>
   <div class="about-container">
-    <h1 class="title">Boilerplate NuxtJS</h1>
-    <nuxt-link to="/about">About</nuxt-link>
-    <nuxt-link to="/">Index</nuxt-link>
+    <h1 class="title">About</h1>
   </div>
 </template>
 

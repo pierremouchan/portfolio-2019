@@ -1,14 +1,22 @@
 <template>
-  <div class="webgl-handler">
-    <div id="particles-js"></div>
-
-    <div class="webGL-container"></div>
-  </div>
+  <div class="webGL-container"></div>
 </template>
 
 <script>
-import * as THREE from 'three';
-import { TweenMax, Expo } from 'gsap';
+import {
+  Scene,
+  PerspectiveCamera,
+  DirectionalLight,
+  HemisphereLight,
+  IcosahedronGeometry,
+  MeshStandardMaterial,
+  Mesh,
+  TextureLoader,
+  WebGLRenderer
+} from 'three';
+import { TweenMax } from 'gsap';
+import { Interaction } from 'three.interaction';
+import { noise } from '~/plugins/external/perlin';
 export default {
   data() {
     return {
@@ -20,29 +28,19 @@ export default {
         options: {
           fov: 75,
           near: 0.1,
-          far: 5000,
-          aspect: undefined,
-          isocasPositionsDesktop: [
-            { x: -400, y: 200, z: -500 },
-            { x: 500, y: 100, z: -500 },
-            { x: -600, y: -250, z: -500 }
-          ],
-          isocasPositionsMobile: [
-            { x: -200, y: 200, z: -500 },
-            { x: 250, y: 100, z: -500 },
-            { x: -150, y: -250, z: -500 }
-          ]
+          far: 10000,
+          aspect: undefined
         },
-        lights: {
-          directionalLight: undefined
+        lights: [],
+        perlinNoiseValue: 0.006,
+        mainBlob: {
+          geometry: undefined,
+          material: undefined,
+          texture: undefined,
+          mesh: undefined
         },
-        meshes: {
-          isocahedron: {
-            geometry: undefined,
-            material: undefined,
-            mesh: []
-          }
-        }
+        othersBlob: {},
+        blobScale: 0.7
       }
     };
   },
@@ -57,19 +55,6 @@ export default {
       isalreadyLoaded => {
         switch (isalreadyLoaded) {
           case true:
-            console.log('loading threejs');
-            for (
-              let i = 0;
-              i < this.webGL.meshes.isocahedron.mesh.length;
-              i++
-            ) {
-              TweenMax.fromTo(
-                this.webGL.meshes.isocahedron.mesh[i].position,
-                3,
-                { z: -1500 },
-                { z: -500, ease: Expo.easeOut }
-              );
-            }
             break;
         }
       }
@@ -78,16 +63,11 @@ export default {
   methods: {
     setupWebGL() {
       this.webGL.container = document.querySelector('.webGL-container');
-      this.webGL.scene = new THREE.Scene();
-      this.webGL.scene.fog = new THREE.Fog(
-        this.$nuxt.$settings.colorWhite,
-        500,
-        1000
-      );
+      this.webGL.scene = new Scene();
       this.webGL.options.aspect =
         this.webGL.container.clientWidth / this.webGL.container.clientHeight;
 
-      const camera = new THREE.PerspectiveCamera(
+      const camera = new PerspectiveCamera(
         this.webGL.options.fov,
         this.webGL.options.aspect,
         this.webGL.options.near,
@@ -97,45 +77,57 @@ export default {
       this.webGL.camera = camera;
     },
     setupLightWebGL() {
-      const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-      directionalLight.position.set(100, 500, 100);
-      this.webGL.lights.directionalLight = directionalLight;
-      this.webGL.scene.add(this.webGL.lights.directionalLight);
+      const hemisphereLight = new HemisphereLight(0xffffff, 0xf9f7f0, 0.6);
+      const directionalLight = new DirectionalLight(0xf9f9f9, 0.5);
+      const directionalLight2 = directionalLight.clone();
+      directionalLight.position.set(-200, 300, 400);
+      directionalLight2.position.set(200, 300, 400);
+      this.webGL.lights.push(
+        hemisphereLight,
+        directionalLight,
+        directionalLight2
+      );
+      this.webGL.scene.add(...this.webGL.lights);
     },
     generalShapeWebGL() {
-      const isocaGeometry = new THREE.IcosahedronBufferGeometry(200, 0);
-      const isocaMaterial = new THREE.MeshToonMaterial({
-        color: 0xfaf1e6,
-        specular: 0xfaead6,
-        shininess: 0.3,
-        reflectivity: 0.3,
-        wireframe: false,
-        opacity: 0.2,
-        transparent: true
-      });
-
-      this.webGL.meshes.isocahedron.geometry = isocaGeometry;
-      this.webGL.meshes.isocahedron.material = isocaMaterial;
-
-      for (let i = 0; i < 3; i++) {
-        const isocaMesh = new THREE.Mesh(isocaGeometry, isocaMaterial);
-        if (window.innerWidth > 728) {
-          isocaMesh.position.set(
-            this.webGL.options.isocasPositionsDesktop[i].x,
-            this.webGL.options.isocasPositionsDesktop[i].y,
-            this.webGL.options.isocasPositionsDesktop[i].z
-          );
-        } else {
-          isocaMesh.position.set(
-            this.webGL.options.isocasPositionsMobile[i].x,
-            this.webGL.options.isocasPositionsMobile[i].y,
-            this.webGL.options.isocasPositionsMobile[i].z
-          );
-        }
-
-        this.webGL.meshes.isocahedron.mesh.push(isocaMesh);
-        this.webGL.scene.add(this.webGL.meshes.isocahedron.mesh[i]);
+      // MAIN BLOB
+      const geometryBlob = new IcosahedronGeometry(100, 3);
+      this.webGL.mainBlob.geometry = geometryBlob;
+      for (let i = 0; i < geometryBlob.vertices.length; i++) {
+        const vector = this.webGL.mainBlob.geometry.vertices[i];
+        vector._o = vector.clone();
       }
+      const texture = new TextureLoader().load(
+        '/images/projects/portfolios/portfolios-main.jpg'
+      );
+      texture.anisotropy = 4;
+      this.webGL.mainBlob.texture = texture;
+
+      const materialBlob = new MeshStandardMaterial({
+        // color: 0xC01A1A,
+        // emissive: 0xFF2323,
+        // emissiveMap: texture,
+        map: texture,
+        color: 0xf9f5f2,
+        //  emissive: 0xF9F9F9,
+        // emissiveIntensity: 0.05,
+        metalness: 0.2,
+        roughness: 0.1
+      });
+      this.webGL.mainBlob.material = materialBlob;
+
+      const mainBlob = new Mesh(
+        this.webGL.mainBlob.geometry,
+        this.webGL.mainBlob.material
+      );
+      this.webGL.mainBlob.mesh = mainBlob;
+      this.webGL.mainBlob.mesh.scale.set(
+        this.webGL.blobScale,
+        this.webGL.blobScale,
+        this.webGL.blobScale
+      );
+
+      this.webGL.scene.add(this.webGL.mainBlob.mesh);
     },
     runWebGL() {
       // redefining variable that need to be a real "variable"
@@ -145,7 +137,7 @@ export default {
       // CAMERA POSITION
       this.webGL.camera.position.set(0, 0, 200);
 
-      const renderer = new THREE.WebGLRenderer({
+      const renderer = new WebGLRenderer({
         alpha: true
       });
       renderer.setSize(
@@ -155,17 +147,51 @@ export default {
       renderer.setPixelRatio(window.devicePixelRatio);
       this.webGL.renderer = renderer;
       this.webGL.container.appendChild(renderer.domElement);
-      const isocaList = this.webGL.meshes.isocahedron.mesh;
-      console.log(this.webGL.meshes.isocahedron.mesh);
 
-      function update() {
-        for (let i = 0; i < isocaList.length; i++) {
-          isocaList[i].rotation.y += 0.005;
+      // DOMEVENTS
+      // eslint-disable-next-line no-unused-vars
+      const interaction = new Interaction(renderer, scene, camera);
+      this.webGL.mainBlob.mesh.on('mouseover', event => {
+        console.log('on -> ');
+        TweenMax.to(this.webGL, 0.5, { perlinNoiseValue: 0 });
+      });
+      this.webGL.mainBlob.mesh.on('mouseout', event => {
+        console.log('leave -> ');
+        iteration = 0;
+        TweenMax.to(this.webGL, 0.5, { perlinNoiseValue: 0.006 });
+      });
+
+      // eslint-disable-next-line no-unused-vars
+      const geometryMainBlob = this.webGL.mainBlob.geometry;
+      const that = this;
+      function updateVertices(a) {
+        if (that.webGL.perlinNoiseValue !== 0) {
+          for (let i = 0; i < geometryMainBlob.vertices.length; i++) {
+            const vector = geometryMainBlob.vertices[i];
+            vector.copy(vector._o);
+            // eslint-disable-next-line no-undef
+            const perlin = noise.simplex3(
+              vector.x * that.webGL.perlinNoiseValue +
+                a * (that.webGL.perlinNoiseValue / 30),
+              vector.y * that.webGL.perlinNoiseValue +
+                a * (that.webGL.perlinNoiseValue / 20),
+              vector.z * that.webGL.perlinNoiseValue
+            );
+            const ratio = perlin * 0.4 * 0.5 + 0.8;
+            vector.multiplyScalar(ratio);
+          }
         }
+
+        geometryMainBlob.verticesNeedUpdate = true;
       }
 
+      function update() {}
+
+      let iteration = 0;
       function render() {
         renderer.render(scene, camera);
+        updateVertices(iteration);
+        iteration = iteration + 10;
       }
 
       renderer.setAnimationLoop(function() {
@@ -175,31 +201,14 @@ export default {
         // Extension threejs inspector CHROME
         window.scene = scene;
       });
-
-      // On resize
-      const isocahedronList = this.webGL.meshes.isocahedron.mesh;
-      const optionsWebGL = this.webGL.options;
-
+      const mainBlob = this.webGL.mainBlob.mesh;
       function onWindowResize() {
         camera.aspect = container.clientWidth / container.clientHeight;
+
+        mainBlob.scale.set(camera.aspect, camera.aspect, camera.aspect);
+
         camera.updateProjectionMatrix();
         renderer.setSize(container.clientWidth, container.clientHeight);
-
-        for (let i = 0; i < isocaList.length; i++) {
-          if (window.innerWidth > 728) {
-            isocaList[i].position.set(
-              optionsWebGL.isocasPositionsDesktop[i].x,
-              optionsWebGL.isocasPositionsDesktop[i].y,
-              optionsWebGL.isocasPositionsDesktop[i].z
-            );
-          } else {
-            isocahedronList[i].position.set(
-              optionsWebGL.isocasPositionsMobile[i].x,
-              optionsWebGL.isocasPositionsMobile[i].y,
-              optionsWebGL.isocasPositionsMobile[i].z
-            );
-          }
-        }
       }
 
       window.addEventListener('resize', onWindowResize);
@@ -209,14 +218,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.webgl-handler {
+.webGL-container {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: $background;
-  .webGL-container {
-    width: 100vw;
-    height: 100vh;
-  }
+  z-index: $up;
+  width: 100vw;
+  height: 100vh;
 }
 </style>

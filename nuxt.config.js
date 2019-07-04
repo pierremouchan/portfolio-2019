@@ -99,17 +99,15 @@ export default {
    ** Plugins to load before mounting the App
    */
 
-  plugins: [
-    './plugins/redirectHTTPS.js',
-    './plugins/settings.js',
-    './plugins/preloadImg.js'
-  ],
+  plugins: ['./plugins/settings.js', './plugins/preloadImg.js'],
 
   /*
    ** Build configuration
    */
 
-  build: {},
+  build: {
+    analyze: true
+  },
 
   env: {
     // Global environment VAR, access it using process.env.yourVariable
@@ -131,5 +129,7 @@ export default {
    ** You can extend webpack config here
    */
 
-  extend(config, { isDev, isClient }) {}
+  extend(config, { isDev, isClient }) {
+    // config.module.exports.plugins.push(new OptimizeThreeWebpackPlugin());
+  }
 };

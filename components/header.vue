@@ -9,6 +9,7 @@
         <li>
           <nuxt-link to="/" @click.native="onRouteChange">HOME</nuxt-link>
         </li>
+
         <li>
           <nuxt-link to="/messages" @click.native="onRouteChange"
             >MESSAGES</nuxt-link
@@ -23,8 +24,8 @@
 </template>
 
 <script>
-import pmLogo from '~/static/images/icons/logo.svg?inline';
 import { TweenMax, Expo, TimelineMax } from 'gsap';
+import pmLogo from '~/static/images/icons/logo.svg?inline';
 export default {
   components: {
     pmLogo

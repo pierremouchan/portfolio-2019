@@ -2,8 +2,7 @@ export const state = () => ({
   list: [
     {
       id: 'SOCIALFORGOOD',
-      title: 'SOCIAL',
-      sliderTitle: ['SOCIAL', 'FOR GOOD'],
+      title: 'SOCIALFORGOOD',
       date: '2019',
       mainTech: 'WEBGL',
       othersTech: ['THREEJS', 'ART DIRECTOR', 'INTERN'],
@@ -23,7 +22,6 @@ export const state = () => ({
     {
       id: 'FSIF',
       title: 'FSIF',
-      sliderTitle: ['FÉDÉRATION', 'SOCIÈTÉ'],
       date: '2019',
       mainTech: 'WORDPRESS',
       othersTech: ['GSAP', 'PHP', 'INTERN'],
@@ -45,7 +43,6 @@ export const state = () => ({
     {
       id: 'DESIGNING',
       title: 'DESIGNING',
-      sliderTitle: ['3D ARTS', 'ABSTRACT'],
       date: '2018',
       mainTech: 'FREE-TIME',
       othersTech: ['C4D', 'THREEJS', 'ART'],
@@ -65,7 +62,6 @@ export const state = () => ({
     {
       id: 'PORTFOLIOS',
       title: 'PORTFOLIOS',
-      sliderTitle: ['PORTFOLIOS', 'PORTFOLIOS'],
       date: '2018',
       mainTech: 'VUEJS',
       othersTech: ['JS', 'UX', 'SELF-TAUGHT'],

@@ -6,7 +6,6 @@
 
 <script>
 import projectsSlider from '~/components/projectsSlider';
-// eslint-disable-next-line no-unused-vars
 import { toIndex, fromIndex } from '~/assets/js/transitions/fromToIndex';
 export default {
   components: {
@@ -15,12 +14,8 @@ export default {
   data() {
     return {};
   },
-  created() {
-    console.log('created');
-  },
   mounted() {
     toIndex();
-    console.log('mounted');
   },
   methods: {},
   beforeRouteLeave(to, from, next) {

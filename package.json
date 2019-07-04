@@ -21,7 +21,8 @@
   "dependencies": {
     "@nuxtjs/pwa": "^3.0.0-beta.16",
     "@nuxtjs/style-resources": "^0.1.2",
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.0.0",
+    "three": "^0.106.2"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^0.0.1",
@@ -44,8 +45,7 @@
     "nuxt-svg": "^0.1.5",
     "prettier": "^1.18.2",
     "sass-loader": "^7.1.0",
-    "three": "^0.106.2",
-    "tornis": "^0.1.5",
+    "three.interaction": "^0.2.2",
     "vue-image-preloader": "^0.2.8"
   }
 }
