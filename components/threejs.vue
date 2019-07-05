@@ -10,9 +10,12 @@ import {
   Color,
   WebGLRenderer
 } from 'three';
-import { TweenMax } from 'gsap';
+import { TweenMax, Expo } from 'gsap';
 import { Interaction } from 'three.interaction';
 import Blob from '~/assets/js/webGL/blob.class';
+
+let mainBlob;
+
 export default {
   data() {
     return {
@@ -21,6 +24,15 @@ export default {
     };
   },
   computed: {},
+  watch: {
+    $route(to, from) {
+      if (to.name === 'about') {
+        TweenMax.to(mainBlob.mesh.position, 2, { z: 0, ease: Expo.easeOut });
+      } else {
+        TweenMax.to(mainBlob.mesh.position, 2, { z: -500, ease: Expo.easeOut });
+      }
+    }
+  },
   created() {
     this.projects.forEach(project => {
       this.textureList.push(project.mainImg);
@@ -35,6 +47,9 @@ export default {
       isalreadyLoaded => {
         switch (isalreadyLoaded) {
           case true:
+            if (this.$route.name === 'about') {
+              mainBlob.mesh.position.z = 0;
+            }
             break;
         }
       }
@@ -60,7 +75,7 @@ export default {
       directionalLight.position.set(100, 200, 150);
       scene.add(directionalLight);
       // eslint-disable-next-line no-unused-vars
-      const mainBlob = new Blob();
+      mainBlob = new Blob();
       scene.add(mainBlob.mesh);
       mainBlob.mesh.position.set(0, 0, -500);
 
@@ -134,12 +149,13 @@ export default {
       function onWindowResize() {
         camera.aspect = container.clientWidth / container.clientHeight;
         if (camera.aspect < 1.2) {
-          mainBlob.scale.set(camera.aspect, camera.aspect, camera.aspect);
+          mainBlob.mesh.scale.set(camera.aspect, camera.aspect, camera.aspect);
         }
 
         camera.updateProjectionMatrix();
         renderer.setSize(container.clientWidth, container.clientHeight);
       }
+      onWindowResize();
 
       window.addEventListener('resize', onWindowResize);
     }

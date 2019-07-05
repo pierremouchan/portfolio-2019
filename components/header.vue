@@ -88,28 +88,33 @@ export default {
 
 <style lang="scss" scoped>
 header {
-  position: fixed;
+  position: sticky;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 48px;
+  height: 56px;
   z-index: $beforefg;
+  background-color: $white;
   #logo {
     position: absolute;
     width: 56px;
     height: 32px;
     left: 16px;
-    bottom: 0;
+    top: 50%;
+    transform: translateY(-50%);
     overflow: hidden;
     svg {
     }
 
     @include mq($from: tablet) {
       left: 50%;
-      transform: translateX(-50%);
+      transform: translateX(-50%) translateY(-50%);
     }
   }
   nav {
     position: absolute;
-    bottom: 0;
+    top: 50%;
+    transform: translateY(-50%);
     right: 16px;
     width: 75%;
     @include mq($from: tablet) {

@@ -23,6 +23,7 @@
     </div>
     <div class="myself-container">
       <div class="myself-description">
+        <div class="myself-description__mask"></div>
         <div class="description">
           I’m still studying in France 🥖 and i’m currently working as a
           front-end developer at
@@ -63,6 +64,7 @@
         </div>
       </div>
       <div class="myself-picture">
+        <div class="myself-picture__mask"></div>
         <img
           src="~/static/images/about/pierre_mouchan.jpg"
           alt="Picture of Pierre Mouchan (coolest man ever LOL)"
@@ -73,12 +75,14 @@
 </template>
 
 <script>
+import Bound from 'bounds.js';
+import { TweenMax, Expo, TimelineMax } from 'gsap';
 import githubIcon from '~/static/images/icons/github.svg?inline';
 import instaIcon from '~/static/images/icons/instagram.svg?inline';
 import facebookIcon from '~/static/images/icons/facebook.svg?inline';
 import resumeIcon from '~/static/images/icons/resume.svg?inline';
 // eslint-disable-next-line no-unused-vars
-import { toAbout } from '~/assets/js/transitions/fromToAbout';
+import { toAbout, fromAbout } from '~/assets/js/transitions/fromToAbout';
 
 export default {
   components: {
@@ -100,7 +104,55 @@ export default {
     };
   },
   mounted() {
+    this.revealDesc();
     toAbout();
+  },
+  beforeRouteLeave(to, from, next) {
+    fromAbout(next);
+  },
+  methods: {
+    revealDesc() {
+      const boundary = Bound({
+        root: this.window,
+        threshold: 0.1
+      }); // initialize with default options
+      const myselfDesc = document.querySelector('.myself-description__mask');
+      const myselfPic = document.querySelector('.myself-picture__mask');
+      const whenMyselfDescEnters = () => {
+        TweenMax.to(myselfDesc, 0.5, {
+          transformOrigin: 'right bottom',
+          scaleX: 0,
+          ease: Expo.easeInOut
+        });
+        boundary.unWatch(myselfDesc);
+      };
+      const whenMyselfPicEnters = () => {
+        console.log('test -> ', 'test');
+        const revealPic = new TimelineMax();
+        revealPic
+          .addLabel('f1')
+          .to(
+            myselfPic,
+            0.5,
+            {
+              transformOrigin: 'right bottom',
+              scaleX: 0,
+              ease: Expo.easeInOut
+            },
+            'f1'
+          )
+          .fromTo(
+            '.myself-picture img',
+            0.5,
+            { scale: 1.3, rotation: 2, transformOrigin: 'center center' },
+            { scale: 1.1, rotation: 0 },
+            'f1+=0.25'
+          );
+        boundary.unWatch(myselfPic);
+      };
+      boundary.watch(myselfDesc, whenMyselfDescEnters);
+      boundary.watch(myselfPic, whenMyselfPicEnters);
+    }
   }
 };
 </script>
@@ -194,6 +246,7 @@ export default {
       align-items: center;
     }
     .myself-description {
+      position: relative;
       font-size: 25px;
       line-height: 30px;
       order: 2;
@@ -201,6 +254,14 @@ export default {
         order: 1;
         max-width: 50%;
         margin-right: 5vw;
+      }
+      &__mask {
+        position: absolute;
+        top: 0;
+        background-color: $black;
+        width: 100%;
+        height: 100%;
+        z-index: $up;
       }
       .link-pixies {
         position: relative;
@@ -225,12 +286,23 @@ export default {
       }
     }
     .myself-picture {
+      overflow: hidden;
+      position: relative;
       order: 1;
       margin-bottom: 5vh;
       @include mq($from: desktop) {
         order: 2;
         max-width: 50%;
+        max-height: 750px;
         margin-bottom: 0;
+      }
+      &__mask {
+        position: absolute;
+        top: 0;
+        z-index: $up;
+        background-color: $white;
+        width: 100%;
+        height: 100%;
       }
     }
   }

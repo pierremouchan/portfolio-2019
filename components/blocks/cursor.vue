@@ -95,7 +95,6 @@ export default {
       }
 
       listLinks.forEach(el => {
-        console.log('el -> ', el);
         el.addEventListener('mouseenter', mouseEnterLink);
         el.addEventListener('mouseleave', mouseLeaveLink);
       });
