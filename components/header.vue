@@ -59,9 +59,11 @@ export default {
   },
   methods: {
     onRouteChange() {
-      document
-        .querySelector('.nuxt-link-exact-active')
-        .classList.remove('nuxt-link-exact-active');
+      if (document.querySelector('.nuxt-link-exact-active')) {
+        document
+          .querySelector('.nuxt-link-exact-active')
+          .classList.remove('nuxt-link-exact-active');
+      }
       const onRouteChangeTimeline = new TimelineMax({});
       onRouteChangeTimeline
         .staggerFromTo(

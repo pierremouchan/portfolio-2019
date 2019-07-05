@@ -15,6 +15,7 @@ import { Interaction } from 'three.interaction';
 import Blob from '~/assets/js/webGL/blob.class';
 
 let mainBlob;
+const othersBlob = [];
 
 export default {
   data() {
@@ -57,7 +58,6 @@ export default {
   },
   methods: {
     setupWebGL() {
-      const othersBlob = [];
       const container = document.querySelector('.webGL-container');
       const scene = new Scene();
       const aspect = container.clientWidth / container.clientHeight;
