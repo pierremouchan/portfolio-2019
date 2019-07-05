@@ -17,6 +17,16 @@ export default {
         hid: 'apple-mobile-web-app-title',
         name: 'apple-mobile-web-app-title',
         content: 'Pierre Mouchan - Portfolio'
+      },
+      {
+        hid: 'robots',
+        name: 'robots',
+        content: 'noindex,nofollow'
+      },
+      {
+        hid: 'og:image',
+        name: 'og:image',
+        content: '/ogimage.jpg'
       }
     ],
     link: [

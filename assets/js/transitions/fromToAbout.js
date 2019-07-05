@@ -7,8 +7,8 @@ export const fromAbout = done => {
       done();
     }
   });
+  window.scrollTo(0, 0);
   fromIndexTimeline
-    .to(window, 1, { scrollTo: 0 })
     .addLabel('f1')
     .to(
       'h1',
