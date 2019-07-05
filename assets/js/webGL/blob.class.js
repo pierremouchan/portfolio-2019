@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import {
   IcosahedronGeometry,
-  MeshStandardMaterial,
+  MeshToonMaterial,
   Mesh,
   TextureLoader
 } from 'three';
@@ -27,17 +27,18 @@ export default class Blob {
     if (this.textureURL) {
       const textureBlobCreated = new TextureLoader().load(this.textureURL);
       textureBlobCreated.anisotropy = 4;
-      materialBlobCreated = new MeshStandardMaterial({
+      materialBlobCreated = new MeshToonMaterial({
         map: textureBlobCreated,
-        color: 0xf9f5f2,
-        metalness: 0.2,
-        roughness: 0.5
+        color: 0xf9f1ec,
+        shininess: 0.1,
+        reflectivity: 0
       });
     } else {
-      materialBlobCreated = new MeshStandardMaterial({
-        color: 0xf9f5f2,
-        metalness: 0.2,
-        roughness: 0.5
+      materialBlobCreated = new MeshToonMaterial({
+        color: 0xf9f1ec,
+        specular: 0xf9f9f9,
+        shininess: 0.1,
+        reflectivity: 0
       });
     }
 
@@ -61,5 +62,7 @@ export default class Blob {
     }
 
     this.geometry.verticesNeedUpdate = true;
+    this.geometry.computeVertexNormals();
+    this.geometry.normalsNeedUpdate = true;
   }
 }

@@ -9,25 +9,27 @@
       </div>
     </div>
     <Sun id="sun"></Sun>
+    <Fog id="fog"></Fog>
   </div>
 </template>
 
 <script>
 // import { TimelineMax, TweenMax, Expo } from 'gsap';
 import Sun from '~/static/images/icons/sun.svg?inline';
+import Fog from '~/static/images/white-fog.svg?inline';
 export default {
   components: {
-    Sun
+    Sun,
+    Fog
   },
   data() {
     return {
-      projects: this.$store.state.projects.list,
-      projectNumber: 0
+      projects: this.$store.state.projects.list
     };
   },
   computed: {
     activeProject() {
-      return this.projects[this.projectNumber];
+      return this.projects[this.$store.state.currentProject.number];
     }
   },
   mounted() {
@@ -75,31 +77,67 @@ export default {
       width: 60%;
     }
   }
+  #fog {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: $down + 1;
+  }
   .title-container {
     position: absolute;
-    top: 20%;
+    top: 30%;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    @include mq($from: tablet) {
+      top: 20%;
+    }
     .title {
+      line-height: 30px;
+      @include mq($from: tablet) {
+        line-height: 80px;
+      }
+      @include mq($from: desktop_plus) {
+        line-height: 100px;
+      }
       h2 {
         font-family: $font-title;
         font-weight: 900;
-        font-size: 120px;
+        font-size: 35px;
         color: $black;
+        @include mq($from: tablet) {
+          font-size: 75px;
+        }
+        @include mq($from: desktop_plus) {
+          font-size: 100px;
+        }
+        @include mq($from: xlarge) {
+          font-size: 120px;
+        }
       }
-      line-height: 100px;
     }
     .title-outline {
       font-family: $font-title;
       font-weight: 900;
-      font-size: 120px;
+      font-size: 35px;
       color: rgba(0, 0, 0, 0);
       -webkit-text-stroke: 2px $black;
       overflow: hidden;
-      height: 60px;
+      height: 30px;
+      @include mq($from: tablet) {
+        font-size: 75px;
+        height: 40px;
+      }
+      @include mq($from: desktop_plus) {
+        font-size: 100px;
+        height: 50px;
+      }
+      @include mq($from: xlarge) {
+        font-size: 120px;
+        height: 60px;
+      }
     }
   }
 }

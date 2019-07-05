@@ -47,7 +47,20 @@
           <strong class="strong-red">with you !</strong>
           👌
         </div>
-        <div class="reseaux"></div>
+        <div class="reseaux">
+          <a href="https://github.com/PierreMouchan/" target="_blank"
+            ><githubIcon></githubIcon
+          ></a>
+          <a href="https://www.instagram.com/pierre_mouchan/" target="_blank"
+            ><instaIcon></instaIcon
+          ></a>
+          <a
+            href="https://www.facebook.com/profile.php?id=100009602180064"
+            target="_blank"
+            ><facebookIcon></facebookIcon
+          ></a>
+          <a href="" target="_blank"><resumeIcon></resumeIcon></a>
+        </div>
       </div>
       <div class="myself-picture">
         <img
@@ -60,7 +73,20 @@
 </template>
 
 <script>
+import githubIcon from '~/static/images/icons/github.svg?inline';
+import instaIcon from '~/static/images/icons/instagram.svg?inline';
+import facebookIcon from '~/static/images/icons/facebook.svg?inline';
+import resumeIcon from '~/static/images/icons/resume.svg?inline';
+// eslint-disable-next-line no-unused-vars
+import { toAbout } from '~/assets/js/transitions/fromToAbout';
+
 export default {
+  components: {
+    githubIcon,
+    instaIcon,
+    facebookIcon,
+    resumeIcon
+  },
   head() {
     return {
       meta: [
@@ -72,6 +98,9 @@ export default {
         }
       ]
     };
+  },
+  mounted() {
+    toAbout();
   }
 };
 </script>
@@ -159,10 +188,20 @@ export default {
     display: flex;
     flex-direction: column;
     padding: 0 5vh;
+    @include mq($from: desktop) {
+      flex-direction: row;
+      padding: 0 10vh;
+      align-items: center;
+    }
     .myself-description {
       font-size: 25px;
       line-height: 30px;
       order: 2;
+      @include mq($from: desktop) {
+        order: 1;
+        max-width: 50%;
+        margin-right: 5vw;
+      }
       .link-pixies {
         position: relative;
         &:before {
@@ -188,6 +227,25 @@ export default {
     .myself-picture {
       order: 1;
       margin-bottom: 5vh;
+      @include mq($from: desktop) {
+        order: 2;
+        max-width: 50%;
+        margin-bottom: 0;
+      }
+    }
+  }
+  .reseaux {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 5vh auto;
+    a {
+      position: relative;
+      width: 48px;
+      max-height: 48px;
+      svg {
+        max-height: 48px;
+      }
     }
   }
 }

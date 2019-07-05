@@ -16,6 +16,7 @@ void (function updateModules() {
   // Enforce store modules
   store.modules = store.modules || {}
 
+  resolveStoreModules(require('../store/currentProject.js'), 'currentProject.js')
   resolveStoreModules(require('../store/currentRoutes.js'), 'currentRoutes.js')
   resolveStoreModules(require('../store/loader.js'), 'loader.js')
   resolveStoreModules(require('../store/projects.js'), 'projects.js')
@@ -25,6 +26,7 @@ void (function updateModules() {
   if (process.client && module.hot) {
     // Whenever any Vuex module is updated...
     module.hot.accept([
+      '../store/currentProject.js',
       '../store/currentRoutes.js',
       '../store/loader.js',
       '../store/projects.js',
