@@ -16,6 +16,14 @@ export default {
   },
   mounted() {
     toIndex();
+    this.$store.watch(
+      () => this.$store.getters['loader/alreadyLoaded'],
+      alreadyLoaded => {
+        if (alreadyLoaded) {
+          toIndex();
+        }
+      }
+    );
   },
   methods: {},
   beforeRouteLeave(to, from, next) {

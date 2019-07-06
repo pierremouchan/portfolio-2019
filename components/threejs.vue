@@ -30,9 +30,12 @@ export default {
   computed: {},
   watch: {
     $route(to, from) {
+      this.checkHoverSun();
       if (to.name === 'about') {
         TweenMax.to(mainBlob.mesh.position, 2, { z: 0, ease: Expo.easeOut });
       } else {
+        iteration = 0;
+        activeBlob.perlinNoise = 0.006;
         TweenMax.to(mainBlob.mesh.position, 2, { z: -500, ease: Expo.easeOut });
       }
     }
@@ -77,6 +80,15 @@ export default {
           case true:
             if (this.$route.name === 'about') {
               mainBlob.mesh.position.z = 0;
+            } else if (this.$route.name === 'index') {
+              for (let i = 0; i < projectsBlob.length; i++) {
+                TweenMax.fromTo(
+                  projectsBlob[i].mesh.position,
+                  2,
+                  { z: 500 },
+                  { z: 0, ease: Expo.easeOut }
+                );
+              }
             }
             break;
         }
@@ -146,16 +158,18 @@ export default {
   },
   methods: {
     checkHoverSun() {
-      document.querySelector('#sun').addEventListener('mouseenter', () => {
-        console.log('enter');
-        iteration = 0;
-        TweenMax.to(activeBlob, 0.5, { perlinNoise: 0 });
-      });
-      document.querySelector('#sun').addEventListener('mouseleave', () => {
-        console.log('enter');
-        iteration = 0;
-        TweenMax.to(activeBlob, 0.5, { perlinNoise: 0.006 });
-      });
+      setTimeout(() => {
+        if (document.querySelector('#sun')) {
+          document.querySelector('#sun').addEventListener('mouseenter', () => {
+            iteration = 0;
+            TweenMax.to(activeBlob, 0.5, { perlinNoise: 0 });
+          });
+          document.querySelector('#sun').addEventListener('mouseleave', () => {
+            iteration = 0;
+            TweenMax.to(activeBlob, 0.5, { perlinNoise: 0.006 });
+          });
+        }
+      }, 250);
     },
     setActiveBlob(number) {
       activeBlob = projectsBlob[number];
@@ -247,14 +261,15 @@ export default {
         window.scene = scene;
       });
       function onWindowResize() {
+        console.log('test');
         camera.aspect = container.clientWidth / container.clientHeight;
-        if (camera.aspect < 1.2 && camera.aspect > 0.8) {
+        if (camera.aspect < 1.2) {
           mainBlob.mesh.scale.set(camera.aspect, camera.aspect, camera.aspect);
           for (let i = 0; i < projectsBlob.length; i++) {
             projectsBlob[i].mesh.scale.set(
-              camera.aspect / 1.25,
-              camera.aspect / 1.25,
-              camera.aspect / 1.25
+              camera.aspect / 1.5,
+              camera.aspect / 1.5,
+              camera.aspect / 1.5
             );
           }
         }

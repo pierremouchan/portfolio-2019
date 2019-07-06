@@ -5,7 +5,7 @@
       <change afterPath="$PROJECT_DIR$/store/updateWebGL.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/js/transitions/fromToAbout.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/transitions/fromToAbout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/webGL/blob.class.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/webGL/blob.class.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/transitions/fromToIndex.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/transitions/fromToIndex.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/scss/_config/_base.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/scss/_config/_base.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/scss/_config/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/scss/_config/_variables.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/blocks/cursor.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/blocks/cursor.vue" afterDir="false" />
@@ -17,6 +17,7 @@
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/about/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/about/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/images/icons/white-banner.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/icons/white-banner.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/currentProject.js" beforeDir="false" afterPath="$PROJECT_DIR$/store/currentProject.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/store/projects.js" beforeDir="false" afterPath="$PROJECT_DIR$/store/projects.js" afterDir="false" />
@@ -35,8 +36,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/projectsSlider.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="247" column="25" selection-start-line="247" selection-start-column="25" selection-end-line="247" selection-end-column="25" />
+            <state relative-caret-position="-1526">
+              <caret line="109" column="9" lean-forward="true" selection-start-line="99" selection-start-column="8" selection-end-line="109" selection-end-column="9" />
               <folding>
                 <element signature="e#506#547#0" expanded="true" />
               </folding>
@@ -45,10 +46,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/index.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="524">
+              <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+              <folding>
+                <element signature="e#114#171#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/js/transitions/fromToAbout.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="179">
-              <caret line="60" selection-start-line="60" selection-end-line="71" selection-end-column="5" />
+            <state relative-caret-position="235">
+              <caret line="69" column="18" lean-forward="true" selection-start-line="69" selection-start-column="18" selection-end-line="69" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -56,7 +69,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/about/index.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="444">
+            <state relative-caret-position="6876">
               <caret line="359" column="4" selection-start-line="359" selection-start-column="4" selection-end-line="359" selection-end-column="4" />
               <folding>
                 <element signature="e#2589#2619#0" expanded="true" />
@@ -68,8 +81,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/js/transitions/fromToIndex.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+            <state relative-caret-position="662">
+              <caret line="34" column="20" lean-forward="true" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="20" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -89,8 +102,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/components/threejs.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="250" column="54" selection-start-line="250" selection-start-column="54" selection-end-line="250" selection-end-column="54" />
+            <state relative-caret-position="340">
+              <caret line="244" selection-start-line="244" selection-end-line="245" selection-end-column="53" />
               <folding>
                 <element signature="e#71#170#0" expanded="true" />
               </folding>
@@ -119,11 +132,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/js/webGL/blob.class.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="370">
-              <caret line="32" column="56" selection-start-line="32" selection-start-column="56" selection-end-line="32" selection-end-column="56" />
+            <state relative-caret-position="494">
+              <caret line="20" column="36" lean-forward="true" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="41" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
-                <element signature="e#30#115#0" expanded="true" />
+                <element signature="e#30#142#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -168,9 +181,9 @@
       <find>stroke</find>
       <find>mapmu</find>
       <find>console.log</find>
-      <find>console</find>
       <find>title</find>
       <find>scale</find>
+      <find>console</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -211,8 +224,6 @@
         <option value="$PROJECT_DIR$/static/images/icons/github.svg" />
         <option value="$PROJECT_DIR$/static/images/icons/instagram.svg" />
         <option value="$PROJECT_DIR$/plugins/settings.js" />
-        <option value="$PROJECT_DIR$/pages/index.vue" />
-        <option value="$PROJECT_DIR$/assets/js/transitions/fromToIndex.js" />
         <option value="$PROJECT_DIR$/components/blocks/cursor.vue" />
         <option value="$PROJECT_DIR$/components/header.vue" />
         <option value="$PROJECT_DIR$/assets/scss/_config/_base.scss" />
@@ -225,10 +236,12 @@
         <option value="$PROJECT_DIR$/store/projects.js" />
         <option value="$PROJECT_DIR$/store/currentProject.js" />
         <option value="$PROJECT_DIR$/store/updateWebGL.js" />
-        <option value="$PROJECT_DIR$/assets/js/webGL/blob.class.js" />
-        <option value="$PROJECT_DIR$/components/projectsSlider.vue" />
         <option value="$PROJECT_DIR$/static/images/icons/white-banner.svg" />
         <option value="$PROJECT_DIR$/pages/about/index.vue" />
+        <option value="$PROJECT_DIR$/components/projectsSlider.vue" />
+        <option value="$PROJECT_DIR$/pages/index.vue" />
+        <option value="$PROJECT_DIR$/assets/js/transitions/fromToIndex.js" />
+        <option value="$PROJECT_DIR$/assets/js/webGL/blob.class.js" />
         <option value="$PROJECT_DIR$/components/threejs.vue" />
       </list>
     </option>
@@ -468,7 +481,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="220204000" />
+    <option name="totallyTimeSpent" value="223565000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="953" extended-state="0" />
@@ -490,8 +503,8 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info active="true" anchor="right" id="Terminal" order="3" sideWeight="0.5967175" visible="true" weight="0.22039072" />
-      <window_info anchor="right" id="Run" order="4" sideWeight="0.40328252" side_tool="true" visible="true" weight="0.22039072" />
+      <window_info anchor="right" id="Terminal" order="3" sideWeight="0.5967175" visible="true" weight="0.22039072" />
+      <window_info active="true" anchor="right" id="Run" order="4" sideWeight="0.40328252" side_tool="true" visible="true" weight="0.22039072" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -726,16 +739,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="19" column="14" lean-forward="true" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
-          <folding>
-            <element signature="e#114#171#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/scss/_config/_variables.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="399">
@@ -757,19 +760,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/transitions/fromToAbout.js">
+    <entry file="file://$USER_HOME$/Workplace/Playground/DEV/WebGL/2018/Three_VueJS_TextureWrapping/src/views/Home.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="60" selection-start-line="60" selection-end-line="71" selection-end-column="5" />
+        <state relative-caret-position="349">
+          <caret line="80" column="45" selection-start-line="80" selection-start-column="31" selection-end-line="80" selection-end-column="45" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/transitions/fromToIndex.js">
+    <entry file="file://$PROJECT_DIR$/static/images/icons/white-banner.svg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/about/index.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+        <state relative-caret-position="6876">
+          <caret line="359" column="4" selection-start-line="359" selection-start-column="4" selection-end-line="359" selection-end-column="4" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#2589#2619#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
+          <folding>
+            <element signature="e#114#171#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/transitions/fromToAbout.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="69" column="18" lean-forward="true" selection-start-line="69" selection-start-column="18" selection-end-line="69" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/projectsSlider.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1526">
+          <caret line="109" column="9" lean-forward="true" selection-start-line="99" selection-start-column="8" selection-end-line="109" selection-end-column="9" />
+          <folding>
+            <element signature="e#506#547#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -788,51 +821,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Workplace/Playground/DEV/WebGL/2018/Three_VueJS_TextureWrapping/src/views/Home.vue">
+    <entry file="file://$PROJECT_DIR$/assets/js/transitions/fromToIndex.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="80" column="45" selection-start-line="80" selection-start-column="31" selection-end-line="80" selection-end-column="45" />
+        <state relative-caret-position="662">
+          <caret line="34" column="20" lean-forward="true" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="20" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/webGL/blob.class.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="32" column="56" selection-start-line="32" selection-start-column="56" selection-end-line="32" selection-end-column="56" />
+        <state relative-caret-position="494">
+          <caret line="20" column="36" lean-forward="true" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="41" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
-            <element signature="e#30#115#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/images/icons/white-banner.svg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/projectsSlider.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="247" column="25" selection-start-line="247" selection-start-column="25" selection-end-line="247" selection-end-column="25" />
-          <folding>
-            <element signature="e#506#547#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pages/about/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="359" column="4" selection-start-line="359" selection-start-column="4" selection-end-line="359" selection-end-column="4" />
-          <folding>
-            <element signature="e#2589#2619#0" expanded="true" />
+            <element signature="e#30#142#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/components/threejs.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="250" column="54" selection-start-line="250" selection-start-column="54" selection-end-line="250" selection-end-column="54" />
+        <state relative-caret-position="340">
+          <caret line="244" selection-start-line="244" selection-end-line="245" selection-end-column="53" />
           <folding>
             <element signature="e#71#170#0" expanded="true" />
           </folding>

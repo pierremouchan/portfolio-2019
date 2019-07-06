@@ -41,16 +41,7 @@ export default {
       return this.projects[this.$store.state.currentProject.number];
     }
   },
-  mounted() {
-    this.$store.watch(
-      () => this.$store.getters['loader/alreadyLoaded'],
-      alreadyLoaded => {
-        if (alreadyLoaded) {
-          this.enterProjectSlider();
-        }
-      }
-    );
-  },
+  mounted() {},
   created() {},
   methods: {
     // eslint-disable-next-line standard/computed-property-even-spacing
