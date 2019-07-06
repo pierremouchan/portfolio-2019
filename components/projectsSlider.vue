@@ -14,18 +14,13 @@
     <button class="next" @click="nextProject">
       next
     </button>
-    <Fog id="fog"></Fog>
   </div>
 </template>
 
 <script>
 import { TimelineMax, Expo } from 'gsap';
 import { mapMutations } from 'vuex';
-import Fog from '~/static/images/white-fog.svg?inline';
 export default {
-  components: {
-    Fog
-  },
   data() {
     return {
       projects: this.$store.state.projects.list
@@ -212,13 +207,6 @@ export default {
   top: 0;
   left: 0;
   overflow: hidden;
-  #fog {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    z-index: $normal;
-    pointer-events: none;
-  }
   .title-container {
     position: absolute;
     top: 20%;
@@ -244,6 +232,7 @@ export default {
         font-weight: 900;
         font-size: 35px;
         color: $black;
+        transform: translateY(150%);
         @include mq($from: tablet) {
           font-size: 75px;
         }

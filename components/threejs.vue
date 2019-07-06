@@ -17,6 +17,7 @@ import {
 } from 'three';
 import { TweenMax, Expo } from 'gsap';
 import Sun from '~/static/images/icons/sun.svg?inline';
+
 // import { Interaction } from 'three.interaction';
 import Blob from '~/assets/js/webGL/blob.class';
 
@@ -40,8 +41,21 @@ export default {
   watch: {
     $route(to, from) {
       if (to.name === 'about') {
+        for (const i in projectsBlob) {
+          TweenMax.to(projectsBlob[i].mesh.position, 1, {
+            y: -500,
+            ease: Expo.easeIn
+          });
+        }
+
         TweenMax.to(mainBlob.mesh.position, 2, { z: 0, ease: Expo.easeOut });
-      } else {
+      } else if (to.name === 'index') {
+        for (const i in projectsBlob) {
+          TweenMax.to(projectsBlob[i].mesh.position, 2, {
+            y: 0,
+            ease: Expo.easeOut
+          });
+        }
         TweenMax.to(mainBlob.mesh.position, 2, { z: -500, ease: Expo.easeOut });
       }
     }
@@ -86,6 +100,9 @@ export default {
           case true:
             if (this.$route.name === 'about') {
               mainBlob.mesh.position.z = 0;
+              for (const i in projectsBlob) {
+                projectsBlob[i].mesh.position.y = -500;
+              }
             }
             break;
         }
@@ -239,6 +256,7 @@ export default {
             projectsBlob[i].updateVertices(iteration);
             projectsBlob[i].mesh.rotation.x += 0.005;
             projectsBlob[i].mesh.rotation.y += 0.005;
+            projectsBlob[i].mesh.rotation.z += 0.005;
           }
         }
         iteration += 30;
@@ -307,20 +325,29 @@ export default {
 
 <style lang="scss" scoped>
 .webGL-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  max-height: 100vh;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+
   .webGL-container {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     z-index: $up - 1;
     width: 100vw;
     height: 100vh;
+
     pointer-events: none;
   }
   #sun {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 150%);
     width: 90%;
     max-width: 750px;
     @include mq($from: tablet) {

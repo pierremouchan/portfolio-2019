@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 import {
-  TorusGeometry,
+  OctahedronGeometry,
   MeshToonMaterial,
   Mesh,
   TextureLoader,
@@ -18,7 +18,7 @@ export default class Blob {
     this.create();
   }
   create() {
-    const geometryBlobCreated = new TorusGeometry(64, 32, 32, 64);
+    const geometryBlobCreated = new OctahedronGeometry(100, 4);
     this.geometry = geometryBlobCreated;
     for (let i = 0; i < this.geometry.vertices.length; i++) {
       const vector = this.geometry.vertices[i];
