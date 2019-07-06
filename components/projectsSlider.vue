@@ -14,9 +14,6 @@
     <button class="next" @click="nextProject">
       next
     </button>
-    <nuxt-link id="sun" :to="'/projects/' + activeProject.id">
-      <Sun></Sun>
-    </nuxt-link>
     <Fog id="fog"></Fog>
   </div>
 </template>
@@ -24,11 +21,9 @@
 <script>
 import { TimelineMax, Expo } from 'gsap';
 import { mapMutations } from 'vuex';
-import Sun from '~/static/images/icons/sun.svg?inline';
 import Fog from '~/static/images/white-fog.svg?inline';
 export default {
   components: {
-    Sun,
     Fog
   },
   data() {
@@ -41,16 +36,7 @@ export default {
       return this.projects[this.$store.state.currentProject.number];
     }
   },
-  mounted() {
-    this.$store.watch(
-      () => this.$store.getters['loader/alreadyLoaded'],
-      alreadyLoaded => {
-        if (alreadyLoaded) {
-          this.enterProjectSlider();
-        }
-      }
-    );
-  },
+  mounted() {},
   created() {},
   methods: {
     // eslint-disable-next-line standard/computed-property-even-spacing
@@ -226,20 +212,6 @@ export default {
   top: 0;
   left: 0;
   overflow: hidden;
-  #sun {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%;
-    max-width: 750px;
-    @include mq($from: tablet) {
-      width: 80%;
-    }
-    @include mq($from: desktop) {
-      width: 60%;
-    }
-  }
   #fog {
     position: absolute;
     bottom: 0;

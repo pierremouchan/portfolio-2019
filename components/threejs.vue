@@ -1,5 +1,10 @@
 <template>
-  <div class="webGL-container"></div>
+  <div class="webGL-wrapper">
+    <div class="webGL-container"></div>
+    <nuxt-link id="sun" :to="'/projects/' + projects[oldProjectNumber].id">
+      <Sun></Sun>
+    </nuxt-link>
+  </div>
 </template>
 
 <script>
@@ -11,6 +16,7 @@ import {
   WebGLRenderer
 } from 'three';
 import { TweenMax, Expo } from 'gsap';
+import Sun from '~/static/images/icons/sun.svg?inline';
 // import { Interaction } from 'three.interaction';
 import Blob from '~/assets/js/webGL/blob.class';
 
@@ -20,6 +26,9 @@ const projectsBlob = [];
 let iteration = 0;
 
 export default {
+  components: {
+    Sun
+  },
   data() {
     return {
       projects: this.$store.state.projects.list,
@@ -297,13 +306,29 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.webGL-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: $up;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
+.webGL-wrapper {
+  .webGL-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: $up - 1;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+  }
+  #sun {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 750px;
+    @include mq($from: tablet) {
+      width: 80%;
+    }
+    @include mq($from: desktop) {
+      width: 60%;
+    }
+  }
 }
 </style>
