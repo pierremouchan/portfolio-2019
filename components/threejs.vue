@@ -248,7 +248,7 @@ export default {
       });
       function onWindowResize() {
         camera.aspect = container.clientWidth / container.clientHeight;
-        if (camera.aspect < 1.2) {
+        if (camera.aspect < 1.2 && camera.aspect > 0.8) {
           mainBlob.mesh.scale.set(camera.aspect, camera.aspect, camera.aspect);
           for (let i = 0; i < projectsBlob.length; i++) {
             projectsBlob[i].mesh.scale.set(

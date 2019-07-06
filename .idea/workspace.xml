@@ -53,11 +53,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/about/index.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="368" selection-start-line="368" selection-end-line="368" />
+            <state relative-caret-position="444">
+              <caret line="359" column="4" selection-start-line="359" selection-start-column="4" selection-end-line="359" selection-end-column="4" />
               <folding>
                 <element signature="e#2589#2619#0" expanded="true" />
               </folding>
@@ -86,11 +86,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/components/threejs.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6006">
-              <caret line="231" column="53" selection-start-line="231" selection-start-column="53" selection-end-line="231" selection-end-column="53" />
+            <state relative-caret-position="374">
+              <caret line="250" column="54" selection-start-line="250" selection-start-column="54" selection-end-line="250" selection-end-column="54" />
               <folding>
                 <element signature="e#71#170#0" expanded="true" />
               </folding>
@@ -228,8 +228,8 @@
         <option value="$PROJECT_DIR$/assets/js/webGL/blob.class.js" />
         <option value="$PROJECT_DIR$/components/projectsSlider.vue" />
         <option value="$PROJECT_DIR$/static/images/icons/white-banner.svg" />
-        <option value="$PROJECT_DIR$/components/threejs.vue" />
         <option value="$PROJECT_DIR$/pages/about/index.vue" />
+        <option value="$PROJECT_DIR$/components/threejs.vue" />
       </list>
     </option>
   </component>
@@ -468,14 +468,14 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="219242000" />
+    <option name="totallyTimeSpent" value="220204000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="953" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49941385" visible="true" weight="0.2045177" />
+      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49941385" visible="true" weight="0.2045177" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="1" />
@@ -490,7 +490,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Terminal" order="3" sideWeight="0.5967175" visible="true" weight="0.22039072" />
+      <window_info active="true" anchor="right" id="Terminal" order="3" sideWeight="0.5967175" visible="true" weight="0.22039072" />
       <window_info anchor="right" id="Run" order="4" sideWeight="0.40328252" side_tool="true" visible="true" weight="0.22039072" />
     </layout>
   </component>
@@ -819,22 +819,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/threejs.vue">
+    <entry file="file://$PROJECT_DIR$/pages/about/index.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6006">
-          <caret line="231" column="53" selection-start-line="231" selection-start-column="53" selection-end-line="231" selection-end-column="53" />
+        <state relative-caret-position="444">
+          <caret line="359" column="4" selection-start-line="359" selection-start-column="4" selection-end-line="359" selection-end-column="4" />
           <folding>
-            <element signature="e#71#170#0" expanded="true" />
+            <element signature="e#2589#2619#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/about/index.vue">
+    <entry file="file://$PROJECT_DIR$/components/threejs.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="368" selection-start-line="368" selection-end-line="368" />
+        <state relative-caret-position="374">
+          <caret line="250" column="54" selection-start-line="250" selection-start-column="54" selection-end-line="250" selection-end-column="54" />
           <folding>
-            <element signature="e#2589#2619#0" expanded="true" />
+            <element signature="e#71#170#0" expanded="true" />
           </folding>
         </state>
       </provider>
