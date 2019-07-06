@@ -9,7 +9,7 @@ export const fromAbout = done => {
   });
   window.scrollTo(0, 0);
   fromIndexTimeline
-    .addLabel('f1')
+    .addLabel('f1+=0.5')
     .to(
       'h1',
       1,

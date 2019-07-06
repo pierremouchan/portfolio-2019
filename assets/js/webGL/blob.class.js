@@ -1,9 +1,10 @@
 /* eslint-disable no-undef */
 import {
-  IcosahedronGeometry,
+  TorusGeometry,
   MeshToonMaterial,
   Mesh,
-  TextureLoader
+  TextureLoader,
+  MirroredRepeatWrapping
 } from 'three';
 import { noise } from '~/plugins/external/perlin';
 
@@ -13,10 +14,11 @@ export default class Blob {
     this.mesh = undefined;
     this.geometry = undefined;
     this.perlinNoise = perlinNoise || 0.006;
+    this.blobPosition = 0;
     this.create();
   }
   create() {
-    const geometryBlobCreated = new IcosahedronGeometry(100, 3);
+    const geometryBlobCreated = new TorusGeometry(64, 32, 32, 64);
     this.geometry = geometryBlobCreated;
     for (let i = 0; i < this.geometry.vertices.length; i++) {
       const vector = this.geometry.vertices[i];
@@ -26,7 +28,10 @@ export default class Blob {
     let materialBlobCreated;
     if (this.textureURL) {
       const textureBlobCreated = new TextureLoader().load(this.textureURL);
-      textureBlobCreated.anisotropy = 4;
+      textureBlobCreated.anisotropy = 8;
+      textureBlobCreated.wrapS = MirroredRepeatWrapping;
+      textureBlobCreated.wrapT = MirroredRepeatWrapping;
+      textureBlobCreated.repeat.set(2, 2);
       materialBlobCreated = new MeshToonMaterial({
         map: textureBlobCreated,
         color: 0xf9f1ec,

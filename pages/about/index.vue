@@ -7,8 +7,8 @@
 
       <div class="desc-wrapper">
         <p class="description">
-          <strong class="strong-red">Creative developer</strong>, and Apple
-          lover
+          Junior <strong class="strong-red">Creative developer</strong>, and
+          Apple lover
           <br />
           <span>(The fruit of course 😌)</span>
         </p>
@@ -48,7 +48,7 @@
           <strong class="strong-red">with you !</strong>
           👌
         </div>
-        <div class="reseaux">
+        <address class="reseaux">
           <a href="https://github.com/PierreMouchan/" target="_blank"
             ><githubIcon></githubIcon
           ></a>
@@ -61,7 +61,7 @@
             ><facebookIcon></facebookIcon
           ></a>
           <a href="" target="_blank"><resumeIcon></resumeIcon></a>
-        </div>
+        </address>
       </div>
       <div class="myself-picture">
         <div class="myself-picture__mask"></div>
@@ -71,17 +71,25 @@
         />
       </div>
     </div>
+    <div class="get-in-touch">
+      <a
+        class="get-in-touch__link"
+        href="mailto:pierre.mouchan@gmail.com"
+        target="_blank"
+        >GET IN TOUCH</a
+      >
+    </div>
   </div>
 </template>
 
 <script>
 import Bound from 'bounds.js';
 import { TweenMax, Expo, TimelineMax } from 'gsap';
+import { mapMutations } from 'vuex';
 import githubIcon from '~/static/images/icons/github.svg?inline';
 import instaIcon from '~/static/images/icons/instagram.svg?inline';
 import facebookIcon from '~/static/images/icons/facebook.svg?inline';
 import resumeIcon from '~/static/images/icons/resume.svg?inline';
-// eslint-disable-next-line no-unused-vars
 import { toAbout, fromAbout } from '~/assets/js/transitions/fromToAbout';
 
 export default {
@@ -104,20 +112,24 @@ export default {
     };
   },
   mounted() {
-    this.revealDesc();
+    this.revealEl();
     toAbout();
   },
   beforeRouteLeave(to, from, next) {
     fromAbout(next);
   },
   methods: {
-    revealDesc() {
+    ...mapMutations({
+      isContactSectionVisible: 'updateWebGL/isContactSectionVisible'
+    }),
+    revealEl() {
       const boundary = Bound({
         root: this.window,
         threshold: 0.1
       }); // initialize with default options
       const myselfDesc = document.querySelector('.myself-description__mask');
       const myselfPic = document.querySelector('.myself-picture__mask');
+      const getInTouch = document.querySelector('.get-in-touch');
       const whenMyselfDescEnters = () => {
         TweenMax.to(myselfDesc, 0.5, {
           transformOrigin: 'right bottom',
@@ -127,7 +139,6 @@ export default {
         boundary.unWatch(myselfDesc);
       };
       const whenMyselfPicEnters = () => {
-        console.log('test -> ', 'test');
         const revealPic = new TimelineMax();
         revealPic
           .addLabel('f1')
@@ -150,8 +161,30 @@ export default {
           );
         boundary.unWatch(myselfPic);
       };
+      const whenGetInTouchEnters = () => {
+        this.isContactSectionVisible(true);
+        const revealGetInTouch = new TimelineMax();
+        revealGetInTouch.fromTo(
+          '.get-in-touch__link',
+          2,
+          {
+            y: '120%',
+            rotation: 5,
+            transformOrigin: 'bottom left'
+          },
+          { y: '0%', rotation: 0, ease: Expo.easeOut }
+        );
+      };
+      const whenGetInTouchLeaves = () => {
+        this.isContactSectionVisible(false);
+      };
       boundary.watch(myselfDesc, whenMyselfDescEnters);
       boundary.watch(myselfPic, whenMyselfPicEnters);
+      const boundary2 = Bound({
+        root: this.window,
+        threshold: 0
+      });
+      boundary2.watch(getInTouch, whenGetInTouchEnters, whenGetInTouchLeaves);
     }
   }
 };
@@ -318,6 +351,37 @@ export default {
       svg {
         max-height: 48px;
       }
+    }
+  }
+  .get-in-touch {
+    overflow: hidden;
+    margin: 15vh auto;
+    text-align: center;
+    &__link {
+      position: relative;
+      -webkit-text-stroke: 2px $black;
+      color: $transparent;
+      font-family: $font-title;
+      font-weight: 900;
+      font-size: 35px;
+      line-height: normal;
+      transition: color 1s;
+
+      &:hover {
+        color: $black;
+      }
+      @include mq($from: tablet) {
+        font-size: 75px;
+      }
+      @include mq($from: desktop_plus) {
+        font-size: 100px;
+      }
+    }
+    @include mq($from: tablet) {
+      margin: 25vh auto;
+    }
+    @include mq($from: desktop_plus) {
+      margin: 35vh auto;
     }
   }
 }

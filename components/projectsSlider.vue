@@ -8,13 +8,22 @@
         <div>{{ activeProject.title }}</div>
       </div>
     </div>
-    <Sun id="sun"></Sun>
+    <button class="previous" @click="previousProject">
+      previous
+    </button>
+    <button class="next" @click="nextProject">
+      next
+    </button>
+    <nuxt-link id="sun" :to="'/projects/' + activeProject.id">
+      <Sun></Sun>
+    </nuxt-link>
     <Fog id="fog"></Fog>
   </div>
 </template>
 
 <script>
-// import { TimelineMax, TweenMax, Expo } from 'gsap';
+import { TimelineMax, Expo } from 'gsap';
+import { mapMutations } from 'vuex';
 import Sun from '~/static/images/icons/sun.svg?inline';
 import Fog from '~/static/images/white-fog.svg?inline';
 export default {
@@ -33,12 +42,10 @@ export default {
     }
   },
   mounted() {
-    this.enterSetState();
     this.$store.watch(
       () => this.$store.getters['loader/alreadyLoaded'],
       alreadyLoaded => {
         if (alreadyLoaded) {
-          this.enterSetState();
           this.enterProjectSlider();
         }
       }
@@ -46,15 +53,172 @@ export default {
   },
   created() {},
   methods: {
+    // eslint-disable-next-line standard/computed-property-even-spacing
+    ...mapMutations({
+      decreaseProject: 'currentProject/previousProject',
+      increaseProject: 'currentProject/nextProject'
+    }),
+    nextProject() {
+      const nextProjectTimeline = new TimelineMax({
+        onComplete: () => {
+          this.increaseProject();
+          nextProjectTimeline2.play();
+        }
+      });
+      const nextProjectTimeline2 = new TimelineMax({
+        paused: true
+      });
+
+      // FIRST TIMELINE RETRACT TEXT
+      nextProjectTimeline
+        .addLabel('f1')
+        .fromTo(
+          '.title h2',
+          1,
+          {
+            y: '0%',
+            rotation: 0,
+            transformOrigin: 'top right'
+          },
+          {
+            y: '-120%',
+            rotation: 5,
+            ease: Expo.easeIn
+          },
+          'f1'
+        )
+        .fromTo(
+          '.title-outline div',
+          1,
+          {
+            y: '0%',
+            rotation: 0,
+            transformOrigin: 'top right'
+          },
+          {
+            y: '-120%',
+            rotation: 5,
+            transformOrigin: 'top right',
+            ease: Expo.easeIn
+          },
+          'f1'
+        );
+      // SECOND TIMELINE, APPEAR NEW PROJECT
+      nextProjectTimeline2
+        .addLabel('f1')
+        .fromTo(
+          '.title h2',
+          1,
+          {
+            y: '120%',
+            rotation: 5,
+            transformOrigin: 'bottom left'
+          },
+          { y: '0%', rotation: 0, ease: Expo.easeOut },
+          'f1'
+        )
+        .fromTo(
+          '.title-outline div',
+          1,
+          {
+            y: '120%',
+            rotation: 5,
+            transformOrigin: 'bottom left'
+          },
+          { y: '0%', rotation: 0, ease: Expo.easeOut },
+          'f1'
+        );
+    },
+    previousProject() {
+      const previousProjectTimeline = new TimelineMax({
+        onComplete: () => {
+          this.decreaseProject();
+          previousProjectTimeline2.play();
+        }
+      });
+      const previousProjectTimeline2 = new TimelineMax({
+        paused: true
+      });
+
+      // FIRST TIMELINE RETRACT TEXT
+      previousProjectTimeline
+        .addLabel('f1')
+        .fromTo(
+          '.title h2',
+          1,
+          {
+            y: '0%',
+            rotation: 0,
+            transformOrigin: 'bottom left'
+          },
+          {
+            y: '120%',
+            rotation: 5,
+            ease: Expo.easeIn
+          },
+          'f1'
+        )
+        .fromTo(
+          '.title-outline div',
+          1,
+          {
+            y: '0%',
+            rotation: 0,
+            transformOrigin: 'bottom left'
+          },
+          {
+            y: '120%',
+            rotation: 5,
+            ease: Expo.easeIn
+          },
+          'f1'
+        );
+      // SECOND TIMELINE, APPEAR NEW PROJECT
+      previousProjectTimeline2
+        .addLabel('f1')
+        .fromTo(
+          '.title h2',
+          1,
+          {
+            y: '-120%',
+            rotation: 5,
+            transformOrigin: 'top right'
+          },
+          { y: '0%', rotation: 0, ease: Expo.easeOut },
+          'f1'
+        )
+        .fromTo(
+          '.title-outline div',
+          1,
+          {
+            y: '-120%',
+            rotation: 5,
+            transformOrigin: 'top right'
+          },
+          { y: '0%', rotation: 0, ease: Expo.easeOut },
+          'f1'
+        );
+    },
     enterProjectSlider() {
       // const toIndexTimeline = new TimelineMax({});
-    },
-    enterSetState() {}
+    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
+.previous {
+  position: absolute;
+  z-index: $beforefg;
+  top: 50%;
+  left: 0;
+}
+.next {
+  position: absolute;
+  z-index: $beforefg;
+  top: 50%;
+  left: 10%;
+}
 .project-slider-wrapper {
   position: absolute;
   width: 100vw;
@@ -69,7 +233,6 @@ export default {
     transform: translate(-50%, -50%);
     width: 90%;
     max-width: 750px;
-    z-index: $down;
     @include mq($from: tablet) {
       width: 80%;
     }
@@ -81,20 +244,22 @@ export default {
     position: absolute;
     bottom: 0;
     width: 100%;
-    z-index: $down + 1;
+    z-index: $normal;
+    pointer-events: none;
   }
   .title-container {
     position: absolute;
-    top: 30%;
+    top: 20%;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    @include mq($from: tablet) {
-      top: 20%;
-    }
+    z-index: $up;
+    pointer-events: none;
+
     .title {
+      overflow: hidden;
       line-height: 30px;
       @include mq($from: tablet) {
         line-height: 80px;
@@ -137,6 +302,18 @@ export default {
       @include mq($from: xlarge) {
         font-size: 120px;
         height: 60px;
+      }
+      div {
+        height: 30px;
+        @include mq($from: tablet) {
+          height: 40px;
+        }
+        @include mq($from: desktop_plus) {
+          height: 50px;
+        }
+        @include mq($from: xlarge) {
+          height: 60px;
+        }
       }
     }
   }

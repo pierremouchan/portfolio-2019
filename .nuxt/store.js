@@ -20,6 +20,7 @@ void (function updateModules() {
   resolveStoreModules(require('../store/currentRoutes.js'), 'currentRoutes.js')
   resolveStoreModules(require('../store/loader.js'), 'loader.js')
   resolveStoreModules(require('../store/projects.js'), 'projects.js')
+  resolveStoreModules(require('../store/updateWebGL.js'), 'updateWebGL.js')
 
   // If the environment supports hot reloading...
 
@@ -30,6 +31,7 @@ void (function updateModules() {
       '../store/currentRoutes.js',
       '../store/loader.js',
       '../store/projects.js',
+      '../store/updateWebGL.js',
     ], () => {
       // Update `root.modules` with the latest definitions.
       updateModules()

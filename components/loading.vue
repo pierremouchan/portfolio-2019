@@ -141,25 +141,32 @@ export default {
     .percentage-number {
       position: relative;
       font-family: $font-title;
-      font-size: 50vh;
+      font-size: 50vw;
       line-height: 75vh;
       color: $white;
-      transform: rotate(90deg);
       transform-origin: center center;
+      font-weight: 900;
+      font-family: $font-title;
 
       &:before {
         content: '%';
         opacity: 0.1;
         color: $white;
-        font-size: 75vh;
+        font-size: 75vw;
+        font-weight: 900;
+        font-family: $font-title;
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        @include mq($from: tablet) {
+          font-size: 75vh;
+        }
       }
 
       @include mq($from: tablet) {
         transform: rotate(0);
+        font-size: 50vh;
       }
     }
   }

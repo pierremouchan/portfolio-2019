@@ -21,7 +21,7 @@ export const state = () => ({
     },
     {
       id: 'FSIF',
-      title: 'FSIF',
+      title: 'F.S.I.F',
       date: '2019',
       mainTech: 'WORDPRESS',
       othersTech: ['GSAP', 'PHP', 'INTERN'],

@@ -11,17 +11,20 @@ import {
   WebGLRenderer
 } from 'three';
 import { TweenMax, Expo } from 'gsap';
-import { Interaction } from 'three.interaction';
+// import { Interaction } from 'three.interaction';
 import Blob from '~/assets/js/webGL/blob.class';
 
-let mainBlob;
-const othersBlob = [];
+// eslint-disable-next-line no-unused-vars
+let mainBlob, activeBlob;
+const projectsBlob = [];
+let iteration = 0;
 
 export default {
   data() {
     return {
       projects: this.$store.state.projects.list,
-      textureList: []
+      textureList: [],
+      oldProjectNumber: 0
     };
   },
   computed: {},
@@ -42,6 +45,30 @@ export default {
 
   mounted() {
     this.setupWebGL();
+    this.checkHoverSun();
+    this.$store.watch(
+      () => this.$store.state.updateWebGL.mainBlobContact,
+      status => {
+        switch (status) {
+          case true:
+            TweenMax.to(mainBlob.mesh.material.color, 1, {
+              r: new Color(0xf25d61).r,
+              g: new Color(0xf25d61).g,
+              b: new Color(0xf25d61).b
+            });
+            TweenMax.to(mainBlob.mesh.position, 1, { y: -50, z: 100 });
+            break;
+          case false:
+            TweenMax.to(mainBlob.mesh.material.color, 1, {
+              r: new Color(0xf9f1ec).r,
+              g: new Color(0xf9f1ec).g,
+              b: new Color(0xf9f1ec).b
+            });
+            TweenMax.to(mainBlob.mesh.position, 1, { y: 0, z: 0 });
+            break;
+        }
+      }
+    );
 
     this.$store.watch(
       () => this.$store.getters['loader/alreadyLoaded'],
@@ -55,8 +82,105 @@ export default {
         }
       }
     );
+    this.$store.watch(
+      () => this.$store.state.currentProject.number,
+      newProjectNumber => {
+        if (
+          this.oldProjectNumber === 0 &&
+          newProjectNumber === this.projects.length - 1
+        ) {
+          for (let i = 0; i < projectsBlob.length; i++) {
+            TweenMax.to(projectsBlob[i].mesh.position, 1, {
+              x: '-=1500',
+              ease: Expo.easeOut
+            });
+          }
+        } else if (
+          this.oldProjectNumber === this.projects.length - 1 &&
+          newProjectNumber === 0
+        ) {
+          for (let i = 0; i < projectsBlob.length; i++) {
+            TweenMax.to(projectsBlob[i].mesh.position, 1, {
+              x: '+=1500',
+              ease: Expo.easeOut
+            });
+          }
+        } else if (newProjectNumber === this.oldProjectNumber + 1) {
+          for (let i = 0; i < projectsBlob.length; i++) {
+            TweenMax.to(projectsBlob[i].mesh.position, 1, {
+              x: '-=500',
+              ease: Expo.easeOut
+            });
+          }
+        } else {
+          for (let i = 0; i < projectsBlob.length; i++) {
+            TweenMax.to(projectsBlob[i].mesh.position, 1, {
+              x: '+=500',
+              ease: Expo.easeOut
+            });
+          }
+        }
+        // switch (newProjectNumber > this.oldProjectNumber) {
+        //   case true:
+        //     for (let i = 0; i < projectsBlob.length; i++) {
+        //       TweenMax.to(projectsBlob[i].mesh.position, 1, {
+        //         x: '-=500',
+        //         ease: Expo.easeOut
+        //       });
+        //     }
+        //
+        //     this.setActiveBlob(newProjectNumber);
+        //     this.oldProjectNumber = newProjectNumber;
+        //     break;
+        //   case false:
+        //     for (let i = 0; i < projectsBlob.length; i++) {
+        //       TweenMax.to(projectsBlob[i].mesh.position, 1, {
+        //         x: '+=500',
+        //         ease: Expo.easeOut
+        //       });
+        //     }
+        this.setActiveBlob(newProjectNumber);
+        this.oldProjectNumber = newProjectNumber;
+      }
+    );
   },
   methods: {
+    checkHoverSun() {
+      document.querySelector('#sun').addEventListener('mouseenter', () => {
+        console.log('enter');
+        iteration = 0;
+        TweenMax.to(activeBlob, 0.5, { perlinNoise: 0 });
+      });
+      document.querySelector('#sun').addEventListener('mouseleave', () => {
+        console.log('enter');
+        iteration = 0;
+        TweenMax.to(activeBlob, 0.5, { perlinNoise: 0.006 });
+      });
+    },
+    setActiveBlob(number) {
+      activeBlob = projectsBlob[number];
+      //   activeBlob.mesh.on('mouseover', event => {
+      //     console.log('on -> ');
+      //     TweenMax.to(activeBlob, 0.5, { perlinNoise: 0 });
+      //   });
+      //   activeBlob.mesh.on('mouseout', event => {
+      //     console.log('leave -> ');
+      //     iteration = 0;
+      //     TweenMax.to(activeBlob, 0.5, { perlinNoise: 0.006 });
+      //   });
+      //
+      //   activeBlob.mesh.on('click', event => {
+      //     console.log('click -> ');
+      //     this.$router.push(
+      //       `/projects/${
+      //         // eslint-disable-next-line standard/computed-property-even-spacing
+      //         this.$store.state.projects.list[
+      //           this.$store.state.currentProject.number
+      //         ].id
+      //       }`
+      //     );
+      //   });
+    },
     setupWebGL() {
       const container = document.querySelector('.webGL-container');
       const scene = new Scene();
@@ -79,16 +203,15 @@ export default {
       scene.add(mainBlob.mesh);
       mainBlob.mesh.position.set(0, 0, -500);
 
-      setTimeout(() => {}, 2500);
-
       // eslint-disable-next-line no-unused-vars
 
-      // const that = this;
-      // for (let i = 0; i < this.textureList.length; i++) {
-      //   const otherBlob = new Blob(that.textureList[i]);
-      //   othersBlob.push(otherBlob);
-      //   scene.add(otherBlob.mesh);
-      // }
+      const that = this;
+      for (let i = 0; i < this.textureList.length; i++) {
+        const projectBlob = new Blob(that.textureList[i]);
+        projectsBlob.push(projectBlob);
+        projectBlob.mesh.position.set(500 * i, 0, 0);
+        scene.add(projectBlob.mesh);
+      }
       // redefining variable that need to be a real "variable"
       // CAMERA POSITION
       camera.position.set(0, 0, 200);
@@ -100,39 +223,16 @@ export default {
       renderer.setPixelRatio(window.devicePixelRatio);
       container.appendChild(renderer.domElement);
 
-      // DOMEVENTS
-      // eslint-disable-next-line no-unused-vars
-      const interaction = new Interaction(renderer, scene, camera);
-
-      mainBlob.mesh.on('mouseover', event => {
-        console.log('on -> ');
-        TweenMax.to(mainBlob, 0.5, { perlinNoise: 0 });
-      });
-      mainBlob.mesh.on('mouseout', event => {
-        console.log('leave -> ');
-        iteration = 0;
-        TweenMax.to(mainBlob, 0.5, { perlinNoise: 0.006 });
-      });
-
-      mainBlob.mesh.on('click', event => {
-        console.log('click -> ');
-        const targetColor = new Color(0xafe2f3);
-        TweenMax.to(mainBlob.mesh.material.color, 1, {
-          r: targetColor.r,
-          g: targetColor.g,
-          b: targetColor.b
-        });
-      });
-
-      let iteration = 0;
       function update() {
         mainBlob.updateVertices(iteration);
-        if (othersBlob) {
-          for (let i = 0; i < othersBlob.length; i++) {
-            othersBlob[i].updateVertices(iteration * (i + 1));
+        if (projectsBlob) {
+          for (let i = 0; i < projectsBlob.length; i++) {
+            projectsBlob[i].updateVertices(iteration);
+            projectsBlob[i].mesh.rotation.x += 0.005;
+            projectsBlob[i].mesh.rotation.y += 0.005;
           }
         }
-        iteration += 10;
+        iteration += 30;
       }
 
       function render() {
@@ -150,6 +250,13 @@ export default {
         camera.aspect = container.clientWidth / container.clientHeight;
         if (camera.aspect < 1.2) {
           mainBlob.mesh.scale.set(camera.aspect, camera.aspect, camera.aspect);
+          for (let i = 0; i < projectsBlob.length; i++) {
+            projectsBlob[i].mesh.scale.set(
+              camera.aspect / 1.25,
+              camera.aspect / 1.25,
+              camera.aspect / 1.25
+            );
+          }
         }
 
         camera.updateProjectionMatrix();
@@ -158,6 +265,32 @@ export default {
       onWindowResize();
 
       window.addEventListener('resize', onWindowResize);
+
+      // DOMEVENTS
+      // eslint-disable-next-line no-unused-vars
+      // const interaction = new Interaction(renderer, scene, camera);
+      activeBlob = projectsBlob[0];
+      // activeBlob.mesh.on('mouseover', event => {
+      //   console.log('on -> ');
+      //   TweenMax.to(activeBlob, 0.5, { perlinNoise: 0 });
+      // });
+      // activeBlob.mesh.on('mouseout', event => {
+      //   console.log('leave -> ');
+      //   iteration = 0;
+      //   TweenMax.to(activeBlob, 0.5, { perlinNoise: 0.006 });
+      // });
+      //
+      // activeBlob.mesh.on('click', event => {
+      //   console.log('click -> ');
+      //   this.$router.push(
+      //     `/projects/${
+      //       // eslint-disable-next-line standard/computed-property-even-spacing
+      //       this.$store.state.projects.list[
+      //         this.$store.state.currentProject.number
+      //       ].id
+      //     }`
+      //   );
+      // });
     }
   }
 };
@@ -171,5 +304,6 @@ export default {
   z-index: $up;
   width: 100vw;
   height: 100vh;
+  pointer-events: none;
 }
 </style>
