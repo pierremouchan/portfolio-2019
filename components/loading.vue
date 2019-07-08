@@ -121,6 +121,14 @@ export default {
   background: $black;
   overflow: hidden;
 
+  .bg-preloaded {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: repeat;
+    background-size: 250px 250px;
+  }
+
   &-container {
     z-index: $normal;
     position: absolute;
@@ -128,12 +136,6 @@ export default {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    .bg-preloaded {
-      opacity: 0;
-      width: 100%;
-      height: 100%;
-      background-repeat: repeat;
-    }
 
     .percentage-number {
       position: relative;
