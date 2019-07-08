@@ -122,11 +122,21 @@ export default {
   overflow: hidden;
 
   .bg-preloaded {
-    opacity: 0;
+    opacity: 1;
+    z-index: $background;
     width: 100%;
     height: 100%;
     background-repeat: repeat;
     background-size: 250px 250px;
+    background-position: 0 0;
+    animation: bgPosition 10s infinite linear;
+    transition: background-image 2s;
+  }
+  @keyframes bgPosition {
+    100% {
+      // BACKGROUND POSITION HAS TO BE THE SAME WIDTH AS THE BACKGROUND
+      background-position: 250px 250px;
+    }
   }
 
   &-container {
