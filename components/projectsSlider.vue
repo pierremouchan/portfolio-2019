@@ -395,7 +395,7 @@ export default {
           },
           'f1+=0.25'
         )
-        .to('#distortionFilter feDisplacementMap', 1, { attr: { scale: '50' } }, 'f1+=0.5');
+        .to('.background-project', 0.5, { width: '90%', height: '90%', ease: Back.easeIn.config(1) }, 'f1+=0.25');
       // SECOND TIMELINE, APPEAR NEW PROJECT
       previousProjectTimeline2
         .addLabel('f1')
@@ -459,7 +459,7 @@ export default {
           },
           'f1+=0.25'
         )
-        .to('#distortionFilter feDisplacementMap', 1, { attr: { scale: '0' } }, 'f1+=0.5');
+        .to('.background-project', 0.5, { width: '110%', height: '110%', ease: Back.easeOut.config(1) }, 'f1+=0.25');
     },
 
     enterProjectSlider() {
