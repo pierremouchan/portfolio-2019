@@ -1,5 +1,6 @@
 <template>
   <div class="sun-background-wrapper">
+    <div class="sun-leftside"></div>
     <div class="sun-background">
       <nuxt-link id="sun" :to="'/projects/' + projects[this.$store.state.currentProject.number].id">
         <Sun></Sun>
@@ -9,6 +10,7 @@
       </div>
       <Distorst class="distorst"></Distorst>
     </div>
+    <div class="sun-rightside"></div>
   </div>
 </template>
 <script>
@@ -41,17 +43,40 @@ export default {
   height: 100vh;
   max-width: 100vw;
   max-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  @include mq($from: desktop_plus) {
+  }
+  .sun-leftside {
+    visibility: hidden;
+    @include mq($from: desktop_plus) {
+      flex-grow: 1;
+      visibility: visible;
+      height: 85%;
+    }
+  }
+  .sun-rightside {
+    visibility: hidden;
+    @include mq($from: desktop_plus) {
+      flex-grow: 1;
+      visibility: visible;
+      height: 85%;
+    }
+  }
   .sun-background {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, 150%);
+    position: relative;
     width: 80vw;
     max-width: 750px;
     @include mq($from: tablet) {
       width: 70vw;
     }
-    @include mq($from: desktop) {
+    @include mq($from: desktop_plus) {
+      position: relative;
+      top: unset;
+      left: unset;
+      transform: unset;
       width: 55vw;
     }
     @include mq($from: small) {

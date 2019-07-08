@@ -11,12 +11,14 @@
         <div>0{{ this.$store.state.currentProject.number + 1 }}</div>
       </div>
     </div>
-    <button class="previous" @click="previousProject">
-      previous
-    </button>
-    <button class="next" @click="nextProject">
-      next
-    </button>
+    <div class="button-mobile">
+      <button class="previous" @click="previousProject">
+        PREV
+      </button>
+      <button class="next" @click="nextProject">
+        NEXT
+      </button>
+    </div>
     <sunBackground></sunBackground>
     <div class="project-year">
       <div class="project-year__fixed">20</div>
@@ -28,11 +30,22 @@
     <div class="project-role">
       <div>{{ activeProject.role }}</div>
     </div>
+    <div class="project-progressbar">
+      <div class="project-progressbar__total">0{{ projects.length }}</div>
+      <div class="project-progressbar__bar">
+        <div class="bar-full"></div>
+        <div
+          class="bar-progress"
+          :style="{ height: ((this.$store.state.currentProject.number + 1) / projects.length) * 100 + '%' }"
+        ></div>
+      </div>
+      <div class="project-progressbar__current">0{{ this.$store.state.currentProject.number + 1 }}</div>
+    </div>
   </div>
 </template>
 
 <script>
-import { TimelineMax, Expo, TweenMax } from 'gsap';
+import { TimelineMax, Expo, TweenMax, Back } from 'gsap';
 import { mapMutations } from 'vuex';
 import sunBackground from '~/components/blocks/sunBackground';
 export default {
@@ -41,15 +54,24 @@ export default {
   },
   data() {
     return {
-      projects: this.$store.state.projects.list
+      projects: this.$store.state.projects.list,
+      nextProjectClicked: false,
+      previousProjectClicked: false
     };
   },
+
   computed: {
     activeProject() {
       return this.projects[this.$store.state.currentProject.number];
     }
   },
-  mounted() {},
+  mounted() {
+    this.listenNextProject();
+    this.listenPreviousProject();
+  },
+  beforeDestroy() {
+    this.resetCursorStatus();
+  },
   created() {},
   methods: {
     // eslint-disable-next-line standard/computed-property-even-spacing
@@ -57,6 +79,68 @@ export default {
       decreaseProject: 'currentProject/previousProject',
       increaseProject: 'currentProject/nextProject'
     }),
+    listenPreviousProject() {
+      // LISTEN TO CLICK == PREVIOUS
+      const prevSide = document.querySelector('.sun-leftside');
+      prevSide.addEventListener('click', () => {
+        if (!this.previousProjectClicked) {
+          this.previousProjectClicked = true;
+          this.previousProject();
+        }
+      });
+      prevSide.addEventListener('mouseenter', () => {
+        this.changeCursorStatus('PREV PREV PREV PREV');
+      });
+      prevSide.addEventListener('mouseleave', () => {
+        this.resetCursorStatus();
+      });
+    },
+    listenNextProject() {
+      // LISTEN TO CLICK == NEXT
+      const nextSide = document.querySelector('.sun-rightside');
+      nextSide.addEventListener('click', () => {
+        if (!this.nextProjectClicked) {
+          this.nextProjectClicked = true;
+          this.nextProject();
+        }
+      });
+      nextSide.addEventListener('mouseenter', () => {
+        this.changeCursorStatus('NEXT NEXT NEXT NEXT');
+      });
+      nextSide.addEventListener('mouseleave', () => {
+        this.resetCursorStatus();
+      });
+    },
+    changeCursorStatus(prevOrNext) {
+      document.querySelector('.cursor').classList.add('prev-next-active');
+      document.querySelector('.cursor-torus textPath').textContent = prevOrNext;
+      TweenMax.to('.cursor-torus', 0.5, {
+        width: '300px',
+        height: '300px',
+        ease: Back.easeOut.config(5)
+      });
+      TweenMax.to('.cursor', 0.5, {
+        width: '100px',
+        height: '100px',
+        opacity: 0.5,
+        ease: Back.easeOut.config(2.5)
+      });
+    },
+    resetCursorStatus() {
+      document.querySelector('.cursor').classList.remove('prev-next-active');
+      document.querySelector('.cursor-torus textPath').textContent = '';
+      TweenMax.to('.cursor-torus', 0.5, {
+        width: '100px',
+        height: '100px',
+        ease: Back.easeOut.config(5)
+      });
+      TweenMax.to('.cursor', 0.5, {
+        width: '5px',
+        height: '5px',
+        opacity: 1,
+        ease: Expo.easeOut
+      });
+    },
     nextProject() {
       const nextProjectTimeline = new TimelineMax({
         onComplete: () => {
@@ -65,7 +149,10 @@ export default {
         }
       });
       const nextProjectTimeline2 = new TimelineMax({
-        paused: true
+        paused: true,
+        onComplete: () => {
+          this.nextProjectClicked = false;
+        }
       });
       // FIRST TIMELINE RETRACT TEXT
       nextProjectTimeline
@@ -223,7 +310,10 @@ export default {
         }
       });
       const previousProjectTimeline2 = new TimelineMax({
-        paused: true
+        paused: true,
+        onComplete: () => {
+          this.previousProjectClicked = false;
+        }
       });
 
       // FIRST TIMELINE RETRACT TEXT
@@ -380,17 +470,72 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.previous {
+.button-mobile {
+  display: block;
   position: absolute;
   z-index: $beforefg;
-  top: 50%;
-  left: 0;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  @include mq($from: tablet) {
+    bottom: 5%;
+  }
+  @include mq($from: desktop_plus) {
+    display: none;
+  }
+}
+.previous {
+  position: relative;
+  border: none;
+  background: none;
+  color: $black;
+  font-weight: bold;
+  font-size: 32px;
+  font-family: $font-title;
+  margin-right: 15px;
+  &:before {
+    z-index: $down;
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background-color: $red;
+    opacity: 0.5;
+    transition: opacity 0.5s;
+  }
+  &:active {
+    &:before {
+      opacity: 1;
+    }
+  }
 }
 .next {
-  position: absolute;
-  z-index: $beforefg;
-  top: 50%;
-  left: 10%;
+  position: relative;
+  border: none;
+  background: none;
+  color: $black;
+  font-weight: bold;
+  font-size: 32px;
+  font-family: $font-title;
+  &:before {
+    z-index: $down;
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background-color: $red;
+    opacity: 0.5;
+    transition: opacity 0.5s;
+  }
+  &:active {
+    &:before {
+      opacity: 1;
+    }
+  }
 }
 .project-slider-wrapper {
   position: absolute;
@@ -553,6 +698,60 @@ export default {
       font-size: 35px;
     }
     @include mq($from: xlarge) {
+    }
+  }
+  .project-progressbar {
+    position: absolute;
+    top: 80%;
+    left: 32px;
+    font-weight: 900;
+    font-family: $font-title;
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+
+    @include mq($from: tablet) {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &__total {
+      color: $transparent;
+      line-height: normal;
+      margin: 10px auto;
+      -webkit-text-stroke: 1px $black;
+    }
+    &__bar {
+      position: relative;
+      height: 5vh;
+      transform: rotate(180deg);
+      @include mq($from: tablet) {
+        height: 20vh;
+      }
+      .bar-full {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 1px;
+        height: 100%;
+        background-color: $black;
+        opacity: 50%;
+      }
+      .bar-progress {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 0;
+        width: 3px;
+        background-color: $black;
+        transition: height 0.5s;
+      }
+    }
+    &__current {
+      color: $black;
+      line-height: normal;
+      margin: 10px auto;
     }
   }
 }

@@ -156,12 +156,10 @@ export default {
     checkHoverSun() {
       if (document.querySelector('#sun')) {
         document.querySelector('#sun').addEventListener('mouseenter', () => {
-          console.log('enter');
           iteration = 0;
           TweenMax.to(activeBlob, 0.5, { perlinNoise: 0 });
         });
         document.querySelector('#sun').addEventListener('mouseleave', () => {
-          console.log('enter');
           iteration = 0;
           TweenMax.to(activeBlob, 0.5, { perlinNoise: 0.006 });
         });
