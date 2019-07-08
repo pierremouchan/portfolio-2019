@@ -7,26 +7,17 @@
       </nuxt-link>
       <div class="background-project">
         <div class="repeated" :style="{ backgroundImage: `url('${activeProjectBackground}')` }"></div>
-        <div
-          v-for="(project, index) in projects"
-          :key="index"
-          class="free-lag-bgimage"
-          :style="{ backgroundImage: `url('${project.mainImg}')` }"
-        ></div>
       </div>
-      <Distorst class="distorst"></Distorst>
     </div>
     <div class="sun-rightside"></div>
   </div>
 </template>
 <script>
 import Sun from '~/static/images/icons/sun.svg?inline';
-import Distorst from '~/static/images/distorst.svg?inline';
 
 export default {
   components: {
-    Sun,
-    Distorst
+    Sun
   },
   data() {
     return {
@@ -104,9 +95,7 @@ export default {
       width: 110%;
       height: 110%;
       overflow: hidden;
-      .repeated,
-      .free-lag-bgimage {
-        filter: url('#distortionFilter');
+      .repeated {
         width: inherit;
         height: inherit;
         background-size: 250px 250px;
@@ -114,12 +103,6 @@ export default {
         background-position: 0 0;
         animation: bgPosition 10s infinite linear;
         transition: background-image 2s;
-      }
-      .free-lag-bgimage {
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: $background;
       }
       @keyframes bgPosition {
         100% {

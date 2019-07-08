@@ -235,8 +235,7 @@ export default {
             ease: Expo.easeIn
           },
           'f1+=0.25'
-        )
-        .to('#distortionFilter feDisplacementMap', 1, { attr: { scale: '50' } }, 'f1+=0.5');
+        );
       // SECOND TIMELINE, APPEAR NEW PROJECT
       nextProjectTimeline2
         .addLabel('f1')
@@ -299,8 +298,7 @@ export default {
             ease: Expo.easeOut
           },
           'f1+=0.25'
-        )
-        .to('#distortionFilter feDisplacementMap', 1, { attr: { scale: '0' } }, 'f1+=0.5');
+        );
     },
     previousProject() {
       const previousProjectTimeline = new TimelineMax({
