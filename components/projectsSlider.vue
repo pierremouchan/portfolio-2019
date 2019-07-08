@@ -235,7 +235,8 @@ export default {
             ease: Expo.easeIn
           },
           'f1+=0.25'
-        );
+        )
+        .to('.background-project', 0.5, { width: '90%', height: '90%', ease: Back.easeIn.config(1) }, 'f1+=0.25');
       // SECOND TIMELINE, APPEAR NEW PROJECT
       nextProjectTimeline2
         .addLabel('f1')
@@ -298,7 +299,8 @@ export default {
             ease: Expo.easeOut
           },
           'f1+=0.25'
-        );
+        )
+        .to('.background-project', 0.5, { width: '110%', height: '110%', ease: Back.easeOut.config(1) }, 'f1+=0.25');
     },
     previousProject() {
       const previousProjectTimeline = new TimelineMax({

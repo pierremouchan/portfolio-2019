@@ -123,8 +123,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/components/projectsSlider.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="301" selection-start-line="301" selection-end-line="301" />
+            <state relative-caret-position="401">
+              <caret line="238" column="111" selection-start-line="238" selection-start-column="111" selection-end-line="238" selection-end-column="111" />
               <folding>
                 <element signature="e#1449#1506#0" expanded="true" />
               </folding>
@@ -453,12 +453,12 @@
       <workItem from="1561358694874" duration="17232000" />
       <workItem from="1561449008763" duration="110873000" />
       <workItem from="1562216889005" duration="7034000" />
-      <workItem from="1562565029373" duration="25449000" />
+      <workItem from="1562565029373" duration="25729000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="263065000" />
+    <option name="totallyTimeSpent" value="263345000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="953" extended-state="0" />
@@ -820,8 +820,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/components/projectsSlider.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="301" selection-start-line="301" selection-end-line="301" />
+        <state relative-caret-position="401">
+          <caret line="238" column="111" selection-start-line="238" selection-start-column="111" selection-end-line="238" selection-end-column="111" />
           <folding>
             <element signature="e#1449#1506#0" expanded="true" />
           </folding>
