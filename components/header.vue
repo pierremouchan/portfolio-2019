@@ -11,9 +11,7 @@
         </li>
 
         <li>
-          <nuxt-link to="/experiments" @click.native="onRouteChange"
-            >EXP</nuxt-link
-          >
+          <nuxt-link to="/experiments" @click.native="onRouteChange">EXP</nuxt-link>
         </li>
         <li>
           <nuxt-link to="/about" @click.native="onRouteChange">ABOUT</nuxt-link>
@@ -39,19 +37,8 @@ export default {
       isalreadyLoaded => {
         switch (isalreadyLoaded) {
           case true:
-            TweenMax.fromTo(
-              '#logo svg',
-              1,
-              { y: '-100%' },
-              { y: '0%', ease: Expo.easeOut }
-            );
-            TweenMax.staggerFromTo(
-              'nav ul li',
-              2,
-              { y: '-100%' },
-              { y: '0%', ease: Expo.easeOut },
-              0.25
-            );
+            TweenMax.fromTo('#logo svg', 1, { y: '-100%' }, { y: '0%', ease: Expo.easeOut });
+            TweenMax.staggerFromTo('nav ul li', 2, { y: '-100%' }, { y: '0%', ease: Expo.easeOut }, 0.25);
             break;
         }
       }
@@ -60,19 +47,12 @@ export default {
   methods: {
     onRouteChange() {
       if (document.querySelector('.nuxt-link-exact-active')) {
-        document
-          .querySelector('.nuxt-link-exact-active')
-          .classList.remove('nuxt-link-exact-active');
+        document.querySelector('.nuxt-link-exact-active').classList.remove('nuxt-link-exact-active');
       }
+
       const onRouteChangeTimeline = new TimelineMax({});
       onRouteChangeTimeline
-        .staggerFromTo(
-          'nav ul li',
-          0.75,
-          { y: '0%' },
-          { y: '-100%', ease: Expo.easeIn },
-          0.1
-        )
+        .staggerFromTo('nav ul li', 0.75, { y: '0%' }, { y: '-100%', ease: Expo.easeIn }, 0.1)
         .staggerFromTo(
           'nav ul li',
           0.75,

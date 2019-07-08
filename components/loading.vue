@@ -3,11 +3,7 @@
     <div v-if="!alreadyLoaded" class="loader">
       <div class="loader-container">
         <p class="percentage-number">{{ loadingProgress }}</p>
-        <image-preloader
-          :srcs="imageArray"
-          @loaded-all="loadedAll"
-          @loaded="loadedOne"
-        />
+        <image-preloader :srcs="imageArray" @loaded-all="loadedAll" @loaded="loadedOne" />
       </div>
       <div class="loader-mask"></div>
     </div>
@@ -40,14 +36,9 @@ export default {
   },
 
   created() {
-    this.$store.commit(
-      'loader/setImageArray',
-      this.$nuxt.$cacheImages.imageArray
-    );
+    this.$store.commit('loader/setImageArray', this.$nuxt.$cacheImages.imageArray);
     // COOKIE FOR THE CURRENT SESSION
-    sessionStorage.getItem('loaderCookie') === 'true'
-      ? this.endLoading()
-      : this.startLoading();
+    sessionStorage.getItem('loaderCookie') === 'true' ? this.endLoading() : this.startLoading();
     // this.startLoading();
   },
   methods: {
@@ -103,16 +94,9 @@ export default {
 
     setLoadingProgress(progress) {
       // SET PROGRESSION ( VANILLA COUNT UP)
-      for (
-        let index = this.loadingProgress;
-        index < Math.floor(progress);
-        index++
-      ) {
+      for (let index = this.loadingProgress; index < Math.floor(progress); index++) {
         // progress -1 to stay at 99% if window.onload is not finish
-        this.$store.commit(
-          'loader/setLoadingProgress',
-          Math.floor(progress - 1)
-        );
+        this.$store.commit('loader/setLoadingProgress', Math.floor(progress - 1));
       }
     }
   }

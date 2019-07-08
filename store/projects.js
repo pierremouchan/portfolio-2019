@@ -4,6 +4,7 @@ export const state = () => ({
       id: 'SOCIALFORGOOD',
       title: 'SOCIALFORGOOD',
       date: '2019',
+      role: 'INTERN',
       mainTech: 'WEBGL',
       othersTech: ['THREEJS', 'ART DIRECTOR', 'INTERN'],
       mainDesc:
@@ -23,6 +24,7 @@ export const state = () => ({
       id: 'FSIF',
       title: 'F.S.I.F',
       date: '2019',
+      role: 'INTERN',
       mainTech: 'WORDPRESS',
       othersTech: ['GSAP', 'PHP', 'INTERN'],
       mainDesc:
@@ -44,6 +46,7 @@ export const state = () => ({
       id: 'DESIGNING',
       title: 'DESIGNING',
       date: '2018',
+      role: 'STUDENT',
       mainTech: 'FREE-TIME',
       othersTech: ['C4D', 'THREEJS', 'ART'],
       mainDesc:
@@ -63,6 +66,7 @@ export const state = () => ({
       id: 'PORTFOLIOS',
       title: 'PORTFOLIOS',
       date: '2018',
+      role: 'STUDENT',
       mainTech: 'VUEJS',
       othersTech: ['JS', 'UX', 'SELF-TAUGHT'],
       mainDesc:

@@ -1,35 +1,19 @@
 <template>
-  <div class="webGL-wrapper">
-    <div class="webGL-container"></div>
-    <nuxt-link id="sun" :to="'/projects/' + projects[oldProjectNumber].id">
-      <Sun></Sun>
-    </nuxt-link>
-  </div>
+  <div class="webGL-container"></div>
 </template>
 
 <script>
-import {
-  Scene,
-  PerspectiveCamera,
-  DirectionalLight,
-  Color,
-  WebGLRenderer
-} from 'three';
+import { Scene, PerspectiveCamera, DirectionalLight, Color, WebGLRenderer } from 'three';
 import { TweenMax, Expo } from 'gsap';
-import Sun from '~/static/images/icons/sun.svg?inline';
 
 // import { Interaction } from 'three.interaction';
 import Blob from '~/assets/js/webGL/blob.class';
 
-// eslint-disable-next-line no-unused-vars
 let mainBlob, activeBlob;
 const projectsBlob = [];
 let iteration = 0;
 
 export default {
-  components: {
-    Sun
-  },
   data() {
     return {
       projects: this.$store.state.projects.list,
@@ -50,6 +34,10 @@ export default {
 
         TweenMax.to(mainBlob.mesh.position, 2, { z: 0, ease: Expo.easeOut });
       } else if (to.name === 'index') {
+        setTimeout(() => {
+          this.checkHoverSun();
+        }, 500);
+
         for (const i in projectsBlob) {
           TweenMax.to(projectsBlob[i].mesh.position, 2, {
             y: 0,
@@ -79,7 +67,7 @@ export default {
               g: new Color(0xf25d61).g,
               b: new Color(0xf25d61).b
             });
-            TweenMax.to(mainBlob.mesh.position, 1, { y: -50, z: 100 });
+            TweenMax.to(mainBlob.mesh.position, 1, { y: -50, z: 50 });
             break;
           case false:
             TweenMax.to(mainBlob.mesh.material.color, 1, {
@@ -111,20 +99,14 @@ export default {
     this.$store.watch(
       () => this.$store.state.currentProject.number,
       newProjectNumber => {
-        if (
-          this.oldProjectNumber === 0 &&
-          newProjectNumber === this.projects.length - 1
-        ) {
+        if (this.oldProjectNumber === 0 && newProjectNumber === this.projects.length - 1) {
           for (let i = 0; i < projectsBlob.length; i++) {
             TweenMax.to(projectsBlob[i].mesh.position, 1, {
               x: '-=1500',
               ease: Expo.easeOut
             });
           }
-        } else if (
-          this.oldProjectNumber === this.projects.length - 1 &&
-          newProjectNumber === 0
-        ) {
+        } else if (this.oldProjectNumber === this.projects.length - 1 && newProjectNumber === 0) {
           for (let i = 0; i < projectsBlob.length; i++) {
             TweenMax.to(projectsBlob[i].mesh.position, 1, {
               x: '+=1500',
@@ -172,16 +154,18 @@ export default {
   },
   methods: {
     checkHoverSun() {
-      document.querySelector('#sun').addEventListener('mouseenter', () => {
-        console.log('enter');
-        iteration = 0;
-        TweenMax.to(activeBlob, 0.5, { perlinNoise: 0 });
-      });
-      document.querySelector('#sun').addEventListener('mouseleave', () => {
-        console.log('enter');
-        iteration = 0;
-        TweenMax.to(activeBlob, 0.5, { perlinNoise: 0.006 });
-      });
+      if (document.querySelector('#sun')) {
+        document.querySelector('#sun').addEventListener('mouseenter', () => {
+          console.log('enter');
+          iteration = 0;
+          TweenMax.to(activeBlob, 0.5, { perlinNoise: 0 });
+        });
+        document.querySelector('#sun').addEventListener('mouseleave', () => {
+          console.log('enter');
+          iteration = 0;
+          TweenMax.to(activeBlob, 0.5, { perlinNoise: 0.006 });
+        });
+      }
     },
     setActiveBlob(number) {
       activeBlob = projectsBlob[number];
@@ -199,7 +183,6 @@ export default {
       //     console.log('click -> ');
       //     this.$router.push(
       //       `/projects/${
-      //         // eslint-disable-next-line standard/computed-property-even-spacing
       //         this.$store.state.projects.list[
       //           this.$store.state.currentProject.number
       //         ].id
@@ -224,12 +207,9 @@ export default {
       const directionalLight = new DirectionalLight(0xffffff, 1);
       directionalLight.position.set(100, 200, 150);
       scene.add(directionalLight);
-      // eslint-disable-next-line no-unused-vars
       mainBlob = new Blob();
       scene.add(mainBlob.mesh);
       mainBlob.mesh.position.set(0, 0, -500);
-
-      // eslint-disable-next-line no-unused-vars
 
       const that = this;
       for (let i = 0; i < this.textureList.length; i++) {
@@ -275,14 +255,14 @@ export default {
       });
       function onWindowResize() {
         camera.aspect = container.clientWidth / container.clientHeight;
-        if (camera.aspect < 1.2 && camera.aspect > 0.8) {
+        if (camera.aspect < 1.2) {
           mainBlob.mesh.scale.set(camera.aspect, camera.aspect, camera.aspect);
           for (let i = 0; i < projectsBlob.length; i++) {
-            projectsBlob[i].mesh.scale.set(
-              camera.aspect / 1.25,
-              camera.aspect / 1.25,
-              camera.aspect / 1.25
-            );
+            projectsBlob[i].mesh.scale.set(camera.aspect * 0.7, camera.aspect * 0.7, camera.aspect * 0.7);
+          }
+        } else {
+          for (let i = 0; i < projectsBlob.length; i++) {
+            projectsBlob[i].mesh.scale.set(0.8, 0.8, 0.8);
           }
         }
 
@@ -294,7 +274,6 @@ export default {
       window.addEventListener('resize', onWindowResize);
 
       // DOMEVENTS
-      // eslint-disable-next-line no-unused-vars
       // const interaction = new Interaction(renderer, scene, camera);
       activeBlob = projectsBlob[0];
       // activeBlob.mesh.on('mouseover', event => {
@@ -311,7 +290,6 @@ export default {
       //   console.log('click -> ');
       //   this.$router.push(
       //     `/projects/${
-      //       // eslint-disable-next-line standard/computed-property-even-spacing
       //       this.$store.state.projects.list[
       //         this.$store.state.currentProject.number
       //       ].id
@@ -324,38 +302,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.webGL-wrapper {
+.webGL-container {
   position: fixed;
   top: 0;
   left: 0;
-  max-height: 100vh;
-  overflow: hidden;
+  z-index: $up - 1;
   width: 100vw;
   height: 100vh;
 
-  .webGL-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: $up - 1;
-    width: 100vw;
-    height: 100vh;
-
-    pointer-events: none;
-  }
-  #sun {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, 150%);
-    width: 90%;
-    max-width: 750px;
-    @include mq($from: tablet) {
-      width: 80%;
-    }
-    @include mq($from: desktop) {
-      width: 60%;
-    }
-  }
+  pointer-events: none;
 }
 </style>

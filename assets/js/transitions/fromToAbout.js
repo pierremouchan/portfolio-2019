@@ -94,11 +94,5 @@ export const toAbout = () => {
       { y: '0%', rotation: 0, ease: Expo.easeOut },
       'f1+=0.75'
     )
-    .fromTo(
-      '.invit-scroll',
-      2,
-      { height: '0px' },
-      { height: '10vh', ease: Expo.easeOut },
-      'f1+=0.75'
-    );
+    .fromTo('.invit-scroll', 2, { height: '0px' }, { height: '10vh', ease: Expo.easeOut }, 'f1+=0.75');
 };

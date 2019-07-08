@@ -7,6 +7,9 @@
       <div class="title-outline">
         <div>{{ activeProject.title }}</div>
       </div>
+      <div class="title-number">
+        <div>0{{ this.$store.state.currentProject.number + 1 }}</div>
+      </div>
     </div>
     <button class="previous" @click="previousProject">
       previous
@@ -14,13 +17,28 @@
     <button class="next" @click="nextProject">
       next
     </button>
+    <sunBackground></sunBackground>
+    <div class="project-year">
+      <div class="project-year__fixed">20</div>
+      <div class="project-year__realised">
+        <div>{{ activeProject.date.replace('20', '') }}</div>
+      </div>
+    </div>
+
+    <div class="project-role">
+      <div>{{ activeProject.role }}</div>
+    </div>
   </div>
 </template>
 
 <script>
-import { TimelineMax, Expo } from 'gsap';
+import { TimelineMax, Expo, TweenMax } from 'gsap';
 import { mapMutations } from 'vuex';
+import sunBackground from '~/components/blocks/sunBackground';
 export default {
+  components: {
+    sunBackground
+  },
   data() {
     return {
       projects: this.$store.state.projects.list
@@ -49,7 +67,6 @@ export default {
       const nextProjectTimeline2 = new TimelineMax({
         paused: true
       });
-
       // FIRST TIMELINE RETRACT TEXT
       nextProjectTimeline
         .addLabel('f1')
@@ -62,7 +79,7 @@ export default {
             transformOrigin: 'top right'
           },
           {
-            y: '-120%',
+            y: '-150%',
             rotation: 5,
             ease: Expo.easeIn
           },
@@ -77,13 +94,62 @@ export default {
             transformOrigin: 'top right'
           },
           {
-            y: '-120%',
+            y: '-150%',
             rotation: 5,
             transformOrigin: 'top right',
             ease: Expo.easeIn
           },
           'f1'
-        );
+        )
+        .fromTo(
+          '.title-number div',
+          1,
+          {
+            y: '0%',
+            rotation: 0,
+            transformOrigin: 'top right'
+          },
+          {
+            y: '-150%',
+            rotation: 5,
+            transformOrigin: 'top right',
+            ease: Expo.easeIn
+          },
+          'f1+=0.25'
+        )
+        .fromTo(
+          '.project-role div',
+          1,
+          {
+            y: '0%',
+            rotation: 0,
+            transformOrigin: 'top right'
+          },
+          {
+            y: '150%',
+            rotation: 5,
+            transformOrigin: 'top right',
+            ease: Expo.easeIn
+          },
+          'f1+=0.25'
+        )
+        .fromTo(
+          '.project-year__realised div',
+          1,
+          {
+            y: '0%',
+            rotation: 0,
+            transformOrigin: 'top right'
+          },
+          {
+            y: '150%',
+            rotation: 10,
+            transformOrigin: 'top right',
+            ease: Expo.easeIn
+          },
+          'f1+=0.25'
+        )
+        .to('#distortionFilter feDisplacementMap', 1, { attr: { scale: '50' } }, 'f1+=0.5');
       // SECOND TIMELINE, APPEAR NEW PROJECT
       nextProjectTimeline2
         .addLabel('f1')
@@ -91,7 +157,7 @@ export default {
           '.title h2',
           1,
           {
-            y: '120%',
+            y: '150%',
             rotation: 5,
             transformOrigin: 'bottom left'
           },
@@ -102,13 +168,52 @@ export default {
           '.title-outline div',
           1,
           {
-            y: '120%',
+            y: '150%',
             rotation: 5,
             transformOrigin: 'bottom left'
           },
           { y: '0%', rotation: 0, ease: Expo.easeOut },
           'f1'
-        );
+        )
+        .fromTo(
+          '.title-number div',
+          1,
+          {
+            y: '150%',
+            rotation: 5,
+            transformOrigin: 'bottom left'
+          },
+          { y: '0%', rotation: 0, ease: Expo.easeOut },
+          'f1+=0.25'
+        )
+        .fromTo(
+          '.project-role div',
+          1,
+          {
+            y: '150%',
+            rotation: 5,
+            transformOrigin: 'bottom left'
+          },
+          { y: '0%', rotation: 0, ease: Expo.easeOut },
+          'f1+=0.25'
+        )
+        .fromTo(
+          '.project-year__realised div',
+          1,
+          {
+            y: '150%',
+            rotation: 10,
+            transformOrigin: 'bottom left'
+          },
+          {
+            y: '0%',
+            rotation: 0,
+            transformOrigin: 'bottom left',
+            ease: Expo.easeOut
+          },
+          'f1+=0.25'
+        )
+        .to('#distortionFilter feDisplacementMap', 1, { attr: { scale: '0' } }, 'f1+=0.5');
     },
     previousProject() {
       const previousProjectTimeline = new TimelineMax({
@@ -133,7 +238,7 @@ export default {
             transformOrigin: 'bottom left'
           },
           {
-            y: '120%',
+            y: '150%',
             rotation: 5,
             ease: Expo.easeIn
           },
@@ -148,12 +253,59 @@ export default {
             transformOrigin: 'bottom left'
           },
           {
-            y: '120%',
+            y: '150%',
             rotation: 5,
             ease: Expo.easeIn
           },
           'f1'
-        );
+        )
+        .fromTo(
+          '.title-number div',
+          1,
+          {
+            y: '0%',
+            rotation: 0,
+            transformOrigin: 'bottom left'
+          },
+          {
+            y: '150%',
+            rotation: 5,
+            ease: Expo.easeIn
+          },
+          'f1+=0.25'
+        )
+        .fromTo(
+          '.project-role div',
+          1,
+          {
+            y: '0%',
+            rotation: 0,
+            transformOrigin: 'bottom left'
+          },
+          {
+            y: '150%',
+            rotation: 5,
+            ease: Expo.easeIn
+          },
+          'f1+=0.25'
+        )
+        .fromTo(
+          '.project-year__realised div',
+          1,
+          {
+            y: '0%',
+            rotation: 0,
+            transformOrigin: 'bottom left'
+          },
+          {
+            y: '150%',
+            rotation: 10,
+            transformOrigin: 'bottom left',
+            ease: Expo.easeIn
+          },
+          'f1+=0.25'
+        )
+        .to('#distortionFilter feDisplacementMap', 1, { attr: { scale: '50' } }, 'f1+=0.5');
       // SECOND TIMELINE, APPEAR NEW PROJECT
       previousProjectTimeline2
         .addLabel('f1')
@@ -161,7 +313,7 @@ export default {
           '.title h2',
           1,
           {
-            y: '-120%',
+            y: '-150%',
             rotation: 5,
             transformOrigin: 'top right'
           },
@@ -172,14 +324,54 @@ export default {
           '.title-outline div',
           1,
           {
-            y: '-120%',
+            y: '-150%',
             rotation: 5,
             transformOrigin: 'top right'
           },
           { y: '0%', rotation: 0, ease: Expo.easeOut },
           'f1'
-        );
+        )
+        .fromTo(
+          '.title-number div',
+          1,
+          {
+            y: '-150%',
+            rotation: 5,
+            transformOrigin: 'top right'
+          },
+          { y: '0%', rotation: 0, ease: Expo.easeOut },
+          'f1+=0.25'
+        )
+        .fromTo(
+          '.project-role div',
+          1,
+          {
+            y: '150%',
+            rotation: 5,
+            transformOrigin: 'top right'
+          },
+          { y: '0%', rotation: 0, ease: Expo.easeOut },
+          'f1+=0.25'
+        )
+        .fromTo(
+          '.project-year__realised div',
+          1,
+          {
+            y: '150%',
+            rotation: 10,
+            transformOrigin: 'top right'
+          },
+          {
+            y: '0%',
+            rotation: 0,
+            transformOrigin: 'top right',
+            ease: Expo.easeOut
+          },
+          'f1+=0.25'
+        )
+        .to('#distortionFilter feDisplacementMap', 1, { attr: { scale: '0' } }, 'f1+=0.5');
     },
+
     enterProjectSlider() {
       // const toIndexTimeline = new TimelineMax({});
     }
@@ -214,7 +406,6 @@ export default {
     transform: translateX(-50%);
     display: flex;
     flex-direction: column;
-    overflow: hidden;
     z-index: $up;
     pointer-events: none;
 
@@ -249,10 +440,11 @@ export default {
       font-weight: 900;
       font-size: 35px;
       color: rgba(0, 0, 0, 0);
-      -webkit-text-stroke: 2px $black;
+      -webkit-text-stroke: 1px $black;
       overflow: hidden;
       height: 30px;
       @include mq($from: tablet) {
+        -webkit-text-stroke: 2px $black;
         font-size: 75px;
         height: 40px;
       }
@@ -276,6 +468,91 @@ export default {
           height: 60px;
         }
       }
+    }
+    .title-number {
+      position: absolute;
+      top: -35%;
+      right: -15px;
+      font-family: $font-title;
+      font-weight: 900;
+      color: $transparent;
+      -webkit-text-stroke: 1px $black;
+      font-size: 35px;
+      overflow: hidden;
+      height: fit-content;
+      @include mq($from: tablet) {
+        -webkit-text-stroke: 2px $black;
+
+        right: -35px;
+      }
+      @include mq($from: desktop_plus) {
+        right: -70px;
+        top: -40%;
+      }
+      div {
+        line-height: normal;
+        @include mq($from: tablet) {
+          font-size: 75px;
+        }
+        @include mq($from: desktop_plus) {
+          font-size: 100px;
+        }
+        @include mq($from: xlarge) {
+          font-size: 120px;
+        }
+      }
+    }
+  }
+  .project-year {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-family: $font-title;
+    font-weight: 900;
+    font-size: 50px;
+    line-height: normal;
+    color: $black;
+    @include mq($from: tablet) {
+      font-size: 75px;
+    }
+    @include mq($from: desktop_plus) {
+      font-size: 100px;
+    }
+    @include mq($from: xlarge) {
+      font-size: 120px;
+    }
+    &__fixed {
+      color: $transparent;
+      -webkit-text-stroke: 1px $black;
+      @include mq($from: tablet) {
+        -webkit-text-stroke: 2px $black;
+      }
+    }
+    &__realised {
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      overflow: hidden;
+    }
+  }
+  .project-role {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-family: $font-title;
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 25px;
+    margin: 10px;
+    overflow: hidden;
+    color: $black;
+    @include mq($from: tablet) {
+      font-size: 30px;
+    }
+    @include mq($from: desktop_plus) {
+      font-size: 35px;
+    }
+    @include mq($from: xlarge) {
     }
   }
 }

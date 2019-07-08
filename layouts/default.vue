@@ -29,8 +29,7 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content:
-            'Portfolio - Pierre Mouchan, a passionate creative developer.'
+          content: 'Portfolio - Pierre Mouchan, a passionate creative developer.'
         }
       ]
     };

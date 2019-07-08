@@ -27,6 +27,7 @@ module.exports = {
     beforeStatementContinuationChars: 'any',
     'prefer-template': 'error',
     'no-empty': ['error', { allowEmptyCatch: true }],
-    'no-var': 'error'
+    'no-var': 'error',
+    'no-unused-vars': 1
   }
 };

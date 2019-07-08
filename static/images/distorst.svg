@@ -1,0 +1,6 @@
+<svg class="distort" viewBox="0 0 2000 2000">
+  <filter id="distortionFilter">
+    <feTurbulence type="fractalNoise" baseFrequency="0.05 0.03" numOctaves="5" seed="2" stitchTiles="noStitch" x="0%" y="0%" width="500%" height="500%" result="noise"/>
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="0" xChannelSelector="R" yChannelSelector="B" x="0%" y="0%" width="500%" height="500%" filterUnits="userSpaceOnUse"/>
+  </filter>
+</svg>

@@ -1,11 +1,5 @@
 /* eslint-disable no-undef */
-import {
-  OctahedronGeometry,
-  MeshToonMaterial,
-  Mesh,
-  TextureLoader,
-  MirroredRepeatWrapping
-} from 'three';
+import { OctahedronGeometry, MeshToonMaterial, Mesh, TextureLoader, MirroredRepeatWrapping } from 'three';
 import { noise } from '~/plugins/external/perlin';
 
 export default class Blob {
