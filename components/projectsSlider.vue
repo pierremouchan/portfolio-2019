@@ -477,6 +477,7 @@ export default {
   bottom: 10%;
   left: 50%;
   transform: translateX(-50%);
+  text-align: center;
   @include mq($from: tablet) {
     bottom: 5%;
   }
@@ -492,7 +493,7 @@ export default {
   font-weight: bold;
   font-size: 32px;
   font-family: $font-title;
-  margin-right: 15px;
+  margin: 0 15px;
   &:before {
     z-index: $down;
     content: '';
@@ -519,6 +520,7 @@ export default {
   font-weight: bold;
   font-size: 32px;
   font-family: $font-title;
+  margin: 0 15px;
   &:before {
     z-index: $down;
     content: '';
