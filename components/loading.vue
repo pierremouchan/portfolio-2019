@@ -6,12 +6,6 @@
         <image-preloader :srcs="imageArray" @loaded-all="loadedAll" @loaded="loadedOne" />
       </div>
       <div class="loader-mask"></div>
-      <div
-        v-for="(project, index) in projects"
-        :key="index"
-        class="bg-preloaded"
-        :style="{ backgroundImage: `url('${project.mainImg}')` }"
-      ></div>
     </div>
   </transition>
 </template>
@@ -26,7 +20,6 @@ export default {
   },
   data: function() {
     return {
-      projects: this.$store.state.projects.list
       // imageArray: this.$nuxt.$cacheImages.imageArray,
     };
   },
@@ -120,24 +113,6 @@ export default {
   height: 100%;
   background: $black;
   overflow: hidden;
-
-  .bg-preloaded {
-    opacity: 1;
-    z-index: $background;
-    width: 100%;
-    height: 100%;
-    background-repeat: repeat;
-    background-size: 250px 250px;
-    background-position: 0 0;
-    animation: bgPosition 10s infinite linear;
-    transition: background-image 2s;
-  }
-  @keyframes bgPosition {
-    100% {
-      // BACKGROUND POSITION HAS TO BE THE SAME WIDTH AS THE BACKGROUND
-      background-position: 250px 250px;
-    }
-  }
 
   &-container {
     z-index: $normal;

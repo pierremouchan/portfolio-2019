@@ -70,11 +70,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/components/blocks/sunBackground.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="397">
-              <caret line="106" selection-start-line="106" selection-end-line="115" selection-end-column="7" />
+            <state relative-caret-position="686">
+              <caret line="120" column="16" selection-start-line="120" selection-start-column="16" selection-end-line="120" selection-end-column="16" />
+              <folding>
+                <element signature="e#741#796#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -91,11 +94,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/loading.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="585">
-              <caret line="139" column="3" selection-start-line="139" selection-start-column="3" selection-end-line="139" selection-end-column="3" />
+            <state relative-caret-position="470">
+              <caret line="53" column="18" lean-forward="true" selection-start-line="53" selection-start-column="18" selection-end-line="53" selection-end-column="18" />
               <folding>
                 <element signature="e#376#429#0" expanded="true" />
               </folding>
@@ -123,7 +126,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/projectsSlider.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
+            <state relative-caret-position="12815">
               <caret line="495" column="17" selection-start-line="495" selection-start-column="17" selection-end-line="495" selection-end-column="17" />
               <folding>
                 <element signature="e#1449#1506#0" expanded="true" />
@@ -231,8 +234,8 @@
         <option value="$PROJECT_DIR$/assets/js/transitions/fromToIndex.js" />
         <option value="$PROJECT_DIR$/components/blocks/cursor.vue" />
         <option value="$PROJECT_DIR$/components/projectsSlider.vue" />
-        <option value="$PROJECT_DIR$/components/blocks/sunBackground.vue" />
         <option value="$PROJECT_DIR$/components/loading.vue" />
+        <option value="$PROJECT_DIR$/components/blocks/sunBackground.vue" />
       </list>
     </option>
   </component>
@@ -453,12 +456,12 @@
       <workItem from="1561358694874" duration="17232000" />
       <workItem from="1561449008763" duration="110873000" />
       <workItem from="1562216889005" duration="7034000" />
-      <workItem from="1562565029373" duration="23422000" />
+      <workItem from="1562565029373" duration="24257000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="261038000" />
+    <option name="totallyTimeSpent" value="261873000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="953" extended-state="0" />
@@ -480,8 +483,8 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info active="true" anchor="right" id="Terminal" order="3" sideWeight="0.5955451" visible="true" weight="0.27045178" />
-      <window_info anchor="right" id="Run" order="4" sideWeight="0.40445486" side_tool="true" visible="true" weight="0.27045178" />
+      <window_info anchor="right" id="Terminal" order="3" sideWeight="0.5955451" visible="true" weight="0.27045178" />
+      <window_info active="true" anchor="right" id="Run" order="4" sideWeight="0.40445486" side_tool="true" visible="true" weight="0.27045178" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -801,9 +804,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/components/loading.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="470">
+          <caret line="53" column="18" lean-forward="true" selection-start-line="53" selection-start-column="18" selection-end-line="53" selection-end-column="18" />
+          <folding>
+            <element signature="e#376#429#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/components/projectsSlider.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
+        <state relative-caret-position="12815">
           <caret line="495" column="17" selection-start-line="495" selection-start-column="17" selection-end-line="495" selection-end-column="17" />
           <folding>
             <element signature="e#1449#1506#0" expanded="true" />
@@ -813,17 +826,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/components/blocks/sunBackground.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
-          <caret line="106" selection-start-line="106" selection-end-line="115" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/loading.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="139" column="3" selection-start-line="139" selection-start-column="3" selection-end-line="139" selection-end-column="3" />
+        <state relative-caret-position="686">
+          <caret line="120" column="16" selection-start-line="120" selection-start-column="16" selection-end-line="120" selection-end-column="16" />
           <folding>
-            <element signature="e#376#429#0" expanded="true" />
+            <element signature="e#741#796#0" expanded="true" />
           </folding>
         </state>
       </provider>
