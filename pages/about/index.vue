@@ -53,7 +53,7 @@
       </div>
     </div>
     <div class="get-in-touch">
-      <a class="get-in-touch__link" href="mailto:pierre.mouchan@gmail.com" target="_blank">GET IN TOUCH</a>
+      <a class="get-in-touch__link" href="mailto:pierre.mouchan@gmail.com">GET IN TOUCH</a>
     </div>
   </div>
 </template>

@@ -17,6 +17,7 @@
       <change beforePath="$PROJECT_DIR$/components/projectsSlider.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/projectsSlider.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/threejs.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/threejs.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/layouts/default.vue" beforeDir="false" afterPath="$PROJECT_DIR$/layouts/default.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/about/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/about/index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/plugins/preloadImg.js" beforeDir="false" afterPath="$PROJECT_DIR$/plugins/preloadImg.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/images/icons/sun.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/icons/sun.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/images/projects/design3d/design3d-main.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/static/images/projects/design3d/design3d-main.jpg" afterDir="false" />
@@ -79,6 +80,18 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pages/about/index.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="514">
+              <caret line="55" column="74" selection-start-line="55" selection-start-column="74" selection-end-line="55" selection-end-column="74" />
+              <folding>
+                <element signature="e#2462#2492#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/threejs.vue">
           <provider selected="true" editor-type-id="text-editor">
@@ -120,11 +133,11 @@
           <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/projectsSlider.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="401">
-              <caret line="238" column="111" selection-start-line="238" selection-start-column="111" selection-end-line="238" selection-end-column="111" />
+            <state relative-caret-position="89">
+              <caret line="226" column="20" lean-forward="true" selection-start-line="226" selection-start-column="20" selection-end-line="226" selection-end-column="20" />
               <folding>
                 <element signature="e#1449#1506#0" expanded="true" />
               </folding>
@@ -224,7 +237,6 @@
         <option value="$PROJECT_DIR$/static/images/icons/sun.svg" />
         <option value="$PROJECT_DIR$/static/images/distorst.svg" />
         <option value="$PROJECT_DIR$/store/projects.js" />
-        <option value="$PROJECT_DIR$/pages/about/index.vue" />
         <option value="$PROJECT_DIR$/components/threejs.vue" />
         <option value="$PROJECT_DIR$/pages/index.vue" />
         <option value="$PROJECT_DIR$/static/images/icons/cursor-torus.svg" />
@@ -233,6 +245,7 @@
         <option value="$PROJECT_DIR$/components/loading.vue" />
         <option value="$PROJECT_DIR$/components/blocks/sunBackground.vue" />
         <option value="$PROJECT_DIR$/components/projectsSlider.vue" />
+        <option value="$PROJECT_DIR$/pages/about/index.vue" />
       </list>
     </option>
   </component>
@@ -453,19 +466,19 @@
       <workItem from="1561358694874" duration="17232000" />
       <workItem from="1561449008763" duration="110873000" />
       <workItem from="1562216889005" duration="7034000" />
-      <workItem from="1562565029373" duration="25729000" />
+      <workItem from="1562565029373" duration="26014000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="263345000" />
+    <option name="totallyTimeSpent" value="263630000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="953" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49941385" visible="true" weight="0.20695971" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49941385" visible="true" weight="0.20695971" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="1" />
@@ -480,7 +493,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info active="true" anchor="right" id="Terminal" order="3" sideWeight="0.5955451" visible="true" weight="0.27045178" />
+      <window_info anchor="right" id="Terminal" order="3" sideWeight="0.5955451" visible="true" weight="0.27045178" />
       <window_info anchor="right" id="Run" order="4" sideWeight="0.40445486" side_tool="true" visible="true" weight="0.27045178" />
     </layout>
   </component>
@@ -737,16 +750,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/about/index.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-          <folding>
-            <element signature="e#2462#2492#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/store/currentProject.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
@@ -811,6 +814,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/components/projectsSlider.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="226" column="20" lean-forward="true" selection-start-line="226" selection-start-column="20" selection-end-line="226" selection-end-column="20" />
+          <folding>
+            <element signature="e#1449#1506#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/components/blocks/sunBackground.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1222">
@@ -818,12 +831,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/projectsSlider.vue">
+    <entry file="file://$PROJECT_DIR$/pages/about/index.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="238" column="111" selection-start-line="238" selection-start-column="111" selection-end-line="238" selection-end-column="111" />
+        <state relative-caret-position="514">
+          <caret line="55" column="74" selection-start-line="55" selection-start-column="74" selection-end-line="55" selection-end-column="74" />
           <folding>
-            <element signature="e#1449#1506#0" expanded="true" />
+            <element signature="e#2462#2492#0" expanded="true" />
           </folding>
         </state>
       </provider>
