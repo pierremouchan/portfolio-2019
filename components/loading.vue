@@ -6,6 +6,12 @@
         <image-preloader :srcs="imageArray" @loaded-all="loadedAll" @loaded="loadedOne" />
       </div>
       <div class="loader-mask"></div>
+      <div
+        v-for="(project, index) in projects"
+        :key="index"
+        class="bg-preloaded"
+        :style="{ backgroundImage: `url('${project.mainImg}')` }"
+      ></div>
     </div>
   </transition>
 </template>
@@ -20,6 +26,7 @@ export default {
   },
   data: function() {
     return {
+      projects: this.$store.state.projects.list
       // imageArray: this.$nuxt.$cacheImages.imageArray,
     };
   },
@@ -121,6 +128,13 @@ export default {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    .bg-preloaded {
+      z-index: $foreground;
+      opacity: 1;
+      width: 100%;
+      height: 100%;
+      background-repeat: repeat;
+    }
 
     .percentage-number {
       position: relative;

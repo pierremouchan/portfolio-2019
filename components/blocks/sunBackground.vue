@@ -7,12 +7,6 @@
       </nuxt-link>
       <div class="background-project">
         <div class="repeated" :style="{ backgroundImage: `url('${activeProjectBackground}')` }"></div>
-        <div
-          v-for="project in projects"
-          :key="project"
-          class="preloaded"
-          :style="{ backgroundImage: `url('${project.mainImg}')` }"
-        ></div>
       </div>
       <Distorst class="distorst"></Distorst>
     </div>
