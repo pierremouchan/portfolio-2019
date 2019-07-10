@@ -8,8 +8,7 @@ export default (ctx, inject) => {
 
     colorRed: '#F25D61',
     colorBlack: '#1A1A1A',
-    colorWhite: '#FAF5EF',
-    colorTheme: '#FAF5EF'
+    colorWhite: '#FAF5EF'
   };
   inject('settings', settings);
 };

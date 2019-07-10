@@ -146,13 +146,12 @@ export default {
         onComplete: () => {
           this.increaseProject();
           nextProjectTimeline2.play();
+          this.nextProjectClicked = false;
         }
       });
       const nextProjectTimeline2 = new TimelineMax({
         paused: true,
-        onComplete: () => {
-          this.nextProjectClicked = false;
-        }
+        onComplete: () => {}
       });
       // FIRST TIMELINE RETRACT TEXT
       nextProjectTimeline
@@ -307,13 +306,12 @@ export default {
         onComplete: () => {
           this.decreaseProject();
           previousProjectTimeline2.play();
+          this.previousProjectClicked = false;
         }
       });
       const previousProjectTimeline2 = new TimelineMax({
         paused: true,
-        onComplete: () => {
-          this.previousProjectClicked = false;
-        }
+        onComplete: () => {}
       });
 
       // FIRST TIMELINE RETRACT TEXT

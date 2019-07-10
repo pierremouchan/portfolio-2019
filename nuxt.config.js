@@ -53,7 +53,7 @@ export default {
   meta: {
     // Most of these settings defines OG tags
     author: 'Pierre Mouchan',
-    name: 'Pierre Mouchan | Creative developer',
+    name: 'Pierre Mouchan | Junior Creative developer',
     theme_color: '#F25D61',
     description: 'Portfolio - Pierre Mouchan, a passionate creative developer.',
     lang: 'en'
@@ -61,12 +61,7 @@ export default {
 
   // DYNAMIC ROUTE TO GENERATE
   generate: {
-    routes: [
-      '/projects/design3d',
-      '/projects/fsif',
-      '/projects/portfolios',
-      '/projects/socialforgood'
-    ]
+    routes: ['/projects/design3d', '/projects/fsif', '/projects/portfolios', '/projects/socialforgood']
   },
 
   // NuxtJS disable loading indication between pages
@@ -77,12 +72,7 @@ export default {
    ** Nuxt.js modules
    */
 
-  modules: [
-    '@nuxtjs/eslint-module',
-    '@nuxtjs/style-resources',
-    'nuxt-svg',
-    '@nuxtjs/pwa'
-  ],
+  modules: ['@nuxtjs/eslint-module', '@nuxtjs/style-resources', 'nuxt-svg', '@nuxtjs/pwa'],
   // StyleRessource is used to have global variables and mixins over all .vue files
   // Don't put styles inside, use the option css:[] instead
   styleResources: {
@@ -100,10 +90,7 @@ export default {
 
   // css:[] is used to have global styles all over .vue files
   // Don't put variables inside, use the option styleRessources instead
-  css: [
-    './assets/scss/_config/_base.scss',
-    './assets/scss/_config/_vue_overrides.scss'
-  ],
+  css: ['./assets/scss/_config/_base.scss', './assets/scss/_config/_vue_overrides.scss'],
 
   /*
    ** Plugins to load before mounting the App
@@ -139,7 +126,5 @@ export default {
    ** You can extend webpack config here
    */
 
-  extend(config, { isDev, isClient }) {
-    // config.module.exports.plugins.push(new OptimizeThreeWebpackPlugin());
-  }
+  extend(config, { isDev, isClient }) {}
 };

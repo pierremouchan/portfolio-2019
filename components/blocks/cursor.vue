@@ -24,6 +24,11 @@ export default {
       setTimeout(() => {
         that.getAllLinks();
       }, 500);
+      if (to.name === 'experiments') {
+        setTimeout(() => {
+          that.getAllLinks();
+        }, 1000);
+      }
     }
   },
   mounted() {

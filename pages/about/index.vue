@@ -310,7 +310,7 @@ export default {
         position: absolute;
         top: 0;
         z-index: $up;
-        background-color: $white;
+        background-color: $black;
         width: 100%;
         height: 100%;
       }

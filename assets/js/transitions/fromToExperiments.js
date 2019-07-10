@@ -1,12 +1,12 @@
 import { TimelineMax, Expo } from 'gsap';
-export const fromAbout = done => {
-  const fromIndexTimeline = new TimelineMax({
+export const fromExperiments = done => {
+  const fromExperimentsTimeline = new TimelineMax({
     onComplete: () => {
       done();
     }
   });
   window.scrollTo(0, 0);
-  fromIndexTimeline
+  fromExperimentsTimeline
     .addLabel('f1+=0.5')
     .to(
       'h1',
@@ -31,30 +31,20 @@ export const fromAbout = done => {
       },
       'f1'
     )
-    .to(
-      '.glad-wrapper p',
-      1,
-
-      {
-        y: '120%',
-        rotation: 5,
-        transformOrigin: 'bottom left',
-        ease: Expo.easeIn
-      },
-      'f1'
-    )
-    .to(
-      '.invit-scroll',
+    .staggerTo(
+      '.insta-img',
       0.5,
-      { height: '0px', ease: Expo.easeIn },
-
+      {
+        opacity: 0,
+        stagger: 0.1
+      },
       'f1'
     );
 };
 
-export const toAbout = () => {
-  const toIndexTimeline = new TimelineMax();
-  toIndexTimeline
+export const toExperiments = () => {
+  const toExperimentsTimeline = new TimelineMax();
+  toExperimentsTimeline
     .addLabel('f1')
     .fromTo(
       'h1',
@@ -79,18 +69,5 @@ export const toAbout = () => {
       },
       { y: '0%', rotation: 0, ease: Expo.easeOut },
       'f1+=0.5'
-    )
-    .fromTo(
-      '.glad-wrapper p',
-      2,
-
-      {
-        y: '120%',
-        rotation: 5,
-        transformOrigin: 'bottom left'
-      },
-      { y: '0%', rotation: 0, ease: Expo.easeOut },
-      'f1+=0.75'
-    )
-    .fromTo('.invit-scroll', 2, { height: '0px' }, { height: '10vh', ease: Expo.easeOut }, 'f1+=0.75');
+    );
 };

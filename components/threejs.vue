@@ -24,7 +24,7 @@ export default {
   computed: {},
   watch: {
     $route(to, from) {
-      if (to.name === 'about') {
+      if (to.name === 'about' || to.name === 'experiments') {
         for (const i in projectsBlob) {
           TweenMax.to(projectsBlob[i].mesh.position, 1, {
             y: -500,
@@ -46,6 +46,8 @@ export default {
         }
         TweenMax.to(mainBlob.mesh.position, 2, { z: -500, ease: Expo.easeOut });
       }
+      iteration = 0;
+      TweenMax.to(activeBlob, 0.5, { perlinNoise: 0.006 });
     }
   },
   created() {
@@ -155,11 +157,19 @@ export default {
   methods: {
     checkHoverSun() {
       if (document.querySelector('#sun')) {
+        let intervalResetBlob;
         document.querySelector('#sun').addEventListener('mouseenter', () => {
+          intervalResetBlob = setInterval(() => {
+            if (activeBlob.perlinNoise !== 0) {
+              iteration = 0;
+              TweenMax.to(activeBlob, 0.5, { perlinNoise: 0 });
+            }
+          }, 500);
           iteration = 0;
           TweenMax.to(activeBlob, 0.5, { perlinNoise: 0 });
         });
         document.querySelector('#sun').addEventListener('mouseleave', () => {
+          clearInterval(intervalResetBlob);
           iteration = 0;
           TweenMax.to(activeBlob, 0.5, { perlinNoise: 0.006 });
         });
@@ -167,6 +177,8 @@ export default {
     },
     setActiveBlob(number) {
       activeBlob = projectsBlob[number];
+      TweenMax.to(activeBlob, 0.5, { perlinNoise: 0.006 });
+
       //   activeBlob.mesh.on('mouseover', event => {
       //     console.log('on -> ');
       //     TweenMax.to(activeBlob, 0.5, { perlinNoise: 0 });
