@@ -24,16 +24,7 @@ export default {
   computed: {},
   watch: {
     $route(to, from) {
-      if (to.name === 'about' || to.name === 'experiments') {
-        for (const i in projectsBlob) {
-          TweenMax.to(projectsBlob[i].mesh.position, 1, {
-            y: -500,
-            ease: Expo.easeIn
-          });
-        }
-
-        TweenMax.to(mainBlob.mesh.position, 2, { z: 0, ease: Expo.easeOut });
-      } else if (to.name === 'index') {
+      if (to.name === 'index' || document.querySelector('.container-404')) {
         setTimeout(() => {
           this.checkHoverSun();
         }, 500);
@@ -45,6 +36,15 @@ export default {
           });
         }
         TweenMax.to(mainBlob.mesh.position, 2, { z: -500, ease: Expo.easeOut });
+      } else {
+        for (const i in projectsBlob) {
+          TweenMax.to(projectsBlob[i].mesh.position, 1, {
+            y: -500,
+            ease: Expo.easeIn
+          });
+        }
+
+        TweenMax.to(mainBlob.mesh.position, 2, { z: 0, ease: Expo.easeOut });
       }
 
       TweenMax.to(activeBlob, 0.5, { perlinNoise: 0.006 });
@@ -88,7 +88,7 @@ export default {
       isalreadyLoaded => {
         switch (isalreadyLoaded) {
           case true:
-            if (this.$route.name === 'about') {
+            if (this.$route.name === 'about' || document.querySelector('.container-404')) {
               mainBlob.mesh.position.z = 0;
               for (const i in projectsBlob) {
                 projectsBlob[i].mesh.position.y = -500;

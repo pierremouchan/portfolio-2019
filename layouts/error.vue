@@ -1,8 +1,8 @@
 <template>
-  <div class="404-container">
-    <h1 v-if="error.statusCode === 404">Page not found</h1>
-    <h1 v-else>An error occurred</h1>
-    <nuxt-link to="/">Home page</nuxt-link>
+  <div class="container-404">
+    <h1 v-if="error.statusCode === 404">404</h1>
+    <h1 v-else>ERROR</h1>
+    <nuxt-link to="/">Home</nuxt-link>
   </div>
 </template>
 
@@ -12,3 +12,29 @@ export default {
   props: ['error']
 };
 </script>
+
+<style lang="scss" scoped>
+.container-404 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: $up;
+  h1 {
+    font-weight: 900;
+    font-family: $font-title;
+    font-size: 100px;
+    color: $red;
+    line-height: normal;
+  }
+  a {
+    width: fit-content;
+    display: block;
+    margin: 0 auto;
+    font-weight: 900;
+    font-size: 24px;
+    color: $red;
+    text-decoration: underline;
+  }
+}
+</style>
