@@ -25,7 +25,22 @@ export default {
     font-family: $font-title;
     font-size: 100px;
     color: $red;
+    -webkit-text-stroke: 2px $transparent;
     line-height: normal;
+    animation: errorBlink 0.5s linear infinite alternate;
+    @include mq($from: desktop_plus) {
+      font-size: 150px;
+    }
+    @include mq($from: xlarge) {
+      font-size: 250px;
+    }
+
+    @keyframes errorBlink {
+      to {
+        color: $transparent;
+        -webkit-text-stroke: 2px $red;
+      }
+    }
   }
   a {
     width: fit-content;

@@ -18,7 +18,7 @@ export const fromProject = done => {
       ['.hscroll', '.hscroll-reverse'],
       1.5,
       {
-        y: '150%',
+        y: '200%',
         transformOrigin: 'bottom left',
         rotate: 5,
         ease: Expo.easeIn
@@ -43,6 +43,7 @@ export const toProject = () => {
       {
         y: '0%',
         rotate: 0,
+        clearProps: 'all',
         ease: Expo.easeOut
       },
       'f1'

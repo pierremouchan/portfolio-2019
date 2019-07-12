@@ -67,6 +67,7 @@ export const state = () => ({
         require('~/static/images/projects/design3d/design3d-aside2.jpg')
       ]
     },
+
     {
       id: 'PORTFOLIOS',
       title: 'PORTFOLIOS',

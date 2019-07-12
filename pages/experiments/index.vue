@@ -95,7 +95,6 @@ export default {
     justify-content: center;
     align-items: center;
     margin: 0 auto 5vh auto;
-
     @include mq($from: desktop) {
       justify-content: center;
       flex-wrap: wrap;
@@ -109,15 +108,14 @@ export default {
       opacity: 0;
       overflow: hidden;
       position: relative;
-      width: 90%;
+      width: 350px;
+      height: 350px;
       &:not(:last-child) {
         margin-bottom: 5vh;
       }
 
-      @include mq($from: desktop) {
+      @include mq($from: tablet) {
         margin: 2.5vh;
-        width: 350px;
-        height: 350px;
       }
 
       &__mask {

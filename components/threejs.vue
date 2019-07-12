@@ -24,7 +24,7 @@ export default {
   computed: {},
   watch: {
     $route(to, from) {
-      if (to.name === 'index' || document.querySelector('.container-404')) {
+      if (to.name === 'index' || to.name === null) {
         setTimeout(() => {
           this.checkHoverSun();
         }, 500);

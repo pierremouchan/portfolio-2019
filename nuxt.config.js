@@ -61,7 +61,7 @@ export default {
 
   // DYNAMIC ROUTE TO GENERATE
   generate: {
-    routes: ['/projects/design3d', '/projects/fsif', '/projects/portfolios', '/projects/socialforgood']
+    routes: ['/projects/design3d', '/projects/fsif', '/projects/portfolios', '/projects/SOCIALFORGOOD']
   },
 
   // NuxtJS disable loading indication between pages
