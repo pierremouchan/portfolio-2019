@@ -24,7 +24,7 @@ export default {
   computed: {},
   watch: {
     $route(to, from) {
-      if (to.name === 'index' || to.name === null) {
+      if (to.name === 'index' || to.name === 'projects-id') {
         setTimeout(() => {
           this.checkHoverSun();
         }, 500);
