@@ -19,7 +19,6 @@
         NEXT
       </button>
     </div>
-    <sunBackground></sunBackground>
     <div class="project-year">
       <div class="project-year__fixed">20</div>
       <div class="project-year__realised">
@@ -47,11 +46,7 @@
 <script>
 import { TimelineMax, Expo, TweenMax, Back } from 'gsap';
 import { mapMutations } from 'vuex';
-import sunBackground from '~/components/blocks/sunBackground';
 export default {
-  components: {
-    sunBackground
-  },
   data() {
     return {
       projects: this.$store.state.projects.list,
@@ -71,6 +66,7 @@ export default {
   },
   beforeDestroy() {
     this.resetCursorStatus();
+    this.removeListener();
   },
   created() {},
   methods: {
@@ -83,6 +79,7 @@ export default {
       // LISTEN TO CLICK == PREVIOUS
       const prevSide = document.querySelector('.sun-leftside');
       prevSide.addEventListener('click', () => {
+        console.log('prev');
         if (!this.previousProjectClicked) {
           this.previousProjectClicked = true;
           this.previousProject();
@@ -99,6 +96,7 @@ export default {
       // LISTEN TO CLICK == NEXT
       const nextSide = document.querySelector('.sun-rightside');
       nextSide.addEventListener('click', () => {
+        console.log('next');
         if (!this.nextProjectClicked) {
           this.nextProjectClicked = true;
           this.nextProject();
@@ -125,6 +123,15 @@ export default {
         opacity: 0.5,
         ease: Back.easeOut.config(2.5)
       });
+    },
+    removeListener() {
+      let el = document.querySelector('.sun-leftside');
+      let elClone = el.cloneNode(true);
+      el.parentNode.replaceChild(elClone, el);
+
+      el = document.querySelector('.sun-rightside');
+      elClone = el.cloneNode(true);
+      el.parentNode.replaceChild(elClone, el);
     },
     resetCursorStatus() {
       document.querySelector('.cursor').classList.remove('prev-next-active');

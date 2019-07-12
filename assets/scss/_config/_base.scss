@@ -19,6 +19,10 @@
     scroll-behavior: smooth;
 	}
 
+  html::-webkit-scrollbar{
+    display: none;
+  }
+
   h1,
 	h2,
 	h3,
@@ -81,4 +85,10 @@ body{
 .strong-red{
   font-weight: normal;
   color: $red;
+  &--bold{
+    font-weight: 900;
+    color: $red;
+  }
 }
+
+

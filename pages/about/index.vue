@@ -56,6 +56,7 @@
       <a class="get-in-touch__link" href="mailto:pierre.mouchan@gmail.com?subject=Let's work together !" target="_blank"
         >GET IN TOUCH</a
       >
+      <p>Let’s discuss around a ☕ and a 🥖 !</p>
     </div>
   </div>
 </template>
@@ -268,7 +269,7 @@ export default {
       &__mask {
         position: absolute;
         top: 0;
-        background-color: $black;
+        background-color: $white;
         width: 100%;
         height: 100%;
         z-index: $up;
@@ -334,6 +335,9 @@ export default {
     overflow: hidden;
     margin: 15vh auto;
     text-align: center;
+    p {
+      font-size: 18px;
+    }
     &__link {
       position: relative;
       -webkit-text-stroke: 2px $black;

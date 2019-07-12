@@ -13,6 +13,7 @@
   </div>
 </template>
 <script>
+import { TweenMax, Expo } from 'gsap';
 import Sun from '~/static/images/icons/sun.svg?inline';
 
 export default {
@@ -33,13 +34,16 @@ export default {
 </script>
 <style lang="scss" scoped>
 .sun-background-wrapper {
+  margin: 4px;
+  overflow: hidden;
   position: fixed;
-  top: 0;
+  top: 50%;
+  transform: translateY(-50%);
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 85vh;
   max-width: 100vw;
-  max-height: 100vh;
+  max-height: 85vh;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -51,7 +55,7 @@ export default {
     @include mq($from: desktop_plus) {
       flex-grow: 1;
       visibility: visible;
-      height: 85%;
+      height: 100%;
     }
   }
   .sun-rightside {
@@ -59,28 +63,28 @@ export default {
     @include mq($from: desktop_plus) {
       flex-grow: 1;
       visibility: visible;
-      height: 85%;
+      height: 100%;
     }
   }
   .sun-background {
     position: relative;
-    width: 80vw;
-    max-width: 750px;
+    transform: scale(0);
+    width: 80%;
+    max-width: 700px;
     @include mq($from: tablet) {
-      width: 70vw;
+      width: 60%;
     }
-    @include mq($from: desktop_plus) {
+    @include mq($from: desktop) {
       position: relative;
       top: unset;
       left: unset;
-      transform: unset;
-      width: 55vw;
+      width: 45%;
     }
     @include mq($from: small) {
-      width: 45vw;
+      width: 45%;
     }
     @include mq($from: hd) {
-      width: 60vw;
+      width: 55%;
     }
     #sun {
       z-index: $normal;

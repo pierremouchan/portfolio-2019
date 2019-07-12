@@ -42,7 +42,7 @@ export default {
   },
   head() {
     return {
-      titleTemplate: '%s Junior Creative Developer'
+      titleTemplate: '%s Creative Developer'
     };
   }
 };

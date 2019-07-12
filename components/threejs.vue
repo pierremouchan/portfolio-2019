@@ -46,7 +46,7 @@ export default {
         }
         TweenMax.to(mainBlob.mesh.position, 2, { z: -500, ease: Expo.easeOut });
       }
-      iteration = 0;
+
       TweenMax.to(activeBlob, 0.5, { perlinNoise: 0.006 });
     }
   },

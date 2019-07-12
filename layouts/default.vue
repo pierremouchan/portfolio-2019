@@ -3,6 +3,7 @@
     <loading></loading>
     <header-cmp></header-cmp>
     <nuxt />
+    <sunBackground></sunBackground>
     <cursor-cmp></cursor-cmp>
     <three-js></three-js>
   </div>
@@ -13,9 +14,11 @@ import loading from '~/components/loading';
 import headerCmp from '~/components/header';
 import threeJs from '~/components/threejs';
 import cursorCmp from '~/components/blocks/cursor';
+import sunBackground from '~/components/blocks/sunBackground';
 
 export default {
   components: {
+    sunBackground,
     loading,
     headerCmp,
     threeJs,

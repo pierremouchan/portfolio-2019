@@ -1,11 +1,13 @@
 import { TimelineMax, Expo } from 'gsap';
 export const fromAbout = done => {
   const fromIndexTimeline = new TimelineMax({
+    paused: true,
     onComplete: () => {
       done();
     }
   });
-  window.scrollTo(0, 0);
+  const scrollTop = new Promise(resolve => resolve(window.scrollTo(0, 0)));
+  scrollTop.then(fromIndexTimeline.play());
   fromIndexTimeline
     .addLabel('f1+=0.5')
     .to(

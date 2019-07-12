@@ -82,14 +82,19 @@ export const fromIndex = done => {
       },
       'f1+=0.25'
     )
-    .to('.sun-background', 1, { y: '150%', ease: Expo.easeIn }, 'f1+=0.5');
+    .to('.sun-background', 1, { scale: '0', ease: Back.easeIn.config(1.5) }, 'f1+=0.5')
+    .set('.sun-leftside', { x: '-100%' }, 'f1')
+    .set('.sun-rightside', { x: '100%' }, 'f1');
 };
 
 export const toIndex = () => {
   const toIndexTimeline = new TimelineMax({});
   toIndexTimeline
     .addLabel('f1')
-    .fromTo('.sun-background', 2, { y: '150%' }, { y: '0%', ease: Expo.easeOut })
+    .fromTo('.sun-background', 2, { scale: '0' }, { scale: '1', ease: Back.easeOut.config(1.5) })
+    .set('.sun-leftside', { x: '0%' }, 'f1')
+    .set('.sun-rightside', { x: '0%' }, 'f1')
+
     .fromTo(
       '.title h2',
       2,
