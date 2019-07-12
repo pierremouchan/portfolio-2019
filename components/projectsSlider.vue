@@ -80,10 +80,7 @@ export default {
       const prevSide = document.querySelector('.sun-leftside');
       prevSide.addEventListener('click', () => {
         console.log('prev');
-        if (!this.previousProjectClicked) {
-          this.previousProjectClicked = true;
-          this.previousProject();
-        }
+        this.previousProject();
       });
       prevSide.addEventListener('mouseenter', () => {
         this.changeCursorStatus('PREV PREV PREV PREV');
@@ -97,10 +94,7 @@ export default {
       const nextSide = document.querySelector('.sun-rightside');
       nextSide.addEventListener('click', () => {
         console.log('next');
-        if (!this.nextProjectClicked) {
-          this.nextProjectClicked = true;
-          this.nextProject();
-        }
+        this.nextProject();
       });
       nextSide.addEventListener('mouseenter', () => {
         this.changeCursorStatus('NEXT NEXT NEXT NEXT');
@@ -149,326 +143,328 @@ export default {
       });
     },
     nextProject() {
-      const nextProjectTimeline = new TimelineMax({
-        onComplete: () => {
-          this.increaseProject();
-          nextProjectTimeline2.play();
-          this.nextProjectClicked = false;
-        }
-      });
-      const nextProjectTimeline2 = new TimelineMax({
-        paused: true,
-        onComplete: () => {}
-      });
-      // FIRST TIMELINE RETRACT TEXT
-      nextProjectTimeline
-        .addLabel('f1')
-        .fromTo(
-          '.title h2',
-          1,
-          {
-            y: '0%',
-            rotation: 0,
-            transformOrigin: 'top right'
-          },
-          {
-            y: '-150%',
-            rotation: 5,
-            ease: Expo.easeIn
-          },
-          'f1'
-        )
-        .fromTo(
-          '.title-outline div',
-          1,
-          {
-            y: '0%',
-            rotation: 0,
-            transformOrigin: 'top right'
-          },
-          {
-            y: '-150%',
-            rotation: 5,
-            transformOrigin: 'top right',
-            ease: Expo.easeIn
-          },
-          'f1'
-        )
-        .fromTo(
-          '.title-number div',
-          1,
-          {
-            y: '0%',
-            rotation: 0,
-            transformOrigin: 'top right'
-          },
-          {
-            y: '-150%',
-            rotation: 5,
-            transformOrigin: 'top right',
-            ease: Expo.easeIn
-          },
-          'f1+=0.25'
-        )
-        .fromTo(
-          '.project-role div',
-          1,
-          {
-            y: '0%',
-            rotation: 0,
-            transformOrigin: 'top right'
-          },
-          {
-            y: '150%',
-            rotation: 5,
-            transformOrigin: 'top right',
-            ease: Expo.easeIn
-          },
-          'f1+=0.25'
-        )
-        .fromTo(
-          '.project-year__realised div',
-          1,
-          {
-            y: '0%',
-            rotation: 0,
-            transformOrigin: 'top right'
-          },
-          {
-            y: '150%',
-            rotation: 10,
-            transformOrigin: 'top right',
-            ease: Expo.easeIn
-          },
-          'f1+=0.25'
-        )
-        .to('.background-project', 0.5, { width: '90%', height: '90%', ease: Back.easeIn.config(1) }, 'f1+=0.25');
-      // SECOND TIMELINE, APPEAR NEW PROJECT
-      nextProjectTimeline2
-        .addLabel('f1')
-        .fromTo(
-          '.title h2',
-          1,
-          {
-            y: '150%',
-            rotation: 5,
-            transformOrigin: 'bottom left'
-          },
-          { y: '0%', rotation: 0, ease: Expo.easeOut },
-          'f1'
-        )
-        .fromTo(
-          '.title-outline div',
-          1,
-          {
-            y: '150%',
-            rotation: 5,
-            transformOrigin: 'bottom left'
-          },
-          { y: '0%', rotation: 0, ease: Expo.easeOut },
-          'f1'
-        )
-        .fromTo(
-          '.title-number div',
-          1,
-          {
-            y: '150%',
-            rotation: 5,
-            transformOrigin: 'bottom left'
-          },
-          { y: '0%', rotation: 0, ease: Expo.easeOut },
-          'f1+=0.25'
-        )
-        .fromTo(
-          '.project-role div',
-          1,
-          {
-            y: '150%',
-            rotation: 5,
-            transformOrigin: 'bottom left'
-          },
-          { y: '0%', rotation: 0, ease: Expo.easeOut },
-          'f1+=0.25'
-        )
-        .fromTo(
-          '.project-year__realised div',
-          1,
-          {
-            y: '150%',
-            rotation: 10,
-            transformOrigin: 'bottom left'
-          },
-          {
-            y: '0%',
-            rotation: 0,
-            transformOrigin: 'bottom left',
-            ease: Expo.easeOut
-          },
-          'f1+=0.25'
-        )
-        .to('.background-project', 0.5, { width: '110%', height: '110%', ease: Back.easeOut.config(1) }, 'f1+=0.25');
+      if (!this.nextProjectClicked) {
+        this.nextProjectClicked = true;
+        const nextProjectTimeline = new TimelineMax({
+          onComplete: () => {
+            this.increaseProject();
+            nextProjectTimeline2.play();
+            this.nextProjectClicked = false;
+          }
+        });
+        const nextProjectTimeline2 = new TimelineMax({
+          paused: true,
+          onComplete: () => {}
+        });
+        // FIRST TIMELINE RETRACT TEXT
+        nextProjectTimeline
+          .addLabel('f1')
+          .fromTo(
+            '.title h2',
+            1,
+            {
+              y: '0%',
+              rotation: 0,
+              transformOrigin: 'top right'
+            },
+            {
+              y: '-150%',
+              rotation: 5,
+              ease: Expo.easeIn
+            },
+            'f1'
+          )
+          .fromTo(
+            '.title-outline div',
+            1,
+            {
+              y: '0%',
+              rotation: 0,
+              transformOrigin: 'top right'
+            },
+            {
+              y: '-150%',
+              rotation: 5,
+              transformOrigin: 'top right',
+              ease: Expo.easeIn
+            },
+            'f1'
+          )
+          .fromTo(
+            '.title-number div',
+            1,
+            {
+              y: '0%',
+              rotation: 0,
+              transformOrigin: 'top right'
+            },
+            {
+              y: '-150%',
+              rotation: 5,
+              transformOrigin: 'top right',
+              ease: Expo.easeIn
+            },
+            'f1+=0.25'
+          )
+          .fromTo(
+            '.project-role div',
+            1,
+            {
+              y: '0%',
+              rotation: 0,
+              transformOrigin: 'top right'
+            },
+            {
+              y: '150%',
+              rotation: 5,
+              transformOrigin: 'top right',
+              ease: Expo.easeIn
+            },
+            'f1+=0.25'
+          )
+          .fromTo(
+            '.project-year__realised div',
+            1,
+            {
+              y: '0%',
+              rotation: 0,
+              transformOrigin: 'top right'
+            },
+            {
+              y: '150%',
+              rotation: 10,
+              transformOrigin: 'top right',
+              ease: Expo.easeIn
+            },
+            'f1+=0.25'
+          )
+          .to('.background-project', 0.5, { width: '90%', height: '90%', ease: Back.easeIn.config(1) }, 'f1+=0.25');
+        // SECOND TIMELINE, APPEAR NEW PROJECT
+        nextProjectTimeline2
+          .addLabel('f1')
+          .fromTo(
+            '.title h2',
+            1,
+            {
+              y: '150%',
+              rotation: 5,
+              transformOrigin: 'bottom left'
+            },
+            { y: '0%', rotation: 0, ease: Expo.easeOut },
+            'f1'
+          )
+          .fromTo(
+            '.title-outline div',
+            1,
+            {
+              y: '150%',
+              rotation: 5,
+              transformOrigin: 'bottom left'
+            },
+            { y: '0%', rotation: 0, ease: Expo.easeOut },
+            'f1'
+          )
+          .fromTo(
+            '.title-number div',
+            1,
+            {
+              y: '150%',
+              rotation: 5,
+              transformOrigin: 'bottom left'
+            },
+            { y: '0%', rotation: 0, ease: Expo.easeOut },
+            'f1+=0.25'
+          )
+          .fromTo(
+            '.project-role div',
+            1,
+            {
+              y: '150%',
+              rotation: 5,
+              transformOrigin: 'bottom left'
+            },
+            { y: '0%', rotation: 0, ease: Expo.easeOut },
+            'f1+=0.25'
+          )
+          .fromTo(
+            '.project-year__realised div',
+            1,
+            {
+              y: '150%',
+              rotation: 10,
+              transformOrigin: 'bottom left'
+            },
+            {
+              y: '0%',
+              rotation: 0,
+              transformOrigin: 'bottom left',
+              ease: Expo.easeOut
+            },
+            'f1+=0.25'
+          )
+          .to('.background-project', 0.5, { width: '110%', height: '110%', ease: Back.easeOut.config(1) }, 'f1+=0.25');
+      }
     },
     previousProject() {
-      const previousProjectTimeline = new TimelineMax({
-        onComplete: () => {
-          this.decreaseProject();
-          previousProjectTimeline2.play();
-          this.previousProjectClicked = false;
-        }
-      });
-      const previousProjectTimeline2 = new TimelineMax({
-        paused: true,
-        onComplete: () => {}
-      });
+      if (!this.previousProjectClicked) {
+        this.previousProjectClicked = true;
+        const previousProjectTimeline = new TimelineMax({
+          onComplete: () => {
+            this.decreaseProject();
+            previousProjectTimeline2.play();
+            this.previousProjectClicked = false;
+          }
+        });
+        const previousProjectTimeline2 = new TimelineMax({
+          paused: true,
+          onComplete: () => {}
+        });
 
-      // FIRST TIMELINE RETRACT TEXT
-      previousProjectTimeline
-        .addLabel('f1')
-        .fromTo(
-          '.title h2',
-          1,
-          {
-            y: '0%',
-            rotation: 0,
-            transformOrigin: 'bottom left'
-          },
-          {
-            y: '150%',
-            rotation: 5,
-            ease: Expo.easeIn
-          },
-          'f1'
-        )
-        .fromTo(
-          '.title-outline div',
-          1,
-          {
-            y: '0%',
-            rotation: 0,
-            transformOrigin: 'bottom left'
-          },
-          {
-            y: '150%',
-            rotation: 5,
-            ease: Expo.easeIn
-          },
-          'f1'
-        )
-        .fromTo(
-          '.title-number div',
-          1,
-          {
-            y: '0%',
-            rotation: 0,
-            transformOrigin: 'bottom left'
-          },
-          {
-            y: '150%',
-            rotation: 5,
-            ease: Expo.easeIn
-          },
-          'f1+=0.25'
-        )
-        .fromTo(
-          '.project-role div',
-          1,
-          {
-            y: '0%',
-            rotation: 0,
-            transformOrigin: 'bottom left'
-          },
-          {
-            y: '150%',
-            rotation: 5,
-            ease: Expo.easeIn
-          },
-          'f1+=0.25'
-        )
-        .fromTo(
-          '.project-year__realised div',
-          1,
-          {
-            y: '0%',
-            rotation: 0,
-            transformOrigin: 'bottom left'
-          },
-          {
-            y: '150%',
-            rotation: 10,
-            transformOrigin: 'bottom left',
-            ease: Expo.easeIn
-          },
-          'f1+=0.25'
-        )
-        .to('.background-project', 0.5, { width: '90%', height: '90%', ease: Back.easeIn.config(1) }, 'f1+=0.25');
-      // SECOND TIMELINE, APPEAR NEW PROJECT
-      previousProjectTimeline2
-        .addLabel('f1')
-        .fromTo(
-          '.title h2',
-          1,
-          {
-            y: '-150%',
-            rotation: 5,
-            transformOrigin: 'top right'
-          },
-          { y: '0%', rotation: 0, ease: Expo.easeOut },
-          'f1'
-        )
-        .fromTo(
-          '.title-outline div',
-          1,
-          {
-            y: '-150%',
-            rotation: 5,
-            transformOrigin: 'top right'
-          },
-          { y: '0%', rotation: 0, ease: Expo.easeOut },
-          'f1'
-        )
-        .fromTo(
-          '.title-number div',
-          1,
-          {
-            y: '-150%',
-            rotation: 5,
-            transformOrigin: 'top right'
-          },
-          { y: '0%', rotation: 0, ease: Expo.easeOut },
-          'f1+=0.25'
-        )
-        .fromTo(
-          '.project-role div',
-          1,
-          {
-            y: '150%',
-            rotation: 5,
-            transformOrigin: 'top right'
-          },
-          { y: '0%', rotation: 0, ease: Expo.easeOut },
-          'f1+=0.25'
-        )
-        .fromTo(
-          '.project-year__realised div',
-          1,
-          {
-            y: '150%',
-            rotation: 10,
-            transformOrigin: 'top right'
-          },
-          {
-            y: '0%',
-            rotation: 0,
-            transformOrigin: 'top right',
-            ease: Expo.easeOut
-          },
-          'f1+=0.25'
-        )
-        .to('.background-project', 0.5, { width: '110%', height: '110%', ease: Back.easeOut.config(1) }, 'f1+=0.25');
-    },
-
-    enterProjectSlider() {
-      // const toIndexTimeline = new TimelineMax({});
+        // FIRST TIMELINE RETRACT TEXT
+        previousProjectTimeline
+          .addLabel('f1')
+          .fromTo(
+            '.title h2',
+            1,
+            {
+              y: '0%',
+              rotation: 0,
+              transformOrigin: 'bottom left'
+            },
+            {
+              y: '150%',
+              rotation: 5,
+              ease: Expo.easeIn
+            },
+            'f1'
+          )
+          .fromTo(
+            '.title-outline div',
+            1,
+            {
+              y: '0%',
+              rotation: 0,
+              transformOrigin: 'bottom left'
+            },
+            {
+              y: '150%',
+              rotation: 5,
+              ease: Expo.easeIn
+            },
+            'f1'
+          )
+          .fromTo(
+            '.title-number div',
+            1,
+            {
+              y: '0%',
+              rotation: 0,
+              transformOrigin: 'bottom left'
+            },
+            {
+              y: '150%',
+              rotation: 5,
+              ease: Expo.easeIn
+            },
+            'f1+=0.25'
+          )
+          .fromTo(
+            '.project-role div',
+            1,
+            {
+              y: '0%',
+              rotation: 0,
+              transformOrigin: 'bottom left'
+            },
+            {
+              y: '150%',
+              rotation: 5,
+              ease: Expo.easeIn
+            },
+            'f1+=0.25'
+          )
+          .fromTo(
+            '.project-year__realised div',
+            1,
+            {
+              y: '0%',
+              rotation: 0,
+              transformOrigin: 'bottom left'
+            },
+            {
+              y: '150%',
+              rotation: 10,
+              transformOrigin: 'bottom left',
+              ease: Expo.easeIn
+            },
+            'f1+=0.25'
+          )
+          .to('.background-project', 0.5, { width: '90%', height: '90%', ease: Back.easeIn.config(1) }, 'f1+=0.25');
+        // SECOND TIMELINE, APPEAR NEW PROJECT
+        previousProjectTimeline2
+          .addLabel('f1')
+          .fromTo(
+            '.title h2',
+            1,
+            {
+              y: '-150%',
+              rotation: 5,
+              transformOrigin: 'top right'
+            },
+            { y: '0%', rotation: 0, ease: Expo.easeOut },
+            'f1'
+          )
+          .fromTo(
+            '.title-outline div',
+            1,
+            {
+              y: '-150%',
+              rotation: 5,
+              transformOrigin: 'top right'
+            },
+            { y: '0%', rotation: 0, ease: Expo.easeOut },
+            'f1'
+          )
+          .fromTo(
+            '.title-number div',
+            1,
+            {
+              y: '-150%',
+              rotation: 5,
+              transformOrigin: 'top right'
+            },
+            { y: '0%', rotation: 0, ease: Expo.easeOut },
+            'f1+=0.25'
+          )
+          .fromTo(
+            '.project-role div',
+            1,
+            {
+              y: '150%',
+              rotation: 5,
+              transformOrigin: 'top right'
+            },
+            { y: '0%', rotation: 0, ease: Expo.easeOut },
+            'f1+=0.25'
+          )
+          .fromTo(
+            '.project-year__realised div',
+            1,
+            {
+              y: '150%',
+              rotation: 10,
+              transformOrigin: 'top right'
+            },
+            {
+              y: '0%',
+              rotation: 0,
+              transformOrigin: 'top right',
+              ease: Expo.easeOut
+            },
+            'f1+=0.25'
+          )
+          .to('.background-project', 0.5, { width: '110%', height: '110%', ease: Back.easeOut.config(1) }, 'f1+=0.25');
+      }
     }
   }
 };
