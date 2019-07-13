@@ -44,9 +44,7 @@
           <a href="https://www.facebook.com/profile.php?id=100009602180064" target="_blank"
             ><facebookIcon></facebookIcon
           ></a>
-          <a href="~/static/CV_Pierre_Mouchan.pdf" target="_blank" rel="noopener noreferrer"
-            ><resumeIcon></resumeIcon
-          ></a>
+          <a href="static/CV_Pierre_Mouchan.pdf" target="_blank" rel="noopener noreferrer"><resumeIcon></resumeIcon></a>
         </address>
       </div>
       <div class="myself-picture">
