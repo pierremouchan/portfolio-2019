@@ -1,7 +1,4 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-undef */
-/* eslint-disable require-await */
-import { TimelineMax } from 'gsap';
+import { TimelineMax, Expo, Back } from 'gsap';
 
 export const fromIndex = done => {
   const fromIndexTimeline = new TimelineMax({

@@ -1,6 +1,6 @@
 <template>
   <header>
-    <nuxt-link id="logo" to="/" @click.native="onRouteChange">
+    <nuxt-link id="logo" aria-label="Home" to="/" @click.native="onRouteChange">
       <pm-logo></pm-logo>
     </nuxt-link>
 

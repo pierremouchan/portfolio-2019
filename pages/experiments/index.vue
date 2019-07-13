@@ -1,5 +1,5 @@
 <template>
-  <div class="experiments-container">
+  <main class="experiments-container">
     <div class="brief-container">
       <div class="h1-wrapper">
         <h1>@PIERRE_MOUCHAN</h1>
@@ -15,7 +15,7 @@
     </div>
 
     <div id="instafeed"></div>
-  </div>
+  </main>
 </template>
 
 <script>
@@ -28,6 +28,17 @@ export default {
   },
   asyncData() {
     return instagramFeed.run();
+  },
+  head() {
+    return {
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Portfolio - @pierre_mouchan on Instagram 🤙'
+        }
+      ]
+    };
   },
   mounted() {
     toExperiments();

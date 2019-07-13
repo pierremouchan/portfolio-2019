@@ -9,7 +9,7 @@ export const instagramFeed = new InstaFeedJS({
     if (element.tags.indexOf('exp') >= 0) {
       document.querySelector('#instafeed').innerHTML += `<div class="insta-img">
             <div class="insta-img__mask"></div>
-                <a href="${element.link}" target="_blank">
+                <a href="${element.link}" target="_blank" rel="noopener noreferrer">
                     <img src="${element.images.standard_resolution.url}" alt="${element.caption.text}"/>
                </a>
         </div>`;

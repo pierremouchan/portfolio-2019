@@ -1,7 +1,7 @@
 <template>
-  <div class="index-container">
+  <main class="index-container">
     <projects-slider></projects-slider>
-  </div>
+  </main>
 </template>
 
 <script>

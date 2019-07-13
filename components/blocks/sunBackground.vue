@@ -1,19 +1,22 @@
 <template>
   <div class="sun-background-wrapper">
-    <div class="sun-leftside"></div>
+    <div class="sun-leftside" rel="prev"></div>
     <div class="sun-background">
-      <nuxt-link id="sun" :to="'/projects/' + projects[this.$store.state.currentProject.number].id">
+      <nuxt-link
+        id="sun"
+        :aria-label="projects[this.$store.state.currentProject.number].id"
+        :to="'/projects/' + projects[this.$store.state.currentProject.number].id"
+      >
         <Sun></Sun>
       </nuxt-link>
       <div class="background-project">
         <div class="repeated" :style="{ backgroundImage: `url('${activeProjectBackground}')` }"></div>
       </div>
     </div>
-    <div class="sun-rightside"></div>
+    <div class="sun-rightside" rel="next"></div>
   </div>
 </template>
 <script>
-import { TweenMax, Expo } from 'gsap';
 import Sun from '~/static/images/icons/sun.svg?inline';
 
 export default {

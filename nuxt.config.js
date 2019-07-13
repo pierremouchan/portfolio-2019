@@ -21,7 +21,7 @@ export default {
       {
         hid: 'robots',
         name: 'robots',
-        content: 'noindex,nofollow'
+        content: 'noindex, nofollow'
       },
       {
         hid: 'og:image',
@@ -61,7 +61,7 @@ export default {
 
   // DYNAMIC ROUTE TO GENERATE
   generate: {
-    routes: ['/projects/design3d', '/projects/fsif', '/projects/portfolios', '/projects/SOCIALFORGOOD']
+    routes: ['/projects/DESIGNING', '/projects/FSIF', '/projects/PORTFOLIOS', '/projects/SOCIALFORGOOD']
   },
 
   // NuxtJS disable loading indication between pages

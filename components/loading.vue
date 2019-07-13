@@ -18,11 +18,6 @@ export default {
   components: {
     imagePreloader
   },
-  data: function() {
-    return {
-      // imageArray: this.$nuxt.$cacheImages.imageArray,
-    };
-  },
   computed: {
     imageArray() {
       return this.$store.state.loader.imageArray;
@@ -39,13 +34,11 @@ export default {
     this.$store.commit('loader/setImageArray', this.$nuxt.$cacheImages.imageArray);
     // COOKIE FOR THE CURRENT SESSION
     sessionStorage.getItem('loaderCookie') === 'true' ? this.endLoading() : this.startLoading();
-    // this.startLoading();
   },
   methods: {
     startLoading() {
       // SET COOKIE FOR THE NEXT LOADING
       sessionStorage.setItem('loaderCookie', 'true');
-
       // CHECK IF IMAGEARRAY IS NOT EMPTY
       if (this.imageArray.length === 0) {
         this.endLoading();

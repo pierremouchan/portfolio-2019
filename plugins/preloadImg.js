@@ -9,6 +9,5 @@ export default (ctx, inject) => {
 
   importAll(require.context('../static/images/', true, /\.(png|jpe?g|gif)$|.(\/)\.(png|jpe?g|gif)$/));
 
-  console.log('cacheImages -> ', cacheImages);
   inject('cacheImages', cacheImages);
 };

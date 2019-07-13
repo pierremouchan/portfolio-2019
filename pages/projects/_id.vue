@@ -39,7 +39,7 @@
       </div>
       <div class="main-img">
         <div class="main-img__mask"></div>
-        <img :src="activeProject.othersImg[0]" alt="" />
+        <img :src="activeProject.othersImg[0]" :alt="'Mockup for ' + activeProject.title" />
       </div>
       <div class="project-history">
         <div class="project-history__text">
@@ -51,11 +51,11 @@
       <div class="others-img">
         <div class="vertical-img">
           <div class="vertical-img__mask"></div>
-          <img :src="activeProject.othersImg[1]" alt="" />
+          <img :src="activeProject.othersImg[1]" :alt="'Mockup for ' + activeProject.title" />
         </div>
         <div class="square-img">
           <div class="square-img__mask"></div>
-          <img :src="activeProject.othersImg[2]" alt="" />
+          <img :src="activeProject.othersImg[2]" :alt="'Mockup for ' + activeProject.title" />
         </div>
       </div>
       <div class="back-gallery">
@@ -69,7 +69,7 @@
 </template>
 <script>
 import Bound from 'bounds.js';
-import { TweenMax, Expo, TimelineMax } from 'gsap';
+import { Expo, TimelineMax } from 'gsap';
 import { fromProject, toProject } from '~/assets/js/transitions/fromToProject';
 
 export default {
@@ -90,8 +90,6 @@ export default {
   mounted() {
     if (this.$store.state.loader.alreadyLoaded) {
       toProject();
-    } else {
-      // nothing for the moment
     }
     this.revealEl();
   },

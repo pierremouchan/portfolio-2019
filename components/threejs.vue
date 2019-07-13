@@ -5,8 +5,6 @@
 <script>
 import { Scene, PerspectiveCamera, DirectionalLight, Color, WebGLRenderer } from 'three';
 import { TweenMax, Expo } from 'gsap';
-
-// import { Interaction } from 'three.interaction';
 import Blob from '~/assets/js/webGL/blob.class';
 
 let mainBlob, activeBlob;
@@ -130,25 +128,6 @@ export default {
             });
           }
         }
-        // switch (newProjectNumber > this.oldProjectNumber) {
-        //   case true:
-        //     for (let i = 0; i < projectsBlob.length; i++) {
-        //       TweenMax.to(projectsBlob[i].mesh.position, 1, {
-        //         x: '-=500',
-        //         ease: Expo.easeOut
-        //       });
-        //     }
-        //
-        //     this.setActiveBlob(newProjectNumber);
-        //     this.oldProjectNumber = newProjectNumber;
-        //     break;
-        //   case false:
-        //     for (let i = 0; i < projectsBlob.length; i++) {
-        //       TweenMax.to(projectsBlob[i].mesh.position, 1, {
-        //         x: '+=500',
-        //         ease: Expo.easeOut
-        //       });
-        //     }
         this.setActiveBlob(newProjectNumber);
         this.oldProjectNumber = newProjectNumber;
       }
@@ -178,27 +157,6 @@ export default {
     setActiveBlob(number) {
       activeBlob = projectsBlob[number];
       TweenMax.to(activeBlob, 0.5, { perlinNoise: 0.006 });
-
-      //   activeBlob.mesh.on('mouseover', event => {
-      //     console.log('on -> ');
-      //     TweenMax.to(activeBlob, 0.5, { perlinNoise: 0 });
-      //   });
-      //   activeBlob.mesh.on('mouseout', event => {
-      //     console.log('leave -> ');
-      //     iteration = 0;
-      //     TweenMax.to(activeBlob, 0.5, { perlinNoise: 0.006 });
-      //   });
-      //
-      //   activeBlob.mesh.on('click', event => {
-      //     console.log('click -> ');
-      //     this.$router.push(
-      //       `/projects/${
-      //         this.$store.state.projects.list[
-      //           this.$store.state.currentProject.number
-      //         ].id
-      //       }`
-      //     );
-      //   });
     },
     setupWebGL() {
       const container = document.querySelector('.webGL-container');
@@ -206,13 +164,6 @@ export default {
       const aspect = container.clientWidth / container.clientHeight;
 
       const camera = new PerspectiveCamera(75, aspect, 0.1, 500);
-
-      // const hemisphereLight = new HemisphereLight(0xffffff, 0xf9f7f0, 0.6);
-      // const directionalLight = new DirectionalLight(0xf9f9f9, 0.5);
-      // const directionalLight2 = directionalLight.clone();
-      // directionalLight.position.set(-200, 300, 400);
-      // directionalLight2.position.set(200, 300, 400);
-      // scene.add(hemisphereLight, directionalLight, directionalLight2);
 
       const directionalLight = new DirectionalLight(0xffffff, 1);
       directionalLight.position.set(100, 200, 150);
@@ -259,9 +210,6 @@ export default {
       renderer.setAnimationLoop(function() {
         update();
         render();
-
-        // Extension threejs inspector CHROME
-        window.scene = scene;
       });
       function onWindowResize() {
         camera.aspect = container.clientWidth / container.clientHeight;
@@ -282,30 +230,7 @@ export default {
       onWindowResize();
 
       window.addEventListener('resize', onWindowResize);
-
-      // DOMEVENTS
-      // const interaction = new Interaction(renderer, scene, camera);
       activeBlob = projectsBlob[0];
-      // activeBlob.mesh.on('mouseover', event => {
-      //   console.log('on -> ');
-      //   TweenMax.to(activeBlob, 0.5, { perlinNoise: 0 });
-      // });
-      // activeBlob.mesh.on('mouseout', event => {
-      //   console.log('leave -> ');
-      //   iteration = 0;
-      //   TweenMax.to(activeBlob, 0.5, { perlinNoise: 0.006 });
-      // });
-      //
-      // activeBlob.mesh.on('click', event => {
-      //   console.log('click -> ');
-      //   this.$router.push(
-      //     `/projects/${
-      //       this.$store.state.projects.list[
-      //         this.$store.state.currentProject.number
-      //       ].id
-      //     }`
-      //   );
-      // });
     }
   }
 };

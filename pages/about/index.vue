@@ -1,5 +1,5 @@
 <template>
-  <div class="about-container">
+  <main class="about-container">
     <div class="brief-container">
       <div class="h1-wrapper">
         <h1>PIERRE MOUCHAN</h1>
@@ -25,7 +25,9 @@
         <div class="myself-description__mask"></div>
         <div class="description">
           I’m still studying in France 🥖 and i’m currently working as a front-end developer at
-          <a class="link-pixies" target="_blank" href="https://www.pixies-agency.fr/">Pixies</a>
+          <a class="link-pixies" target="_blank" rel="noopener noreferrer" href="https://www.pixies-agency.fr/"
+            >Pixies</a
+          >
           ( Go check them out ! ).
           <br /><br />
           I’m the guy who always try to
@@ -39,9 +41,13 @@
           👌
         </div>
         <address class="reseaux">
-          <a href="https://github.com/PierreMouchan/" target="_blank"><githubIcon></githubIcon></a>
-          <a href="https://www.instagram.com/pierre_mouchan/" target="_blank"><instaIcon></instaIcon></a>
-          <a href="https://www.facebook.com/profile.php?id=100009602180064" target="_blank"
+          <a href="https://github.com/PierreMouchan/" target="_blank" rel="noopener noreferrer"
+            ><githubIcon></githubIcon
+          ></a>
+          <a href="https://www.instagram.com/pierre_mouchan/" target="_blank" rel="noopener noreferrer"
+            ><instaIcon></instaIcon
+          ></a>
+          <a href="https://www.facebook.com/profile.php?id=100009602180064" target="_blank" rel="noopener noreferrer"
             ><facebookIcon></facebookIcon
           ></a>
           <a href="static/CV_Pierre_Mouchan.pdf" target="_blank" rel="noopener noreferrer"><resumeIcon></resumeIcon></a>
@@ -53,12 +59,16 @@
       </div>
     </div>
     <div class="get-in-touch">
-      <a class="get-in-touch__link" href="mailto:pierre.mouchan@gmail.com?subject=Let's work together !" target="_blank"
+      <a
+        class="get-in-touch__link"
+        href="mailto:pierre.mouchan@gmail.com?subject=Let's work together !"
+        target="_blank"
+        rel="noopener noreferrer"
         >GET IN TOUCH</a
       >
       <p>Let’s discuss around a ☕ and a 🥖 !</p>
     </div>
-  </div>
+  </main>
 </template>
 
 <script>
@@ -104,7 +114,7 @@ export default {
       const boundary = Bound({
         root: this.window,
         threshold: 0.1
-      }); // initialize with default options
+      });
       const myselfDesc = document.querySelector('.myself-description__mask');
       const myselfPic = document.querySelector('.myself-picture__mask');
       const getInTouch = document.querySelector('.get-in-touch');

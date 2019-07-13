@@ -1,7 +1,4 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-undef */
-/* eslint-disable require-await */
-import { TimelineMax } from 'gsap';
+import { TimelineMax, Expo } from 'gsap';
 
 export const fromProject = done => {
   const fromProjectTimeline = new TimelineMax({
@@ -16,11 +13,9 @@ export const fromProject = done => {
     .addLabel('f1')
     .to(
       ['.hscroll', '.hscroll-reverse'],
-      1.5,
+      1,
       {
-        y: '200%',
-        transformOrigin: 'bottom left',
-        rotate: 5,
+        opacity: '0',
         ease: Expo.easeIn
       },
       'f1'

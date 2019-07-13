@@ -70,7 +70,6 @@ export default {
   },
   created() {},
   methods: {
-    // eslint-disable-next-line standard/computed-property-even-spacing
     ...mapMutations({
       decreaseProject: 'currentProject/previousProject',
       increaseProject: 'currentProject/nextProject'
@@ -79,7 +78,6 @@ export default {
       // LISTEN TO CLICK == PREVIOUS
       const prevSide = document.querySelector('.sun-leftside');
       prevSide.addEventListener('click', () => {
-        console.log('prev');
         this.previousProject();
       });
       prevSide.addEventListener('mouseenter', () => {
@@ -93,7 +91,6 @@ export default {
       // LISTEN TO CLICK == NEXT
       const nextSide = document.querySelector('.sun-rightside');
       nextSide.addEventListener('click', () => {
-        console.log('next');
         this.nextProject();
       });
       nextSide.addEventListener('mouseenter', () => {
