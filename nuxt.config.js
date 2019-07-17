@@ -46,7 +46,9 @@ export default {
     short_name: 'Pierre Mouchan | Portfolio',
     description: 'Portfolio - Pierre Mouchan, a passionate creative developer.',
     lang: 'en',
-    orientation: 'natural'
+    orientation: 'natural',
+    theme_color: '#F25D61',
+    background_color: '#F25D61'
   },
   // META FOR PWA SUPPORT (COMES UP WITH LOT OF META TAGS)
   // options : https://pwa.nuxtjs.org/modules/meta.html#options
@@ -57,6 +59,11 @@ export default {
     theme_color: '#F25D61',
     description: 'Portfolio - Pierre Mouchan, a passionate creative developer.',
     lang: 'en'
+  },
+
+  workbox: {
+    // Workbox options
+    offlinePage: '/404'
   },
 
   // DYNAMIC ROUTE TO GENERATE

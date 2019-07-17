@@ -32,8 +32,8 @@
           <br /><br />
           I’m the guy who always try to
           <strong class="strong-red">be original and creative</strong> in my projects : trying new things, new
-          librairies, new tech and dev environments… <br /><br />
-          To summary, i’m a developer with
+          libraries, new tech and dev environments… <br /><br />
+          To summary, i’m a 19 yo developer with
           <strong class="strong-red">taste for design, animation and 3D.</strong>
           I would like to offer my expertise to creative teams and agencies, so don’t hesitate to contact me ! .. I’m
           looking forward to work

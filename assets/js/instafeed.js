@@ -6,14 +6,12 @@ export const instagramFeed = new InstaFeedJS({
   accessToken: '6037719929.efbffc2.a6ba9bb2b1eb4d44970cbc70cb379da6',
   resolution: 'standard_resolution',
   filter: function(element) {
-    if (element.tags.indexOf('exp') >= 0) {
-      document.querySelector('#instafeed').innerHTML += `<div class="insta-img">
+    document.querySelector('#instafeed').innerHTML += `<div class="insta-img">
             <div class="insta-img__mask"></div>
                 <a href="${element.link}" target="_blank" rel="noopener noreferrer">
                     <img src="${element.images.standard_resolution.url}" alt="${element.caption.text}"/>
                </a>
         </div>`;
-    }
   },
   success: function() {
     setTimeout(() => {
