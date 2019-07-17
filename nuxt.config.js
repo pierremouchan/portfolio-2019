@@ -48,7 +48,8 @@ export default {
     lang: 'en',
     orientation: 'natural',
     theme_color: '#F25D61',
-    background_color: '#F25D61'
+    background_color: '#F25D61',
+    start_url: '/'
   },
   // META FOR PWA SUPPORT (COMES UP WITH LOT OF META TAGS)
   // options : https://pwa.nuxtjs.org/modules/meta.html#options
@@ -63,7 +64,7 @@ export default {
 
   workbox: {
     // Workbox options
-    offlinePage: '/404'
+    offlinePage: '/200.html'
   },
 
   // DYNAMIC ROUTE TO GENERATE
