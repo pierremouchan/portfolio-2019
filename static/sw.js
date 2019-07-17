@@ -24,7 +24,7 @@ workbox.precaching.cleanupOutdatedCaches()
 // Precache assets
 
 workbox.precaching.precacheAndRoute([
-  "/404"
+  "/200.html"
 ], {
   "cacheId": "portfolio-2019-pierre-mouchan-prod",
   "directoryIndex": "/"
@@ -40,5 +40,5 @@ workbox.routing.registerRoute(new RegExp('/_nuxt/'), new workbox.strategies.Cach
 // Register router handler for offlinePage
 workbox.routing.registerRoute(new RegExp('/'), ({event}) => {
   return new workbox.strategies.NetworkFirst().handle({event})
-    .catch(() => caches.match('/404'))
+    .catch(() => caches.match('/200.html'))
 })

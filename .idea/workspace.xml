@@ -16,6 +16,7 @@
       <change beforePath="$PROJECT_DIR$/components/threejs.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/threejs.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/layouts/error.vue" beforeDir="false" afterPath="$PROJECT_DIR$/layouts/error.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/nuxt.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/nuxt.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/about/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/about/index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/experiments/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/experiments/index.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.vue" afterDir="false" />
@@ -43,11 +44,29 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nuxt.config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="106">
-              <caret line="51" column="17" selection-start-line="51" selection-start-column="17" selection-end-line="51" selection-end-column="17" />
+            <state relative-caret-position="189">
+              <caret line="113" column="17" selection-start-line="113" selection-start-column="17" selection-end-line="113" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="503">
+              <caret line="20" column="19" lean-forward="true" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.eslintrc.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="730">
+              <caret line="32" column="2" lean-forward="true" selection-start-line="32" selection-start-column="2" selection-end-line="32" selection-end-column="2" />
             </state>
           </provider>
         </entry>
@@ -144,7 +163,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/assets/scss/_config/_fonts.scss" />
         <option value="$PROJECT_DIR$/components/blocks/slide.vue" />
         <option value="$PROJECT_DIR$/plugins/redirectHTTPS.js" />
         <option value="$PROJECT_DIR$/node_modules/three/package.json" />
@@ -157,7 +175,6 @@
         <option value="$PROJECT_DIR$/static/images/icons/facebook.svg" />
         <option value="$PROJECT_DIR$/static/images/icons/github.svg" />
         <option value="$PROJECT_DIR$/static/images/icons/instagram.svg" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/assets/scss/_config/_variables.scss" />
         <option value="$PROJECT_DIR$/store/currentProject.js" />
         <option value="$PROJECT_DIR$/store/updateWebGL.js" />
@@ -194,7 +211,9 @@
         <option value="$PROJECT_DIR$/components/blocks/sunBackground.vue" />
         <option value="$PROJECT_DIR$/pages/about/index.vue" />
         <option value="$PROJECT_DIR$/assets/js/instafeed.js" />
+        <option value="$PROJECT_DIR$/../../Nuxt_Headless/assets/config.js" />
         <option value="$PROJECT_DIR$/nuxt.config.js" />
+        <option value="$PROJECT_DIR$/package.json" />
       </list>
     </option>
   </component>
@@ -423,12 +442,12 @@
       <workItem from="1561449008763" duration="110873000" />
       <workItem from="1562216889005" duration="7034000" />
       <workItem from="1562565029373" duration="46803000" />
-      <workItem from="1562846264317" duration="35713000" />
+      <workItem from="1562846264317" duration="37932000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="320132000" />
+    <option name="totallyTimeSpent" value="322351000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -451,7 +470,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info active="true" anchor="right" id="Terminal" order="3" sideWeight="0.5936214" visible="true" weight="0.27045178" />
-      <window_info anchor="right" id="Run" order="4" sideWeight="0.4063786" side_tool="true" visible="true" weight="0.27045178" />
+      <window_info anchor="right" id="Run" order="4" sideWeight="0.4063786" side_tool="true" weight="0.27045178" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -475,26 +494,9 @@
     <option name="LAST_COMMIT_MESSAGE" value="Add Custom Loader / Cursor&#10;Add THREE.JS&#10;Start developing some animations" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/static/images/icons/white-banner.svg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$USER_HOME$/Workplace/Playground/DEV/WebGL/2018/Three_VueJS_TextureWrapping/src/views/Home.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="80" column="45" selection-start-line="80" selection-start-column="31" selection-end-line="80" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/contacttoto/index.vue" />
     <entry file="file://$PROJECT_DIR$/static/images/icons/logo.svg">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.eslintrc.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="30" column="23" selection-start-line="30" selection-start-column="23" selection-end-line="30" selection-end-column="23" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.eslintignore">
       <provider selected="true" editor-type-id="text-editor" />
@@ -823,10 +825,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../../Nuxt_Headless/assets/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="52">
+          <caret line="2" column="37" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.eslintrc.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="730">
+          <caret line="32" column="2" lean-forward="true" selection-start-line="32" selection-start-column="2" selection-end-line="32" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/nuxt.config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="51" column="17" selection-start-line="51" selection-start-column="17" selection-end-line="51" selection-end-column="17" />
+        <state relative-caret-position="189">
+          <caret line="113" column="17" selection-start-line="113" selection-start-column="17" selection-end-line="113" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="503">
+          <caret line="20" column="19" lean-forward="true" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
         </state>
       </provider>
     </entry>

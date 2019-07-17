@@ -46,7 +46,7 @@ export default {
     short_name: 'Pierre Mouchan | Portfolio',
     description: 'Portfolio - Pierre Mouchan, a passionate creative developer.',
     lang: 'en',
-    orientation: 'natural',
+    orientation: 'portrait',
     theme_color: '#F25D61',
     background_color: '#F25D61',
     start_url: '/'
