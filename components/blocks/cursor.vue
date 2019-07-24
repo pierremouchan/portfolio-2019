@@ -80,7 +80,6 @@ export default {
       };
     },
     getAllLinks() {
-      const that = this;
       const listLinks = document.querySelectorAll('a');
       function mouseEnterLink() {
         TweenMax.to('.cursor-torus', 0.5, {

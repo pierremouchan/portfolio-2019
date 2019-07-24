@@ -687,7 +687,7 @@ export default {
     font-family: $font-title;
     font-weight: 900;
     font-size: 20px;
-    line-height: 25px;
+    line-height: normal;
     margin: 10px;
     overflow: hidden;
     color: $black;

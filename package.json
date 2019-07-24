@@ -13,10 +13,11 @@
   "scripts": {
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint",
-    "dev": "NODE_ENV=development nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate"
+    "dev": "NODE_ENV=development nuxt --modern",
+    "build": "nuxt build --modern",
+    "start": "nuxt start --modern",
+    "generate": "nuxt generate --modern",
+    "analyze": "nuxt build --modern --analyze"
   },
   "dependencies": {
     "@nuxtjs/pwa": "^3.0.0-beta.16",
