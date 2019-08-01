@@ -23,7 +23,7 @@
     "@nuxtjs/pwa": "^3.0.0-beta.16",
     "@nuxtjs/style-resources": "^0.1.2",
     "nuxt": "^2.0.0",
-    "three": "^0.106.2"
+    "three": "^0.107.0"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^0.0.1",
