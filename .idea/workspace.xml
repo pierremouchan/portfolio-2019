@@ -3,20 +3,66 @@
   <component name="ChangeListManager">
     <list default="true" id="e0395acc-e6e6-4716-a06f-fccd746509e5" name="Default Changelist" comment="Add Custom Loader / Cursor&#10;Add THREE.JS&#10;Start developing some animations">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/138987b799c61d02fb92.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/1a26cbb9314a3598bc60.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/3c2687f0fe900717019c.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/8359c8b7268bdc870cbb.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/8ee54e3b74490d90f598.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/c0615da592e963af74e8.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.nuxt/dist/server/client.manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/.nuxt/dist/server/client.manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.nuxt/dist/server/index.spa.html" beforeDir="false" afterPath="$PROJECT_DIR$/.nuxt/dist/server/index.spa.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.nuxt/dist/server/modern.manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/.nuxt/dist/server/modern.manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/blocks/cursor.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/blocks/cursor.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/projectsSlider.vue" beforeDir="false" afterPath="$PROJECT_DIR$/components/projectsSlider.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nuxt.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/nuxt.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/.nuxt/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/client.js" beforeDir="false" afterPath="$PROJECT_DIR$/.nuxt/client.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/components/nuxt-error.vue" beforeDir="false" afterPath="$PROJECT_DIR$/.nuxt/components/nuxt-error.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/11e9eaeb125f608cd7a5.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/29b17eac2d945960c3be.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/2c25687480ba077b759f.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/3a1c7ceea2f56a9e11f8.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/3fdcaa11b9fff566da5b.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/4ccfd8e11ee30dfccb8b.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/713988a256d1a51bad5c.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/8836da054a9894c185bb.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/9288a0d414a311999eee.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/9a56cc3b0486e43b4d7a.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/LICENSES" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/b63fc4d164d394f8e927.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/b7b8ff45facaf13d98c1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/c9b1a65a18d42db45632.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/d190480ed051a6f318d3.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/d84d712f141237b96da8.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/dbf040bf9a1f7b551bfb.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/e89fca0356bf6af7805c.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/fe6d5ab03a5e23952bd5.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/icons/icon_120.af9239.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/icons/icon_144.af9239.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/icons/icon_152.af9239.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/icons/icon_192.af9239.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/icons/icon_384.af9239.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/icons/icon_512.af9239.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/icons/icon_64.af9239.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/img/1fe3071.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/img/20097ae.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/img/2c80b74.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/img/574f6ed.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/img/6f5685a.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/img/827ab18.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/img/923ce5a.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/img/987f0c1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/img/9d583f7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/img/a6a0dd6.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/img/b05b14a.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/img/b982b16.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/img/bad5e46.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/img/c859fe7.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/img/cdc3654.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/img/db7687f.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/img/ed40964.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/dist/client/manifest.18b914e2.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/dist/server/client.manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/dist/server/index.spa.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/dist/server/modern.manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/.nuxt/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/loading.html" beforeDir="false" afterPath="$PROJECT_DIR$/.nuxt/loading.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/.nuxt/router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/.nuxt/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/.nuxt/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/.nuxt/utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.nuxt/views/error.html" beforeDir="false" afterPath="$PROJECT_DIR$/.nuxt/views/error.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/about/index.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/about/index.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/projects/_id.vue" beforeDir="false" afterPath="$PROJECT_DIR$/pages/projects/_id.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/sw.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/sw.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -30,18 +76,9 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/blocks/sunBackground.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nuxt.config.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1771">
+            <state relative-caret-position="529">
               <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
             </state>
           </provider>
@@ -50,7 +87,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/loading.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4212">
+            <state relative-caret-position="3565">
               <caret line="156" column="12" selection-start-line="156" selection-start-column="12" selection-end-line="156" selection-end-column="12" />
               <folding>
                 <element signature="e#376#429#0" expanded="true" />
@@ -62,7 +99,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/blocks/cursor.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="448">
+            <state relative-caret-position="1840">
               <caret line="81" column="19" selection-start-line="81" selection-start-column="19" selection-end-line="81" selection-end-column="19" />
               <folding>
                 <element signature="e#184#228#0" expanded="true" />
@@ -74,7 +111,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-302">
+            <state relative-caret-position="437">
               <caret line="19" selection-start-line="19" selection-end-line="19" selection-end-column="46" />
             </state>
           </provider>
@@ -83,8 +120,25 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/about/index.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="54" column="12" lean-forward="true" selection-start-line="54" selection-start-column="12" selection-end-line="54" selection-end-column="12" />
+            <state relative-caret-position="447">
+              <caret line="60" column="30" selection-start-line="60" selection-start-column="30" selection-end-line="60" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pages/projects/_id.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="418">
+              <caret line="48" column="109" lean-forward="true" selection-start-line="48" selection-start-column="109" selection-end-line="48" selection-end-column="109" />
+              <folding>
+                <element signature="e#234#240#0" expanded="true" />
+                <element signature="e#378#384#0" expanded="true" />
+                <element signature="e#580#586#0" expanded="true" />
+                <element signature="e#733#739#0" expanded="true" />
+                <element signature="e#927#933#0" expanded="true" />
+                <element signature="e#1072#1078#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -92,7 +146,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/scss/_config/_variables.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
+            <state relative-caret-position="345">
               <caret line="15" selection-start-line="15" selection-end-line="15" />
             </state>
           </provider>
@@ -106,7 +160,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/scss/_config/_fonts-mixins.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
+            <state relative-caret-position="207">
               <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
             </state>
           </provider>
@@ -115,7 +169,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/scss/_config/_fonts.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
+            <state relative-caret-position="115">
               <caret line="5" column="78" selection-start-line="5" selection-start-column="78" selection-end-line="5" selection-end-column="78" />
             </state>
           </provider>
@@ -172,9 +226,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/node_modules/three/package.json" />
-        <option value="$PROJECT_DIR$/../../test/portfolio-2019/components/blocks/cursor.vue" />
+        <option value="$USER_HOME$/test/portfolio-2019/components/blocks/cursor.vue" />
         <option value="$PROJECT_DIR$/plugins/external/perlin.js" />
-        <option value="$PROJECT_DIR$/../../looperJS/looper/anim 2 2.html" />
+        <option value="$USER_HOME$/looperJS/looper/anim 2 2.html" />
         <option value="$PROJECT_DIR$/assets/scss/_config/_fonts-mixins.scss" />
         <option value="$PROJECT_DIR$/plugins/external/SplitText.js" />
         <option value="$PROJECT_DIR$/assets/js/webGL/setPositionProjects.js" />
@@ -211,9 +265,8 @@
         <option value="$PROJECT_DIR$/assets/js/transitions/fromToIndex.js" />
         <option value="$PROJECT_DIR$/components/header.vue" />
         <option value="$PROJECT_DIR$/assets/js/transitions/fromToProject.js" />
-        <option value="$PROJECT_DIR$/pages/projects/_id.vue" />
         <option value="$PROJECT_DIR$/assets/js/instafeed.js" />
-        <option value="$PROJECT_DIR$/../../Nuxt_Headless/assets/config.js" />
+        <option value="$USER_HOME$/Nuxt_Headless/assets/config.js" />
         <option value="$PROJECT_DIR$/assets/scss/_plugins/_mq.scss" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/components/projectsSlider.vue" />
@@ -221,6 +274,7 @@
         <option value="$PROJECT_DIR$/components/blocks/sunBackground.vue" />
         <option value="$PROJECT_DIR$/nuxt.config.js" />
         <option value="$PROJECT_DIR$/components/blocks/cursor.vue" />
+        <option value="$PROJECT_DIR$/pages/projects/_id.vue" />
         <option value="$PROJECT_DIR$/pages/about/index.vue" />
       </list>
     </option>
@@ -234,7 +288,7 @@
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1680" />
-    <option name="height" value="953" />
+    <option name="height" value="950" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -468,11 +522,11 @@
     <option name="totallyTimeSpent" value="329110000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="953" extended-state="0" />
+    <frame x="0" y="23" width="1680" height="950" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49941385" visible="true" weight="0.21672772" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49941385" visible="true" weight="0.21916972" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="1" />
@@ -522,7 +576,7 @@
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/HScroll.class.js" />
-    <entry file="file://$PROJECT_DIR$/../../untitled folder/HScroll/Example/CSS/index.html" />
+    <entry file="file://$USER_HOME$/untitled folder/HScroll/Example/CSS/index.html" />
     <entry file="file://$PROJECT_DIR$/assets/scss/_config/_base.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="505">
@@ -664,22 +718,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/projects/_id.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="625">
-          <caret line="57" column="91" selection-start-line="57" selection-start-column="91" selection-end-line="57" selection-end-column="91" />
-          <folding>
-            <element signature="e#234#240#0" expanded="true" />
-            <element signature="e#378#384#0" expanded="true" />
-            <element signature="e#580#586#0" expanded="true" />
-            <element signature="e#733#739#0" expanded="true" />
-            <element signature="e#927#933#0" expanded="true" />
-            <element signature="e#1072#1078#0" expanded="true" />
-            <element signature="e#2611#2641#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/components/threejs.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6006">
@@ -701,12 +739,8 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dist/_nuxt/manifest.ca6a1a5e.json" />
-    <entry file="file://$PROJECT_DIR$/dist/sw.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../nuxtjs-boilerplate/dist/_nuxt/manifest.0ddff61e.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/sw.js" />
+    <entry file="file://$USER_HOME$/nuxtjs-boilerplate/dist/_nuxt/manifest.0ddff61e.json" />
     <entry file="file://$PROJECT_DIR$/assets/js/instafeed.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="338">
@@ -724,7 +758,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../Nuxt_Headless/assets/config.js" />
+    <entry file="file://$USER_HOME$/Nuxt_Headless/assets/config.js" />
     <entry file="file://$PROJECT_DIR$/.eslintrc.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="730">
@@ -732,7 +766,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../Sass_Responsive/css/styles.scss" />
+    <entry file="file://$USER_HOME$/Sass_Responsive/css/styles.scss" />
     <entry file="file://$PROJECT_DIR$/assets/scss/_plugins/_mq.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="593">
@@ -750,16 +784,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/dist/README.md" />
+    <entry file="file://$PROJECT_DIR$/plugins/preloadImg.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/components/blocks/sunBackground.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
+        <state relative-caret-position="184">
           <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nuxt.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/loading.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3565">
+          <caret line="156" column="12" selection-start-line="156" selection-start-column="12" selection-end-line="156" selection-end-column="12" />
+          <folding>
+            <element signature="e#376#429#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/blocks/cursor.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1840">
+          <caret line="81" column="19" selection-start-line="81" selection-start-column="19" selection-end-line="81" selection-end-column="19" />
+          <folding>
+            <element signature="e#184#228#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="19" selection-start-line="19" selection-end-line="19" selection-end-column="46" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/scss/_config/_variables.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
+        <state relative-caret-position="345">
           <caret line="15" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
@@ -769,71 +845,37 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/scss/_config/_fonts-mixins.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
+        <state relative-caret-position="207">
           <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/scss/_config/_fonts.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
+        <state relative-caret-position="115">
           <caret line="5" column="78" selection-start-line="5" selection-start-column="78" selection-end-line="5" selection-end-column="78" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/blocks/cursor.vue">
+    <entry file="file://$PROJECT_DIR$/pages/projects/_id.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="81" column="19" selection-start-line="81" selection-start-column="19" selection-end-line="81" selection-end-column="19" />
+        <state relative-caret-position="418">
+          <caret line="48" column="109" lean-forward="true" selection-start-line="48" selection-start-column="109" selection-end-line="48" selection-end-column="109" />
           <folding>
-            <element signature="e#184#228#0" expanded="true" />
+            <element signature="e#234#240#0" expanded="true" />
+            <element signature="e#378#384#0" expanded="true" />
+            <element signature="e#580#586#0" expanded="true" />
+            <element signature="e#733#739#0" expanded="true" />
+            <element signature="e#927#933#0" expanded="true" />
+            <element signature="e#1072#1078#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dist/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/loading.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4212">
-          <caret line="156" column="12" selection-start-line="156" selection-start-column="12" selection-end-line="156" selection-end-column="12" />
-          <folding>
-            <element signature="e#376#429#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nuxt.config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1771">
-          <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/preloadImg.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-302">
-          <caret line="19" selection-start-line="19" selection-end-line="19" selection-end-column="46" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/about/index.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="54" column="12" lean-forward="true" selection-start-line="54" selection-start-column="12" selection-end-line="54" selection-end-column="12" />
+        <state relative-caret-position="447">
+          <caret line="60" column="30" selection-start-line="60" selection-start-column="30" selection-end-line="60" selection-end-column="30" />
         </state>
       </provider>
     </entry>

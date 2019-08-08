@@ -59,10 +59,10 @@
         </div>
       </div>
       <div class="back-gallery">
-        <nuxt-link to="/"
-          >BACK TO <br />
-          GALLERY</nuxt-link
-        >
+        <nuxt-link to="/">
+          BACK TO
+          <br />GALLERY
+        </nuxt-link>
       </div>
     </article>
   </div>
@@ -180,8 +180,9 @@ export default {
 <style lang="scss" scoped>
 .project-container {
   position: relative;
-
   z-index: $up;
+  max-width: 100vw;
+  overflow: hidden;
   .project-hero {
     height: 80vh;
     .hscroll-wrapper {
