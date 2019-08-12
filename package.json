@@ -47,7 +47,7 @@
     "nodemon": "^1.18.9",
     "nuxt-svg": "^0.1.5",
     "prettier": "^1.18.2",
-    "sass-loader": "^7.1.0",
+    "sass-loader": "^7.2.0",
     "three.interaction": "^0.2.2",
     "vue-image-preloader": "^0.2.8"
   }
