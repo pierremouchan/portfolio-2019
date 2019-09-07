@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@nuxtjs/pwa": "^3.0.0-beta.16",
-    "@nuxtjs/style-resources": "^0.1.2",
+    "@nuxtjs/style-resources": "^1.0.0",
     "nuxt": "^2.0.0"
   },
   "devDependencies": {
