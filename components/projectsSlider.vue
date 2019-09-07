@@ -12,12 +12,8 @@
       </div>
     </div>
     <div class="button-mobile">
-      <button class="previous" @click="previousProject">
-        PREV
-      </button>
-      <button class="next" @click="nextProject">
-        NEXT
-      </button>
+      <button class="previous" @click="previousProject">PREV</button>
+      <button class="next" @click="nextProject">NEXT</button>
     </div>
     <div class="project-year">
       <div class="project-year__fixed">20</div>
@@ -46,12 +42,16 @@
 <script>
 import { TimelineMax, Expo, TweenMax, Back } from 'gsap';
 import { mapMutations } from 'vuex';
+
+let xDown = null;
+let yDown = null;
 export default {
   data() {
     return {
       projects: this.$store.state.projects.list,
       nextProjectClicked: false,
-      previousProjectClicked: false
+      previousProjectClicked: false,
+      projectSwiped: false
     };
   },
 
@@ -63,6 +63,7 @@ export default {
   mounted() {
     this.listenNextProject();
     this.listenPreviousProject();
+    this.listenSwipe();
   },
   beforeDestroy() {
     this.resetCursorStatus();
@@ -123,6 +124,8 @@ export default {
       el = document.querySelector('.sun-rightside');
       elClone = el.cloneNode(true);
       el.parentNode.replaceChild(elClone, el);
+      document.removeEventListener('touchstart', this.handleTouchStart, false);
+      document.removeEventListener('touchmove', this.handleTouchMove, false);
     },
     resetCursorStatus() {
       document.querySelector('.cursor').classList.remove('prev-next-active');
@@ -139,6 +142,58 @@ export default {
         ease: Expo.easeOut
       });
     },
+    getTouches(evt) {
+      return (
+        evt.touches || evt.originalEvent.touches // browser API
+      ); // jQuery
+    },
+    handleTouchStart(evt) {
+      const firstTouch = this.getTouches(evt)[0];
+      xDown = firstTouch.clientX;
+      yDown = firstTouch.clientY;
+    },
+    handleTouchMove(evt) {
+      if (!xDown || !yDown) {
+        return;
+      }
+
+      const xUp = evt.touches[0].clientX;
+      const yUp = evt.touches[0].clientY;
+
+      const xDiff = xDown - xUp;
+      const yDiff = yDown - yUp;
+
+      if (Math.abs(xDiff) > Math.abs(yDiff) && !this.projectSwiped) {
+        this.projectSwiped = true;
+        if (xDiff > 0) {
+          /* left swipe */
+
+          console.log('left');
+          this.nextProject();
+        } else {
+          /* right swipe */
+          console.log('right');
+          this.previousProject();
+        }
+      }
+      //  else {
+      //   if (yDiff > 0) {
+      //     /* up swipe */
+      //     console.log('up');
+      //   } else {
+      //     /* down swipe */
+      //     console.log('down');
+      //   }
+      // }
+      /* reset values */
+      xDown = null;
+      yDown = null;
+    },
+
+    listenSwipe() {
+      document.addEventListener('touchstart', this.handleTouchStart, false);
+      document.addEventListener('touchmove', this.handleTouchMove, false);
+    },
     nextProject() {
       if (!this.nextProjectClicked) {
         this.nextProjectClicked = true;
@@ -147,6 +202,7 @@ export default {
             this.increaseProject();
             nextProjectTimeline2.play();
             this.nextProjectClicked = false;
+            this.projectSwiped = false;
           }
         });
         const nextProjectTimeline2 = new TimelineMax({
@@ -310,6 +366,7 @@ export default {
             this.decreaseProject();
             previousProjectTimeline2.play();
             this.previousProjectClicked = false;
+            this.projectSwiped = false;
           }
         });
         const previousProjectTimeline2 = new TimelineMax({
@@ -702,7 +759,7 @@ export default {
   }
   .project-progressbar {
     position: absolute;
-    top: 80%;
+    top: 75%;
     left: 32px;
     font-weight: 900;
     font-family: $font-title;

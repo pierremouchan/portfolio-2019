@@ -26,6 +26,7 @@
         </div>
       </div>
     </div>
+
     <article>
       <div class="project-intro">
         <div class="main-quote">
@@ -58,18 +59,20 @@
           <img :src="activeProject.othersImg[2]" :alt="'Mockup for ' + activeProject.title" />
         </div>
       </div>
-      <div class="back-gallery">
-        <nuxt-link to="/">
-          BACK TO
-          <br />GALLERY
-        </nuxt-link>
+      <div class="next-project">
+        <a @click.prevent="projectToProject(nextProject)">
+          NEXT
+          <br />PROJECT
+        </a>
       </div>
+      <div class="full-screen-mask"></div>
     </article>
   </div>
 </template>
 <script>
 import Bound from 'bounds.js';
-import { Expo, TimelineMax } from 'gsap';
+import { Expo, TimelineMax, TweenMax } from 'gsap';
+import { mapMutations } from 'vuex';
 import { fromProject, toProject } from '~/assets/js/transitions/fromToProject';
 
 export default {
@@ -82,6 +85,11 @@ export default {
   computed: {
     activeProject() {
       return this.projects.find(project => project.id === this.id);
+    },
+    nextProject() {
+      const currentIndex = this.projects.indexOf(this.activeProject);
+      const nextIndex = (currentIndex + 1) % this.projects.length;
+      return this.projects[nextIndex].id;
     }
   },
   created() {
@@ -110,7 +118,17 @@ export default {
     };
   },
   methods: {
+    ...mapMutations({
+      decreaseProject: 'currentProject/previousProject',
+      increaseProject: 'currentProject/nextProject'
+    }),
+    projectToProject(link) {
+      this.$router.push(link);
+
+      this.increaseProject();
+    },
     revealEl() {
+      TweenMax.to('.full-screen-mask', 0.5, { top: '130%', ease: Expo.easeIn });
       const boundary = Bound({
         root: this.window,
         threshold: 0.1
@@ -420,8 +438,9 @@ export default {
         }
       }
     }
-    .back-gallery {
+    .next-project {
       margin: 10vh 0;
+      text-align: center;
       a {
         font-family: $font-title;
         font-weight: 900;
