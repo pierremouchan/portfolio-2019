@@ -7,9 +7,8 @@
 
       <div class="desc-wrapper">
         <p class="description">
-          Junior <strong class="strong-red">Creative developer</strong>, and Apple lover
+          <strong class="strong-red">Creative developer</strong>
           <br />
-          <span>(The fruit of course 😌)</span>
         </p>
       </div>
     </div>
@@ -24,33 +23,18 @@
       <div class="myself-description">
         <div class="myself-description__mask"></div>
         <div class="description">
-          I’m still studying in France 🥖 and i’m currently working as a front-end developer at
-          <a class="link-pixies" target="_blank" rel="noopener noreferrer" href="https://www.pixies-agency.fr/"
-            >Pixies</a
-          >
-          ( Go check them out ! ).
-          <br /><br />
-          I’m the guy who always try to
-          <strong class="strong-red">be original and creative</strong> in my projects : trying new things, new
-          libraries, new tech and dev environments… <br /><br />
-          To summary, i’m a 19 yo developer with
-          <strong class="strong-red">taste for design, animation and 3D.</strong>
-          I would like to offer my expertise to creative teams and agencies, so don’t hesitate to contact me ! .. I’m
-          looking forward to work
-          <strong class="strong-red">with you !</strong>
-          👌
+          I’m a <strong class="strong-red">freelance developer</strong> based in France. As an Autodidact Developer with a Designer's Heart, <strong class="strong-red">i'm aiming to work with artists, creative agencies, startups and individuals.</strong>
         </div>
         <address class="reseaux">
           <a href="https://github.com/PierreMouchan/" target="_blank" rel="noopener noreferrer"
             ><githubIcon></githubIcon
           ></a>
-          <a href="https://www.instagram.com/pierre_mouchan/" target="_blank" rel="noopener noreferrer"
+          <a href="https://www.instagram.com/pierremouchan/" target="_blank" rel="noopener noreferrer"
             ><instaIcon></instaIcon
           ></a>
-          <a href="https://www.facebook.com/profile.php?id=100009602180064" target="_blank" rel="noopener noreferrer"
+          <a href="https://www.facebook.com/mouchanpierre" target="_blank" rel="noopener noreferrer"
             ><facebookIcon></facebookIcon
           ></a>
-          <a href="/CV_Pierre_Mouchan.pdf" target="_blank" rel="noopener noreferrer"><resumeIcon></resumeIcon></a>
         </address>
       </div>
       <div class="myself-picture">
