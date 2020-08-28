@@ -14,7 +14,7 @@
     </div>
     <div class="glad-container">
       <div class="glad-wrapper">
-        <p>Glad to meet you 🤙</p>
+        <p>New portfolio coming soon 2020</p>
       </div>
 
       <div class="invit-scroll"></div>
@@ -23,7 +23,11 @@
       <div class="myself-description">
         <div class="myself-description__mask"></div>
         <div class="description">
-          I’m a <strong class="strong-red">freelance developer</strong> based in France. As an Autodidact Developer with a Designer's Heart, <strong class="strong-red">i'm aiming to work with artists, creative agencies, startups and individuals.</strong>
+          I’m a <strong class="strong-red">freelance developer</strong> based in France. As an Autodidact Developer with
+          a Designer's Heart,
+          <strong class="strong-red"
+            >i'm aiming to work with artists, creative agencies, startups and individuals.</strong
+          >
         </div>
         <address class="reseaux">
           <a href="https://github.com/PierreMouchan/" target="_blank" rel="noopener noreferrer"
@@ -70,7 +74,7 @@ export default {
     githubIcon,
     instaIcon,
     facebookIcon,
-    resumeIcon
+    resumeIcon,
   },
   head() {
     return {
@@ -78,9 +82,9 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: 'Portfolio - Who is Pierre Mouchan ? (a creative developer 🤙)'
-        }
-      ]
+          content: 'Portfolio - Who is Pierre Mouchan ? (a creative developer 🤙)',
+        },
+      ],
     };
   },
   mounted() {
@@ -92,12 +96,12 @@ export default {
   },
   methods: {
     ...mapMutations({
-      isContactSectionVisible: 'updateWebGL/isContactSectionVisible'
+      isContactSectionVisible: 'updateWebGL/isContactSectionVisible',
     }),
     revealEl() {
       const boundary = Bound({
         root: this.window,
-        threshold: 0.1
+        threshold: 0.1,
       });
       const myselfDesc = document.querySelector('.myself-description__mask');
       const myselfPic = document.querySelector('.myself-picture__mask');
@@ -106,7 +110,7 @@ export default {
         TweenMax.to(myselfDesc, 0.5, {
           transformOrigin: 'right bottom',
           scaleX: 0,
-          ease: Expo.easeInOut
+          ease: Expo.easeInOut,
         });
         boundary.unWatch(myselfDesc);
       };
@@ -120,7 +124,7 @@ export default {
             {
               transformOrigin: 'right bottom',
               scaleX: 0,
-              ease: Expo.easeInOut
+              ease: Expo.easeInOut,
             },
             'f1'
           )
@@ -142,7 +146,7 @@ export default {
           {
             y: '120%',
             rotation: 5,
-            transformOrigin: 'bottom left'
+            transformOrigin: 'bottom left',
           },
           { y: '0%', rotation: 0, ease: Expo.easeOut }
         );
@@ -154,11 +158,11 @@ export default {
       boundary.watch(myselfPic, whenMyselfPicEnters);
       const boundary2 = Bound({
         root: this.window,
-        threshold: 0
+        threshold: 0,
       });
       boundary2.watch(getInTouch, whenGetInTouchEnters, whenGetInTouchLeaves);
-    }
-  }
+    },
+  },
 };
 </script>
 
