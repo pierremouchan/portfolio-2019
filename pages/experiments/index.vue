@@ -2,7 +2,7 @@
   <main class="experiments-container">
     <div class="brief-container">
       <div class="h1-wrapper">
-        <h1>@PIERRE_MOUCHAN</h1>
+        <h1>@PIERREMOUCHAN</h1>
       </div>
 
       <div class="desc-wrapper">
@@ -13,21 +13,16 @@
         </p>
       </div>
     </div>
-
     <div id="instafeed"></div>
   </main>
 </template>
 
 <script>
-import { instagramFeed } from '../../assets/js/instafeed';
 import { toExperiments, fromExperiments } from '~/assets/js/transitions/fromToExperiments';
 
 export default {
   data() {
     return {};
-  },
-  asyncData() {
-    return instagramFeed.run();
   },
   head() {
     return {
@@ -35,7 +30,7 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: 'Portfolio - @pierre_mouchan on Instagram 🤙'
+          content: 'Portfolio - @pierremouchan on Instagram 🤙'
         }
       ]
     };

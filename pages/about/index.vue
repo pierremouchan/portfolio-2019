@@ -28,6 +28,7 @@
           <strong class="strong-red"
             >i'm aiming to work with artists, creative agencies, startups and individuals.</strong
           >
+          <i>You can find the code on my Github, I made this portfolio a public repository.</i>
         </div>
         <address class="reseaux">
           <a href="https://github.com/PierreMouchan/" target="_blank" rel="noopener noreferrer"
